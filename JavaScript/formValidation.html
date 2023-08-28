@@ -23,7 +23,7 @@
     <!-- header end -->
 
     <!-- form start -->
-    <form method="post" action="https://www.rkitsoftware.com/jobs" id="jobApplicationForm" onsubmit="return validateForm()">
+    <form method="post" action="https://www.rkitsoftware.com/jobs" id="jobApplicationForm">
        
         <div class="container">
             <!-- row start -->
@@ -41,8 +41,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="fullName">Full Name:</label>
-                        <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Enter Full Name" onmouseover="highlightInput(this)"
-                        onmouseout="resetHighlight(this)">
+                        <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Enter Full Name">
                         <div id="fullNameError" class="text-danger"></div>
                     </div>
                 </div>
@@ -50,8 +49,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" onmouseover="highlightInput(this)"
-                        onmouseout="resetHighlight(this)">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email">
                         <div id="emailError" class="text-danger"></div>
                     </div>
                 </div>
@@ -64,8 +62,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="phoneNumber">Phone Number:</label>
-                        <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Enter Phone Number" onmouseover="highlightInput(this)"
-                        onmouseout="resetHighlight(this)">
+                        <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Enter Phone Number">
                         <div id="phoneError" class="text-danger"></div>
                     </div>
                 </div>
@@ -90,8 +87,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="address">Address:</label>
-                        <textarea rows="5" class="form-control" id="address" name="address" placeholder="Enter Address" onmouseover="highlightInput(this)"
-                        onmouseout="resetHighlight(this)"></textarea>
+                        <textarea rows="5" class="form-control" id="address" name="address" placeholder="Enter Address"></textarea>
                         <div id="addressError" class="text-danger"></div>
                     </div>
                 </div>
@@ -104,8 +100,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="role">Select Job Role:</label>
-                        <select class="form-control" id="role" name="role" onmouseover="highlightInput(this)"
-                        onmouseout="resetHighlight(this)">
+                        <select class="form-control" id="role" name="role">
                             <option>Select</option>
                             <optgroup label="Technical Jobs">
                                 <option value="1">Full Stack Developer</option>
@@ -159,8 +154,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="resume">Upload Your Resume:</label>
-                        <input type="file" class="form-control-file" id="resume" name="resume" accept=".pdf" onmouseover="highlightInput(this)"
-                        onmouseout="resetHighlight(this)">
+                        <input type="file" class="form-control-file" id="resume" name="resume" accept=".pdf">
                         <div id="resumeError" class="text-danger"></div>
                     </div>
                 </div>
@@ -184,16 +178,19 @@
 
     <!-- JavaScript validation function -->
     <script src="validation.js"></script>
-  <!-- JavaScript for mouse events -->
-  <script>
-    function highlightInput(input) {
-        input.style.border = "2px solid blue"; // Highlight input field when mouse is over
-    }
-
-    function resetHighlight(input) {
-        input.style.border = ""; // Reset highlight when mouse moves out
-    }
-</script>
+    <!-- JavaScript for mouse events -->
+    <script>
+        // Add event listeners to highlight and reset input fields on mouseover and mouseout
+        var inputs = document.querySelectorAll('input, textarea, select');
+        inputs.forEach(function (input) {
+            input.addEventListener('mouseover', function () {
+                this.style.border = "2px solid blue";
+            });
+            input.addEventListener('mouseout', function () {
+                this.style.border = "";
+            });
+        });
+    </script>
     <!-- Add Bootstrap JS -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
