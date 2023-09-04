@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Management System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Banking Management System</h1>
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="accountName">Account Name:</label>
+                    <input type="text" id="accountName" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="balance">Initial Balance:</label>
+                    <input type="number" id="balance" class="form-control">
+                </div>
+                <button onclick="CreateAccount()" class="btn btn-primary">Create Account</button>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6">
+                <div id="accountOperations">
+                    <div class="form-group">
+                        <label for="withdrawAccountName">Account Name to Withdraw From:</label>
+                        <input type="text" id="withdrawAccountName" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="withdrawAmount">Amount to Withdraw:</label>
+                        <input type="number" id="withdrawAmount" class="form-control">
+                    </div>
+                    <button onclick="AddMoney()" class="btn btn-success">Add Money</button>
+                    <button onclick="WithdrawMoney()" class="btn btn-danger">Withdraw Money</button>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6">
+                <button onclick="DeleteAllAccounts()" class="btn btn-danger">Delete All Accounts</button>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6">
+                <div id="accountList"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
