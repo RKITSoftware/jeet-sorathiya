@@ -6,16 +6,20 @@
 
 */
 class BankAccount {
+
+    // BankAccount Class Constructor
     constructor(accountName) {
         this.accountName = accountName;
         this.balance = 0;
     }
 
-    Deposit(amount) {
+    // Deposit money into the account
+    Deposit = (amount) => {
         this.balance += amount;
     }
 
-    CanWithdraw(amount) {
+    // Check if a withdrawal is possible
+    CanWithdraw = (amount) => {
         if (amount <= this.balance) {
             this.balance -= amount;
             return true;
@@ -25,14 +29,13 @@ class BankAccount {
     }
 }
 
-let accounts = []; // account array for store accounts
+let accounts = []; // Array to store accounts
 
-// create account if it not already exists
-function CreateAccount() {
+// Create a new account
+const CreateAccount = () => {
     const accountName = document.getElementById('accountName').value.trim(); // Trim leading/trailing whitespace
     const initialBalance = parseFloat(document.getElementById('balance').value);
     if (accountName && !isNaN(initialBalance)) {
-        // Check if the account already exists
         if (!FindAccount(accountName)) {
             const account = new BankAccount(accountName);
             account.Deposit(initialBalance);
@@ -47,8 +50,8 @@ function CreateAccount() {
     }
 }
 
-// add Money into existed account
-function AddMoney() {
+// Add money to an existing account
+const AddMoney = () => {
     const accountName = document.getElementById('withdrawAccountName').value.trim(); // Trim leading/trailing whitespace
     const amount = parseFloat(document.getElementById('withdrawAmount').value);
     if (accountName && !isNaN(amount)) {
@@ -60,13 +63,13 @@ function AddMoney() {
         } else {
             alert('Account not found');
         }
-        document.getElementById('accountName').value = '';
-        document.getElementById('depositAmount').value = '';
+        document.getElementById('withdrawAccountName').value = '';
+        document.getElementById('withdrawAmount').value = '';
     }
 }
 
-// Withdraw Money into existed account
-function WithdrawMoney() {
+ // Withdraw money from an existing account
+const WithdrawMoney = () => {
     const accountName = document.getElementById('withdrawAccountName').value.trim(); // Trim leading/trailing whitespace
     const amount = parseFloat(document.getElementById('withdrawAmount').value);
     if (accountName && !isNaN(amount)) {
@@ -87,8 +90,8 @@ function WithdrawMoney() {
     }
 }
 
-// List of All Accounts
-function ListAccounts() {
+// Display a list of all accounts
+const ListAccounts = () => {
     const accountList = document.getElementById('accountList');
     accountList.innerHTML = '';
     for (const account of accounts) {
@@ -104,14 +107,14 @@ function ListAccounts() {
     }
 }
 
-// cheak if account is already exist
-function FindAccount(accountName) {
-    return accounts.find(account => account.accountName === accountName);
+// Check if an account with the given name already exists
+const FindAccount = (accountName) => {
+    return accounts.find(account => account.accountName === accountName); // return object
 }
 
-// delete only one account
-function DeleteAccount(accountName) {
-    const index = accounts.findIndex(account => account.accountName === accountName);
+// Delete a single account
+const DeleteAccount = (accountName) => {
+    const index = accounts.findIndex(account => account.accountName === accountName); // return index
     if (index !== -1) {
         accounts.splice(index, 1);
         UpdateLocalStorage();
@@ -119,16 +122,15 @@ function DeleteAccount(accountName) {
     }
 }
 
-
-// delete all acounts
-function DeleteAllAccounts() {
+// Delete all accounts
+const DeleteAllAccounts = () => {
     accounts = [];
     UpdateLocalStorage();
     ListAccounts();
 }
 
-// this update localStorage when any new data add/edit
-function UpdateLocalStorage() {
+ // Update local storage when any new data is added/edited
+const UpdateLocalStorage = () => {
     localStorage.setItem('accounts', JSON.stringify(accounts));
 }
 
@@ -138,4 +140,3 @@ if (Array.isArray(storedAccounts)) {
     accounts = storedAccounts;
     ListAccounts();
 }
-
