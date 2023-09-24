@@ -18,6 +18,7 @@ class BankAccount {
         this.balance += amount;
     }
 
+
     // Check if a withdrawal is possible
     CanWithdraw = (amount) => {
         if (amount <= this.balance) {
