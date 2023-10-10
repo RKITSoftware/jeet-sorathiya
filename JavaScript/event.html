@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Demo</title>
+    <style>
+      div {
+        height: 50px;
+        width: 600px;
+        background-color: cadetblue;
+        margin-top: 10px;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2> several ways to add event handlers Demo</h2>
+    <section id="eventHandlers">
+     <button id="myButton" onclick="InlineEvent()">Click Me</button>
+      <div id="result"></div>
+   </section>
+
+  <h2>keyEvents order Demo</h2>
+   <section id="keyEvents">
+      <input type="text" id="myText"/>
+   </section>
+
+   
+    <script>
+      // Inline Event Handlers:
+       function InlineEvent()
+        {
+          alert('Button Clicked! Using Inline Event');
+          document.getElementById("result").innerText += "Inline Event Run, so DOM Property Event Not Run \n";
+        }
+
+      // addEventListener Method:
+      const btn = document.getElementById('myButton');
+       btn.addEventListener('click', function() {
+        document.getElementById("result").innerText += "addEventListener Run (it's run always at last) \n";
+        alert('Button Clicked! Using addEventListener');
+        });
+
+        // DOM Property Event Handlers:
+       const button = document.getElementById('myButton');
+       button.onclick = function() {
+        document.getElementById("result").innerText += "Using DOM Property Event Run (it's run always First And Inline Event Not Run) \n";
+       alert('Button Clicked! Using DOM Property');
+       };   
+
+       //key press order cheak
+       document.getElementById("myText").addEventListener('keyup', function(event) {
+         const key = event.key;
+         const type = event.type;
+        console.log(`Key pressed: ${key} \n Event Type : ${type}`);
+      });
+      document.getElementById("myText").addEventListener('keydown', function(event) {
+         const key = event.key;
+         const type = event.type;
+        console.log(`Key pressed: ${key} \n Event Type : ${type}`);
+      });
+      document.getElementById("myText").addEventListener('keypress', function(event) {
+         const key = event.key;
+         const type = event.type;
+        console.log(`Key pressed: ${key} \n Event Type : ${type}`);
+      });
+
+       
+    </script>
+  </body>
+</html>
