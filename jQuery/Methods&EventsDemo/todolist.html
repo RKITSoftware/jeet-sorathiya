@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ToDo List - jQuery Demo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        ul {
+            list-style-type: none;
+        }
+        li {
+            padding: 5px;
+            margin: 5px;
+            border: 1px solid gray;
+        }
+        .highlighted {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>ToDo List</h1>
+    <input type="text" id="task" placeholder="Add a new task">
+    <button id="addTask">Add Task</button>
+    <button id="addTaskFirst">Add First</button>
+    <ul id="taskList"></ul>
+    
+    <script src="toDoscript.js"></script>
+</body>
+</html>
