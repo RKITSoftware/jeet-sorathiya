@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+     <!-- Add jQuery library -->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <!-- Add jQuery Validation library -->
+     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
+    <title>Js validation Demo</title>
+</head>
+<body>
+    <!-- form start -->
+    <form method="post" action="https://www.rkitsoftware.com/jobs" id="jobApplicationForm">
+       
+        <div class="container">
+            <!-- row start -->
+            <div class="row">
+              
+                <div class="col-12">
+                    <h1>Job Application Form</h1>
+                </div>
+            </div>
+            <!-- row end -->
+
+            <!-- row start -->
+            <div class="row">
+               
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="fullName">Full Name:</label>
+                        <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Enter Full Name">
+                        <div id="fullNameError" class="text-danger"></div>
+                    </div>
+                </div>
+           
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for "email">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email">
+                        <div id="emailError" class="text-danger"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- row end -->
+
+            <!-- row start -->
+            <div class="row">
+               
+                <div class="col-md-6">
+                    <div class "form-group">
+                        <label for="phoneNumber">Phone Number:</label>
+                        <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Enter Phone Number">
+                        <div id="phoneError" class="text-danger"></div>
+                    </div>
+                </div>
+               
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Gender:</label>
+                        <div>
+                            <input type="radio" name="gender" id="male" value="male">
+                            <label for="male">Male</label>
+                            <input type="radio" name="gender" id="female" value="female">
+                            <label for="female">Female</label>
+                        </div>
+                        <div id="genderError" class="text-danger"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- row end -->
+
+            <!-- row start -->
+            <div class="row">
+              
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="address">Address:</label>
+                        <textarea rows="5" class="form-control" id="address" name="address" placeholder="Enter Address"></textarea>
+                        <div id="addressError" class="text-danger"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- row end -->
+
+            <!-- row start -->
+            <div class="row">
+               
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="role">Select Job Role:</label>
+                        <select class="form-control" id="role" name="role">
+                            <option value="">Select</option>
+                            <optgroup label="Technical Jobs">
+                                <option value="1">Full Stack Developer</option>
+                                <option value="2">Frontend Developer</option>
+                                <option value="3">Backend Developer</option>
+                            </optgroup>
+                            <optgroup label="Non-Technical Jobs">
+                                <option value="4">HR</option>
+                                <option value="5">BDA</option>
+                            </optgroup>
+                        </select>
+                        <div id="roleError" class="text-danger"></div>
+                    </div>
+                </div>
+               
+                <div class="col-md-6">
+                    <div class "form-group">
+                        <label>Select Your Skills:</label>
+                        <div>
+                            <input type="checkbox" name="skills[]" id="c++" value="C++">
+                            <label for="c++">C++</label>
+                            <input type="checkbox" name="skills[]" id="c#" value="C#">
+                            <label for="c#">C#</label>
+                            <input type="checkbox" name="skills[]" id="java" value="java">
+                            <label for="java">Java</label>
+                            <input type="checkbox" name="skills[]" id="py" value="Python">
+                            <label for="py">Python</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="skills[]" id="html" value="html">
+                            <label for="html">HTML</label>
+                            <input type="checkbox" name="skills[]" id="css" value="css">
+                            <label for="css">CSS</label>
+                            <input type="checkbox" name="skills[]" id="js" value="js">
+                            <label for="js">JavaScript</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="skills[]" id="sql" value="sql">
+                            <label for="sql">SQL</label>
+                            <input type="checkbox" name="skills[]" id="dotnet" value="dotnet">
+                            <label for="dotnet">ASP.NET Core</label>
+                        </div>
+                        <div id="skillsError" class="text-danger"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- row end -->
+
+          
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="resume">Upload Your Resume:</label>
+                        <input type="file" class="form-control-file" id="resume" name="resume" accept=".pdf">
+                        <div id="resumeError" class="text-danger"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- row end -->
+
+           
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <input type="reset" class="btn btn-secondary" value="Reset">
+                        <input type="submit" class="btn btn-primary" value="Submit">
+                    </div>
+                </div>
+            </div>
+            <!-- row end -->
+        </div>
+       
+    </form>
+    <!-- form end -->
+
+   
+    <!-- JavaScript validation function -->
+    <script src="validation.js"></script>
+    
+    <!-- Add Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
