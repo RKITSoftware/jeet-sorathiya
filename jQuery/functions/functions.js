@@ -59,4 +59,14 @@ $(document).ready(function() {
     promise.then(function(result) {
         console.log(result);
     });
+
+    // Define a custom event
+    $('#myButton').on('customEvent', function() {
+        alert('Custom event triggered!');
+    });
+
+    // Trigger the custom event when the button is clicked
+    $('#myButton').click(function() {
+        $(this).trigger('customEvent');
+    });
 });
