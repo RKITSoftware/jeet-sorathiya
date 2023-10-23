@@ -27,7 +27,20 @@ $(document).ready(function () {
             resume: 'Please upload your resume'
         },
         errorPlacement: function (error, element) {
-            error.insertBefore(element).addClass("text-danger");
+            if(element.attr('type') == 'radio' )
+            {
+                const errorElement = $('[for=gender]');
+                error.insertAfter(errorElement).addClass("text-danger");
+            }
+            else if(element.attr('type') == 'checkbox')
+            {
+                const errorElement = $('[for=skill]');
+                error.insertAfter(errorElement).addClass("text-danger");
+            }
+            else
+            {
+                 error.insertBefore(element).addClass("text-danger");                
+            }
         },
     });
 });
