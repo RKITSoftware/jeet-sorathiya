@@ -29,7 +29,7 @@
                     <div class="form-group">
                         <label for="fullName">Full Name:</label>
                         <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Enter Full Name">
-                        <div id="fullNameError" class="text-danger"></div>
+                        <div id="fullNameError" class="text-danger error-message"></div>
                     </div>
                 </div>
            
@@ -37,7 +37,7 @@
                     <div class="form-group">
                         <label for "email">Email:</label>
                         <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email">
-                        <div id="emailError" class="text-danger"></div>
+                        <div id="emailError" class="text-danger error-message"></div>
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                     <div class "form-group">
                         <label for="phoneNumber">Phone Number:</label>
                         <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Enter Phone Number">
-                        <div id="phoneError" class="text-danger"></div>
+                        <div id="phoneNumberError" class="text-danger error-message"></div>
                     </div>
                 </div>
                
@@ -63,7 +63,7 @@
                             <input type="radio" name="gender" id="female" value="female">
                             <label for="female">Female</label>
                         </div>
-                        <div id="genderError" class="text-danger"></div>
+                        <div id="genderError" class="text-danger error-message"></div>
                     </div>
                 </div>
             </div>
@@ -76,7 +76,7 @@
                     <div class="form-group">
                         <label for="address">Address:</label>
                         <textarea rows="5" class="form-control" id="address" name="address" placeholder="Enter Address"></textarea>
-                        <div id="addressError" class="text-danger"></div>
+                        <div id="addressError" class="text-danger error-message"></div>
                     </div>
                 </div>
             </div>
@@ -100,7 +100,7 @@
                                 <option value="5">BDA</option>
                             </optgroup>
                         </select>
-                        <div id="roleError" class="text-danger"></div>
+                        <div id="roleError" class="text-danger error-message"></div>
                     </div>
                 </div>
                
@@ -131,7 +131,7 @@
                             <input type="checkbox" name="skills[]" id="dotnet" value="dotnet">
                             <label for="dotnet">ASP.NET Core</label>
                         </div>
-                        <div id="skillsError" class="text-danger"></div>
+                        <div id="skillsError" class="text-danger error-message"></div>
                     </div>
                 </div>
             </div>
@@ -143,7 +143,7 @@
                     <div class="form-group">
                         <label for="resume">Upload Your Resume:</label>
                         <input type="file" class="form-control-file" id="resume" name="resume" accept=".pdf">
-                        <div id="resumeError" class="text-danger"></div>
+                        <div id="resumeError" class="text-danger error-message"></div>
                     </div>
                 </div>
             </div>
@@ -165,8 +165,11 @@
     <!-- form end -->
 
    
+    <!-- uncomment basicvalidation.js if you want to see that -->
     <!-- JavaScript validation function -->
     <script src="validation.js"></script>
+      <!-- JavaScript basic validation function -->
+      <!-- <script src="basicvalidation.js"></script> -->
     
     <!-- Add Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

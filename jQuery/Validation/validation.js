@@ -11,10 +11,7 @@ $(document).ready(function () {
             address: 'required',
             role: 'required',
             'skills[]': 'required',
-            resume: {
-                required: true,
-                extension: 'pdf'
-            }
+            resume: 'required'
         },
         messages: {
             fullName: 'Please enter your full name',
@@ -27,16 +24,10 @@ $(document).ready(function () {
             address: 'Please enter your address',
             role: 'Please select a job role',
             'skills[]': 'Please select at least one skill',
-            resume: {
-                required: 'Please upload your resume',
-                extension: 'Only PDF files are allowed'
-            }
+            resume: 'Please upload your resume'
         },
         errorPlacement: function (error, element) {
             error.insertBefore(element).addClass("text-danger");
         },
-        submitHandler: function () {
-            alert('Form submitted successfully');
-        }
     });
 });
