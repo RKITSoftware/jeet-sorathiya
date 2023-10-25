@@ -4,9 +4,14 @@ $(document).ready(function () {
             fullName: 'required',
             email: {
                 required: true,
-                email: true
+                isEmail: true
             },
-            phoneNumber: 'required',
+            phoneNumber: {
+                required: true,
+                digits: true,
+                minlength: 10,
+                maxlength: 10,                
+            },
             gender: 'required',
             address: 'required',
             role: 'required',
@@ -17,9 +22,15 @@ $(document).ready(function () {
             fullName: 'Please enter your full name',
             email: {
                 required: 'Please enter your email address',
-                email: 'Please enter a valid email address'
+                isEmail: 'Please enter a valid email address'
             },
-            phoneNumber: 'Please enter your phone number',
+            phoneNumber: {
+                required: 'Please enter your phone number',
+                digits: 'Please enter only digits.',
+                minlength: 'Please enter a valid phone number',
+                maxlength: 'Please enter a valid phone number'
+               
+            },
             gender: 'Please select your gender',
             address: 'Please enter your address',
             role: 'Please select a job role',
@@ -42,5 +53,12 @@ $(document).ready(function () {
                  error.insertBefore(element).addClass("text-danger");                
             }
         },
+    });
+
+    // add custom validation
+    $.validator.addMethod("isEmail",function(value, element)
+    {
+        //console.log("Custom Validation Work");
+        return /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(value);
     });
 });
