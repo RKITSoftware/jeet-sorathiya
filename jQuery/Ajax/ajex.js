@@ -4,7 +4,7 @@ $(document).ready(function () {
   const addTaskButton = $("#add-task");
   const apiUrl = "https://jsonplaceholder.typicode.com/todos";
 
-  // fetch tasks
+  // fetch tasks using promise
   function fetchTasks() {
     return new Promise(function (resolve, reject) {
       $.get(apiUrl, function (data) {
@@ -15,6 +15,16 @@ $(document).ready(function () {
       });
     });
   }
+
+  // Fetch tasks using callback
+  // function fetchTasks(successCallback, errorCallback) {
+  //   $.get(apiUrl, function (data) {
+  //     successCallback(data); // Call the success callback with the data
+  //   }).fail(function (error) {
+  //     console.error("Error fetching tasks:", error);
+  //     errorCallback(error); // Call the error callback with details
+  //   });
+  // }
 
   // update the task list
   function updateTaskList(data) {
@@ -36,6 +46,17 @@ $(document).ready(function () {
     .catch(function (error) {
       console.error("Error in fetching tasks:", error);
     });
+
+  // Fetch tasks and handle callback
+    // fetchTasks(
+    //   function (data) {
+    //     updateTaskList(data);
+    //     console.log("Tasks fetched successfully:", data);
+    //   },
+    //   function (error) {
+    //     console.error("Error in fetching tasks:", error);
+    //   }
+    // );
 
   // Delete a task
   function deleteTask(id, successCallback, errorCallback) {
