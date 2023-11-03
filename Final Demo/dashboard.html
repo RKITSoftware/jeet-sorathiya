@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Add bootstrap library -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <!-- Add jQuery library -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Add css -->
+  <link href="css/style.css" rel="stylesheet" />
+  <title>Home - Coder Tube</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <!-- navbar start -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="dashboard.html">Coder Tube</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="dashboard.html">Home</a>
+          <a class="nav-item nav-link" href="comment.html">Comment Section</a>
+          <a class="nav-item nav-link" href="userlist.html">User List</a>
+        </div>
+      </div>
+      <form class="form-inline">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">@</span>
+          </div>
+          <input type="text" id="welcomeUsername" class="form-control" disabled />
+          <button id="logout-btn" class="btn btn-sm btn-outline-danger ml-2" type="button">
+            Log Out
+          </button>
+        </div>
+      </form>
+    </nav>
+    <!-- navbar end    -->
+    
+    <!-- filter start -->
+    <div class="filter-buttons" style="display: none">
+      <button type="button" id="AllContest-filter" class="btn btn-primary">
+        All Contest
+      </button>
+      <button type="button" id="AtCoder-filter" class="btn btn-primary">
+        AtCoder <span class="badge badge-light">0</span>
+      </button>
+      <button type="button" id="CodeChef-filter" class="btn btn-primary">
+        CodeChef <span class="badge badge-light">0</span>
+      </button>
+      <button type="button" id="CodeForces-filter" class="btn btn-primary">
+        CodeForces <span class="badge badge-light">0</span>
+      </button>
+      <button type="button" id="HackerEarth-filter" class="btn btn-primary">
+        HackerEarth <span class="badge badge-light">0</span>
+      </button>
+      <button type="button" id="HackerRank-filter" class="btn btn-primary">
+        HackerRank <span class="badge badge-light">0</span>
+      </button>
+      <button type="button" id="LeetCode-filter" class="btn btn-primary">
+        LeetCode <span class="badge badge-light">0</span>
+      </button>
+    </div>
+    <!-- filter end -->
+
+    <!-- eroor display start -->
+    <div id="errorDisplay" class="alert alert-danger" role="alert" style="display: none">
+      Error
+    </div>
+    <!-- eroor display end -->
+    <div class="row">
+      <div class="col-md-6">
+        <div class="alert alert-info" role="alert">
+          Future Contest
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="alert alert-info" role="alert">
+          Running Contest
+        </div>
+      </div>
+    </div>
+    <!-- loading gif start -->
+    <div id="loading" class="text-center mt-4">
+      <img src="img/loading.gif" alt="Loading" />
+    </div>
+    <!-- loading gif end -->
+
+    <!-- contest list start -->
+    <!-- future content start -->
+    <div class="row">
+      <div id="futureContestsContainer" class="container col-md-6" style="display: none">
+        <div class="alert alert-info" role="alert">
+          There is no any Future Contest
+        </div>
+      </div>
+      <!-- future content end -->
+
+      <!-- running content start -->
+      <div id="runningContestsContainer" class="container col-md-6" style="display: none">
+        <div class="alert alert-info" role="alert">
+          There is no any Running Contest
+        </div>
+      </div>
+      <!-- running content end -->
+    </div>
+  </div>
+  <!-- contest list end -->
+
+
+  <!-- JavaScript files as modules -->
+  <script type="module" src="js/dashboard.js"></script>
+  <script src="js/session.js"></script>
+  <!-- Add bootstrap library -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
