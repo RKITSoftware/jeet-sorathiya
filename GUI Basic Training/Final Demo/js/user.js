@@ -1,5 +1,5 @@
 // Display a list of all user
-function displayData() {
+function DisplayData() {
     const storedUsers = JSON.parse(localStorage.getItem('users'));
     userList.innerHTML = '';
     for (const user of storedUsers) {
@@ -34,10 +34,10 @@ function DeleteAccount(username) {
         localStorage.setItem('users', JSON.stringify(storedUsers));
 
         // Refresh the displayed data
-        displayData();       
+        DisplayData();       
         
     }
 }
 
 const userList = document.getElementById("data-container");
-displayData();
+DisplayData();

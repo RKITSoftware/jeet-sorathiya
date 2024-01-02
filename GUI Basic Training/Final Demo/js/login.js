@@ -1,5 +1,5 @@
 // Function to handle form submission (login or sign up)
-function handleFormSubmission(event) {
+function HandleFormSubmission(event) {
     event.preventDefault();
     const username = document.getElementById("loginUsername").value;
     const password = document.getElementById("loginPassword").value;
@@ -24,7 +24,7 @@ function handleFormSubmission(event) {
 }
 
 // Function to handle user registration
-function handleRegistration(event) {
+function HandleRegistration(event) {
     event.preventDefault();
     const username = document.getElementById("signupUsername").value;
     const email = document.getElementById("signupEmail").value;
@@ -56,8 +56,8 @@ function handleRegistration(event) {
 
 // form submit event listener for login form
 const loginForm = document.getElementById("login-form");
-loginForm.addEventListener("submit", handleFormSubmission);
+loginForm.addEventListener("submit", HandleFormSubmission);
 
 // form submit event listener for sign-up form
 const signupForm = document.getElementById("signup-form");
-signupForm.addEventListener("submit", handleRegistration);
+signupForm.addEventListener("submit", HandleRegistration);

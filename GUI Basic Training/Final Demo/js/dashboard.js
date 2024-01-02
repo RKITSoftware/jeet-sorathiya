@@ -5,7 +5,7 @@ $(document).ready(async function () {
   const siteNames = new SiteNames();
 
   // fetch data from api
-  async function fetchData() {
+  async function FetchData() {
     try {
       const response = await fetch("https://kontests.net/api/v1/all");
       if (!response.ok) {
@@ -21,7 +21,7 @@ $(document).ready(async function () {
 
   // fetch data
   try {
-    const data = await fetchData();
+    const data = await FetchData();
     const futureContestsContainer = document.getElementById("futureContestsContainer");
     const runningContestsContainer = document.getElementById("runningContestsContainer");
 
@@ -104,7 +104,7 @@ $(document).ready(async function () {
   });
 
   // Function to filter contests by site name
-  function filterContests(siteName) {
+  function FilterContests(siteName) {
     const contestCards = $('.card');
     const filteredCards = $.grep(contestCards, function (card) {
       const cardSiteName = $(card).find('.card-title').attr('class').split(' ')[1]; // second class is the site name
@@ -120,7 +120,7 @@ $(document).ready(async function () {
   document.querySelectorAll('.filter-buttons button').forEach(button => {
     button.addEventListener('click', function () {
       const selectedSite = this.id.replace('-filter', ''); // Remove '-filter' from the button id
-      filterContests(selectedSite);
+      FilterContests(selectedSite);
     });
   });
 });

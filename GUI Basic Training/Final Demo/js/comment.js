@@ -3,7 +3,7 @@ $(document).ready(function () {
 
   //#region display post
   // display post return deferred object
-  function displayPosts(posts) {
+  function DisplayPosts(posts) {
     const postsContainer = $("#posts");
     postsContainer.empty(); // Clear existing posts
 
@@ -35,7 +35,7 @@ $(document).ready(function () {
   }
 
   // get post using ajax get return deferred object
-  function getPosts() {
+  function GetPosts() {
     const deferred = $.Deferred(); // Create a Deferred object
     $.get(apiUrl)
       .done(function (data) {
@@ -51,9 +51,9 @@ $(document).ready(function () {
   }
 
   // get post
-  getPosts()
+  GetPosts()
     .then(function (data) {
-      return displayPosts(data);
+      return DisplayPosts(data);
     })
     .then(function () {
       console.log("All posts displayed.");
@@ -66,7 +66,7 @@ $(document).ready(function () {
   //#region create post 
 
   // create post using ajax post return promise
-  function createPost() {
+  function CreatePost() {
     return new Promise(function (resolve, reject) {
       const newTitle = $("#createtitle").val();
       const newBody = $("#createBody").val();
@@ -93,7 +93,7 @@ $(document).ready(function () {
 
   // click event handler for createButton
   $("#createButton").on("click", function () {
-    createPost()
+    CreatePost()
       .then(function (post) {
         // create postCard
         const postCard = `
@@ -142,7 +142,7 @@ $(document).ready(function () {
 
   //#region  update post
   // update post return promise
-  function updatePost(postId, postCard) {
+  function UpdatePost(postId, postCard) {
     return new Promise(function (resolve, reject) {
       // Get the existing post text
       const oldTitle = postCard.find(".card-title").text();
@@ -183,7 +183,7 @@ $(document).ready(function () {
     const postCard = $(this).closest(".card");
 
     try {
-      const updatedData = await updatePost(postId, postCard);
+      const updatedData = await UpdatePost(postId, postCard);
       console.log("edit-post click: Post updated successfully.", updatedData);
     } catch (error) {
       console.error("edit-post click Error:", error);
