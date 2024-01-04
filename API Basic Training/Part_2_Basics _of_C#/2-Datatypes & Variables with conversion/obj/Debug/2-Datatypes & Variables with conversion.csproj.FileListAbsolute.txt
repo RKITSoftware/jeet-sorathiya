@@ -1,0 +1,7 @@
+D:\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\2-Datatypes & Variables with conversion\bin\Debug\2-Datatypes & Variables with conversion.exe.config
+D:\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\2-Datatypes & Variables with conversion\bin\Debug\2-Datatypes & Variables with conversion.exe
+D:\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\2-Datatypes & Variables with conversion\bin\Debug\2-Datatypes & Variables with conversion.pdb
+D:\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\2-Datatypes & Variables with conversion\obj\Debug\2-Datatypes & Variables with conversion.csproj.AssemblyReference.cache
+D:\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\2-Datatypes & Variables with conversion\obj\Debug\2-Datatypes & Variables with conversion.csproj.CoreCompileInputs.cache
+D:\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\2-Datatypes & Variables with conversion\obj\Debug\2-Datatypes & Variables with conversion.exe
+D:\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\2-Datatypes & Variables with conversion\obj\Debug\2-Datatypes & Variables with conversion.pdb

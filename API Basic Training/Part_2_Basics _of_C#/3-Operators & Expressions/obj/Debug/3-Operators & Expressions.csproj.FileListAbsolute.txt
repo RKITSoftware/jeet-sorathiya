@@ -1,0 +1,7 @@
+D:\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\3-Operators & Expressions\bin\Debug\3-Operators & Expressions.exe.config
+D:\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\3-Operators & Expressions\bin\Debug\3-Operators & Expressions.exe
+D:\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\3-Operators & Expressions\bin\Debug\3-Operators & Expressions.pdb
+D:\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\3-Operators & Expressions\obj\Debug\3-Operators & Expressions.csproj.AssemblyReference.cache
+D:\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\3-Operators & Expressions\obj\Debug\3-Operators & Expressions.csproj.CoreCompileInputs.cache
+D:\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\3-Operators & Expressions\obj\Debug\3-Operators & Expressions.exe
+D:\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\3-Operators & Expressions\obj\Debug\3-Operators & Expressions.pdb

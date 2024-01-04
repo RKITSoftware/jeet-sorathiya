@@ -1,0 +1,7 @@
+D:\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\1-Create first C# program ‘Hello world’\bin\Debug\1-Create first C# program ‘Hello world’.exe.config
+D:\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\1-Create first C# program ‘Hello world’\bin\Debug\1-Create first C# program ‘Hello world’.exe
+D:\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\1-Create first C# program ‘Hello world’\bin\Debug\1-Create first C# program ‘Hello world’.pdb
+D:\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\1-Create first C# program ‘Hello world’\obj\Debug\1-Create first C# program ‘Hello world’.csproj.AssemblyReference.cache
+D:\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\1-Create first C# program ‘Hello world’\obj\Debug\1-Create first C# program ‘Hello world’.csproj.CoreCompileInputs.cache
+D:\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\1-Create first C# program ‘Hello world’\obj\Debug\1-Create first C# program ‘Hello world’.exe
+D:\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\1-Create first C# program ‘Hello world’\obj\Debug\1-Create first C# program ‘Hello world’.pdb
