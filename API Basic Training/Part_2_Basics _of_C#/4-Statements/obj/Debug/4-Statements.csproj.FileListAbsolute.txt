@@ -1,0 +1,8 @@
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\4-Statements\bin\Debug\4-Statements.exe.config
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\4-Statements\bin\Debug\4-Statements.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\4-Statements\bin\Debug\4-Statements.pdb
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\4-Statements\obj\Debug\4-Statements.csproj.AssemblyReference.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\4-Statements\obj\Debug\4-Statements.csproj.SuggestedBindingRedirects.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\4-Statements\obj\Debug\4-Statements.csproj.CoreCompileInputs.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\4-Statements\obj\Debug\4-Statements.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\4-Statements\obj\Debug\4-Statements.pdb
