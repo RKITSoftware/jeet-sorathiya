@@ -1,0 +1,8 @@
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\6-Define & calling of Methods\bin\Debug\6-Define & calling of Methods.exe.config
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\6-Define & calling of Methods\bin\Debug\6-Define & calling of Methods.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\6-Define & calling of Methods\bin\Debug\6-Define & calling of Methods.pdb
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\6-Define & calling of Methods\obj\Debug\6-Define & calling of Methods.csproj.AssemblyReference.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\6-Define & calling of Methods\obj\Debug\6-Define & calling of Methods.csproj.SuggestedBindingRedirects.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\6-Define & calling of Methods\obj\Debug\6-Define & calling of Methods.csproj.CoreCompileInputs.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\6-Define & calling of Methods\obj\Debug\6-Define & calling of Methods.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\6-Define & calling of Methods\obj\Debug\6-Define & calling of Methods.pdb
