@@ -1,0 +1,8 @@
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\7.1_Class-Object\bin\Debug\7.1_Class-Object.exe.config
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\7.1_Class-Object\bin\Debug\7.1_Class-Object.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\7.1_Class-Object\bin\Debug\7.1_Class-Object.pdb
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\7.1_Class-Object\obj\Debug\7.1_Class-Object.csproj.AssemblyReference.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\7.1_Class-Object\obj\Debug\7.1_Class-Object.csproj.SuggestedBindingRedirects.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\7.1_Class-Object\obj\Debug\7.1_Class-Object.csproj.CoreCompileInputs.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\7.1_Class-Object\obj\Debug\7.1_Class-Object.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\7.1_Class-Object\obj\Debug\7.1_Class-Object.pdb
