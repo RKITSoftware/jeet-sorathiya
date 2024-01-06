@@ -1,0 +1,8 @@
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\12.3_Multiple_Inheritance\bin\Debug\12.3_Multiple_Inheritance.exe.config
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\12.3_Multiple_Inheritance\bin\Debug\12.3_Multiple_Inheritance.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\12.3_Multiple_Inheritance\bin\Debug\12.3_Multiple_Inheritance.pdb
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\12.3_Multiple_Inheritance\obj\Debug\12.3_Multiple_Inheritance.csproj.AssemblyReference.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\12.3_Multiple_Inheritance\obj\Debug\12.3_Multiple_Inheritance.csproj.SuggestedBindingRedirects.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\12.3_Multiple_Inheritance\obj\Debug\12.3_Multiple_Inheritance.csproj.CoreCompileInputs.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\12.3_Multiple_Inheritance\obj\Debug\12.3_Multiple_Inheritance.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\12.3_Multiple_Inheritance\obj\Debug\12.3_Multiple_Inheritance.pdb
