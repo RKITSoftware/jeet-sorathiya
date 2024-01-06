@@ -1,0 +1,8 @@
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\14_Scope_Accessibility_modifier\obj\Debug\14_Scope_Accessibility_modifier.csproj.AssemblyReference.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\14_Scope_Accessibility_modifier\obj\Debug\14_Scope_Accessibility_modifier.csproj.SuggestedBindingRedirects.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\14_Scope_Accessibility_modifier\obj\Debug\14_Scope_Accessibility_modifier.csproj.CoreCompileInputs.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\14_Scope_Accessibility_modifier\bin\Debug\14_Scope_Accessibility_modifier.exe.config
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\14_Scope_Accessibility_modifier\bin\Debug\14_Scope_Accessibility_modifier.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\14_Scope_Accessibility_modifier\bin\Debug\14_Scope_Accessibility_modifier.pdb
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\14_Scope_Accessibility_modifier\obj\Debug\14_Scope_Accessibility_modifier.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\14_Scope_Accessibility_modifier\obj\Debug\14_Scope_Accessibility_modifier.pdb
