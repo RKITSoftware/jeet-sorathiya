@@ -1,0 +1,8 @@
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\12.2_Multi-level_Inheritance\bin\Debug\12.2_Multi-level_Inheritance.exe.config
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\12.2_Multi-level_Inheritance\bin\Debug\12.2_Multi-level_Inheritance.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\12.2_Multi-level_Inheritance\bin\Debug\12.2_Multi-level_Inheritance.pdb
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\12.2_Multi-level_Inheritance\obj\Debug\12.2_Multi-level_Inheritance.csproj.AssemblyReference.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\12.2_Multi-level_Inheritance\obj\Debug\12.2_Multi-level_Inheritance.csproj.SuggestedBindingRedirects.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\12.2_Multi-level_Inheritance\obj\Debug\12.2_Multi-level_Inheritance.csproj.CoreCompileInputs.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\12.2_Multi-level_Inheritance\obj\Debug\12.2_Multi-level_Inheritance.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\12.2_Multi-level_Inheritance\obj\Debug\12.2_Multi-level_Inheritance.pdb
