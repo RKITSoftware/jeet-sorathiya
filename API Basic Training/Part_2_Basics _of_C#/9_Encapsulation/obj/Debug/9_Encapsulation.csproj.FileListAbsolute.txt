@@ -1,0 +1,8 @@
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\9_Encapsulation\bin\Debug\9_Encapsulation.exe.config
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\9_Encapsulation\bin\Debug\9_Encapsulation.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\9_Encapsulation\bin\Debug\9_Encapsulation.pdb
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\9_Encapsulation\obj\Debug\9_Encapsulation.csproj.AssemblyReference.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\9_Encapsulation\obj\Debug\9_Encapsulation.csproj.SuggestedBindingRedirects.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\9_Encapsulation\obj\Debug\9_Encapsulation.csproj.CoreCompileInputs.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\9_Encapsulation\obj\Debug\9_Encapsulation.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\9_Encapsulation\obj\Debug\9_Encapsulation.pdb
