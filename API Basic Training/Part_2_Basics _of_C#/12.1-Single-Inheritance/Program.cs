@@ -9,7 +9,7 @@ namespace _12._1_Single_Inheritance
     class Employee
     {
 
-        #region field
+        #region public field
         /// <summary>
         /// Gets or sets the Name, Role of the employee.
         /// </summary>
@@ -17,7 +17,7 @@ namespace _12._1_Single_Inheritance
         public string Role { get; set; }
         #endregion
 
-        #region method
+        #region public method
         /// <summary>
         /// Common method for all employees.
         /// </summary>
@@ -35,14 +35,14 @@ namespace _12._1_Single_Inheritance
     /// </summary>
     class TeamLead : Employee
     {
-        #region field
+        #region public field
         /// <summary>
         /// Gets or sets the TeamSize.
         /// </summary>
         public int TeamSize { get; set; }
         #endregion
 
-        #region method
+        #region public method
         /// <summary>
         /// method for to display team size.
         /// </summary>
@@ -60,14 +60,14 @@ namespace _12._1_Single_Inheritance
     /// </summary>
     class Trainee : Employee
     {
-        #region field
+        #region public field
         /// <summary>
         /// Gets or sets trainingprogram.
         /// </summary>
         public string TrainingProgram { get; set; }
         #endregion
 
-        #region method
+        #region public method
         /// <summary>
         /// method for display training program.
         /// </summary>

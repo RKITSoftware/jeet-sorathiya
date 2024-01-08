@@ -8,7 +8,7 @@ namespace _11_Polymorphism
     /// </summary>
     class Account
     {
-        #region fields
+        #region public fields
         /// <summary>
         /// Gets or sets the username,password of the account.
         /// </summary>
@@ -17,7 +17,7 @@ namespace _11_Polymorphism
 
         #endregion
 
-        #region method
+        #region public method
         /// <summary>
         /// Common login method for all accounts.
         /// </summary>
@@ -35,7 +35,7 @@ namespace _11_Polymorphism
     /// </summary>
     class Admin : Account
     {
-        #region methods
+        #region public methods
         /// <summary>
         /// Overrides the base class login method.
         /// </summary>
@@ -69,7 +69,7 @@ namespace _11_Polymorphism
     /// </summary>
     class User : Account
     {
-        #region Method
+        #region public Method
         /// <summary>
         /// Overrides the base class login method for users.
         /// </summary>
