@@ -1,0 +1,8 @@
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\16_Generic_Collections\obj\Debug\16_Generic_Collections.csproj.AssemblyReference.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\16_Generic_Collections\obj\Debug\16_Generic_Collections.csproj.SuggestedBindingRedirects.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\16_Generic_Collections\obj\Debug\16_Generic_Collections.csproj.CoreCompileInputs.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\16_Generic_Collections\bin\Debug\16_Generic_Collections.exe.config
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\16_Generic_Collections\bin\Debug\16_Generic_Collections.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\16_Generic_Collections\bin\Debug\16_Generic_Collections.pdb
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\16_Generic_Collections\obj\Debug\16_Generic_Collections.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\16_Generic_Collections\obj\Debug\16_Generic_Collections.pdb
