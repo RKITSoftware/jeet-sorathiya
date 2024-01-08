@@ -1,0 +1,8 @@
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\21_DateTime\bin\Debug\21_DateTime.exe.config
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\21_DateTime\bin\Debug\21_DateTime.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\21_DateTime\bin\Debug\21_DateTime.pdb
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\21_DateTime\obj\Debug\21_DateTime.csproj.AssemblyReference.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\21_DateTime\obj\Debug\21_DateTime.csproj.SuggestedBindingRedirects.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\21_DateTime\obj\Debug\21_DateTime.csproj.CoreCompileInputs.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\21_DateTime\obj\Debug\21_DateTime.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\21_DateTime\obj\Debug\21_DateTime.pdb
