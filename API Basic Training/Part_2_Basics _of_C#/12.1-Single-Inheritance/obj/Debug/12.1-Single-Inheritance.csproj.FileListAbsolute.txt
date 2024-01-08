@@ -1,0 +1,8 @@
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\12.1-Single-Inheritance\bin\Debug\12.1-Single-Inheritance.exe.config
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\12.1-Single-Inheritance\bin\Debug\12.1-Single-Inheritance.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\12.1-Single-Inheritance\bin\Debug\12.1-Single-Inheritance.pdb
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\12.1-Single-Inheritance\obj\Debug\12.1-Single-Inheritance.csproj.AssemblyReference.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\12.1-Single-Inheritance\obj\Debug\12.1-Single-Inheritance.csproj.SuggestedBindingRedirects.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\12.1-Single-Inheritance\obj\Debug\12.1-Single-Inheritance.csproj.CoreCompileInputs.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\12.1-Single-Inheritance\obj\Debug\12.1-Single-Inheritance.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\12.1-Single-Inheritance\obj\Debug\12.1-Single-Inheritance.pdb
