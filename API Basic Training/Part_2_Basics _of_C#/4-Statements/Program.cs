@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _4_Statements
 {
@@ -14,11 +10,11 @@ namespace _4_Statements
             bool isActive = true;
             bool hasAccess = false;
 
-            if(isActive)
+            if (isActive)
             {
                 Console.WriteLine("Is Active User");
             }
-            else if(hasAccess)
+            else if (hasAccess)
             {
                 Console.WriteLine("Have Access");
             }
@@ -41,14 +37,14 @@ namespace _4_Statements
                 case 370:
                     Console.WriteLine("Hello Harshil");
                     break;
-                default: 
+                default:
                     Console.WriteLine("Hello Trainee");
                     break;
             }
             // loops
             int[] empId = { 365, 366, 367, 368, 369, 370 };
             // for loop
-            for(int i = 0; i < empId.Length; i++)
+            for (int i = 0; i < empId.Length; i++)
             {
                 Console.WriteLine(empId[i]);
             }
@@ -57,19 +53,19 @@ namespace _4_Statements
             do
             {
                 Console.WriteLine("Count : " + (++count));
-            }while (count < 5);
+            } while (count < 5);
 
             //for each
-            foreach(int item  in empId)
+            foreach (int item in empId)
             {
                 Console.WriteLine(item);
             }
 
             //while
-            while(count < 10)
+            while (count < 10)
             {
                 count++;
-                if (count %2 == 0)
+                if (count % 2 == 0)
                 {
                     Console.WriteLine("Count is " + count);
                 }
@@ -77,7 +73,7 @@ namespace _4_Statements
                 {
                     continue;
                 }
-               
+
             }
         }
     }

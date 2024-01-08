@@ -2,11 +2,13 @@
 
 namespace _10_Abstraction
 {
+    #region abstract class Shape
     /// <summary>
     /// abstract class shape, method to CalculateArea.
     /// </summary>
     public abstract class Shape
     {
+        #region method
         /// <summary>
         /// Calculates the area of the shape.
         /// </summary>
@@ -20,18 +22,24 @@ namespace _10_Abstraction
         {
             Console.WriteLine($"Area: {CalculateArea()}");
         }
+        #endregion
     }
+    #endregion
 
+    #region  public class Circle
     /// <summary>
     /// class circle, radius property and CalculateArea method.
     /// </summary>
     public class Circle : Shape
     {
+        #region public Proparty
         /// <summary>
         /// Gets or sets the radius of the circle.
         /// </summary>
         public double Radius { get; set; }
+        #endregion
 
+        #region Constructor
         /// <summary>
         /// Constructor method
         /// </summary>
@@ -40,7 +48,9 @@ namespace _10_Abstraction
         {
             Radius = radius;
         }
+        #endregion
 
+        #region public method
         /// <summary>
         /// calculate area of Circle
         /// <retrurn></retrurn>
@@ -51,13 +61,17 @@ namespace _10_Abstraction
             Console.WriteLine("Area of Circle");
             return Math.PI * Math.Pow(Radius, 2);
         }
+        #endregion
     }
+    #endregion
 
+    #region public class Rectangle
     /// <summary>
     /// class rectangle, width and height properties,CalculateArea method.
     /// </summary>
     public class Rectangle : Shape
     {
+        #region public proparty
         /// <summary>
         /// Gets or sets the width of the rectangle.
         /// </summary>
@@ -67,7 +81,9 @@ namespace _10_Abstraction
         /// Gets or sets the height of the rectangle.
         /// </summary>
         public double Height { get; set; }
+        #endregion
 
+        #region Constructor
         /// <summary>
         ///  Constructor method
         /// </summary>
@@ -78,7 +94,9 @@ namespace _10_Abstraction
             Width = width;
             Height = height;
         }
+        #endregion
 
+        #region public method
         /// <summary>
         /// calculate area of Rectangle
         /// <retrurn></retrurn>
@@ -89,15 +107,18 @@ namespace _10_Abstraction
             Console.WriteLine("Area of Rectangle");
             return Width * Height;
         }
+        #endregion
     }
+    #endregion
 
+    #region internal class Program
     /// <summary>
     /// class Program
     /// </summary>
     internal class Program
     {
         /// <summary>
-        /// main method.
+        /// main method
         /// </summary>
         static void Main()
         {
@@ -119,6 +140,6 @@ namespace _10_Abstraction
             Console.WriteLine();
         }
     }
-
+    #endregion
 
 }

@@ -3,23 +3,6 @@ using System.Linq;
 
 namespace _5_Understanding_Arrays
 {
-    /// <summary>
-    /// type of array 
-    ///     1D array
-    ///     2D array
-    ///     jagged array
-    /// 
-    /// array methods
-    ///     Length
-    ///     sort
-    ///     Linq namespace
-    ///     Reverses
-    ///     Get Value
-    ///     Get Length
-    ///     copy
-    ///     clone
-    ///     inedexof
-    /// </summary>
     internal class Program
     {
         static void Main(string[] args)

@@ -5,18 +5,17 @@ namespace _9_Encapsulation
     /// <summary>
     /// Class Person with private properties for name, age, and date of birth.
     /// </summary>
-
     #region Class Person
     class Person
     {
-        #region Fields
+        #region private Fields
         // Private fields
         private string name;
         private int age;
         private DateTime dateOfBirth;
         #endregion
 
-        #region methods
+        #region Public properties
         // Public properties to access private fields
 
         /// <summary>
@@ -59,7 +58,9 @@ namespace _9_Encapsulation
                 }
             }
         }
+        #endregion
 
+        #region public method
         /// <summary>
         /// Gets or sets the date of birth of the person.
         /// </summary>

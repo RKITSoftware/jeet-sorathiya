@@ -2,34 +2,38 @@
 
 namespace _8_Constructor
 {
+    #region class Person
     /// <summary>
-    ///  Class Person
-    ///     field
-    ///         string name
-    ///         int age
-    ///     Person()
-    ///         <param></param>
-    ///     Person()
-    ///         <param>string</param>
-    ///         <pram>int</pram>
-    ///     Person()
-    ///         <param>Person</param>
-    ///     Display()
-    ///         <param></param>
-    ///         <return>void</return>
+    /// Represents a person with name and age details
     /// </summary>
     public class Person
     {
+        #region public Proparty
+        /// <summary>
+        /// Gets or sets the name of the person.
+        /// </summary>
         public string Name { get; set; }
-        public int Age { get; set; }
 
-        // Default Constructor
+        /// <summary>
+        /// Gets or sets the age of the person.
+        /// </summary>
+        public int Age { get; set; }
+        #endregion
+
+        #region Constructor
+        /// <summary>
+        /// Default Constructor.
+        /// </summary>
         public Person()
         {
             Console.WriteLine("Default Constructor Called");
         }
 
-        // Parameterized Constructor
+        /// <summary>
+        /// Parameterized Constructor with name and age parameters.
+        /// </summary>
+        /// <param name="name">The name of the person.</param>
+        /// <param name="age">The age of the person.</param>
         public Person(string name, int age)
         {
             Name = name;
@@ -37,19 +41,30 @@ namespace _8_Constructor
             Console.WriteLine("Parameterized Constructor Called");
         }
 
-        //  Copy Constructor
+        /// <summary>
+        /// Copy Constructor to create a new object based on an existing Person object.
+        /// </summary>
+        /// <param name="original">The original Person object to copy from.</param>
         public Person(Person original)
         {
             Name = original.Name;
             Age = original.Age;
             Console.WriteLine("Simulated Copy Constructor Called");
         }
+        #endregion
 
+        #region public Method
+        /// <summary>
+        /// Displays the details of the person.
+        /// </summary>
         public void Display()
         {
             Console.WriteLine($"Person Details: Name - {Name}, Age - {Age}");
         }
+        #endregion
     }
+    #endregion
+
     internal class Program
     {
         static void Main(string[] args)
@@ -62,9 +77,10 @@ namespace _8_Constructor
             Person person2 = new Person("jeet", 20);
             person2.Display();
 
-            // Using copy constructor to create a new object
+            // Using the copy constructor to create a new object
             Person person3 = new Person(person2);
             person3.Display();
         }
     }
+
 }
