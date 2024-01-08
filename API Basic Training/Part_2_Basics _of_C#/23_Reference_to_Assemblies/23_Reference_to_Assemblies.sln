@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "23_Reference_to_Assemblies", "23_Reference_to_Assemblies.csproj", "{94B4A2A7-D696-4946-9BE8-8EE85C0B48F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "14_Scope_Accessibility_modifier", "..\14_Scope_Accessibility_modifier\14_Scope_Accessibility_modifier.csproj", "{9C3FAFC3-89AD-4836-BE4C-1ECD0F2FCC55}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{94B4A2A7-D696-4946-9BE8-8EE85C0B48F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94B4A2A7-D696-4946-9BE8-8EE85C0B48F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94B4A2A7-D696-4946-9BE8-8EE85C0B48F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94B4A2A7-D696-4946-9BE8-8EE85C0B48F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C3FAFC3-89AD-4836-BE4C-1ECD0F2FCC55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C3FAFC3-89AD-4836-BE4C-1ECD0F2FCC55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C3FAFC3-89AD-4836-BE4C-1ECD0F2FCC55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C3FAFC3-89AD-4836-BE4C-1ECD0F2FCC55}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {73D05C45-24D9-48A0-9934-1DD29DA7DD71}
+	EndGlobalSection
+EndGlobal

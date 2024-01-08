@@ -1,0 +1,12 @@
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\23_Reference_to_Assemblies\bin\Debug\23_Reference_to_Assemblies.exe.config
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\23_Reference_to_Assemblies\bin\Debug\23_Reference_to_Assemblies.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\23_Reference_to_Assemblies\bin\Debug\23_Reference_to_Assemblies.pdb
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\23_Reference_to_Assemblies\bin\Debug\14_Scope_Accessibility_modifier.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\23_Reference_to_Assemblies\bin\Debug\14_Scope_Accessibility_modifier.pdb
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\23_Reference_to_Assemblies\bin\Debug\14_Scope_Accessibility_modifier.exe.config
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\23_Reference_to_Assemblies\obj\Debug\23_Reference_to_Assemblies.csproj.AssemblyReference.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\23_Reference_to_Assemblies\obj\Debug\23_Reference_to_Assemblies.csproj.SuggestedBindingRedirects.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\23_Reference_to_Assemblies\obj\Debug\23_Reference_to_Assemblies.csproj.CoreCompileInputs.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\23_Reference_to_Assemblies\obj\Debug\23_Reference_to_Assemblies.csproj.CopyComplete
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\23_Reference_to_Assemblies\obj\Debug\23_Reference_to_Assemblies.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\23_Reference_to_Assemblies\obj\Debug\23_Reference_to_Assemblies.pdb
