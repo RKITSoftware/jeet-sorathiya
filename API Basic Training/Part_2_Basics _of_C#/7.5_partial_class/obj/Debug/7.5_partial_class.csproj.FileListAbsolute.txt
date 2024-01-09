@@ -1,0 +1,8 @@
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\7.5_partial_class\bin\Debug\7.5_partial_class.exe.config
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\7.5_partial_class\bin\Debug\7.5_partial_class.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\7.5_partial_class\bin\Debug\7.5_partial_class.pdb
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\7.5_partial_class\obj\Debug\7.5_partial_class.csproj.AssemblyReference.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\7.5_partial_class\obj\Debug\7.5_partial_class.csproj.SuggestedBindingRedirects.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\7.5_partial_class\obj\Debug\7.5_partial_class.csproj.CoreCompileInputs.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\7.5_partial_class\obj\Debug\7.5_partial_class.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\7.5_partial_class\obj\Debug\7.5_partial_class.pdb
