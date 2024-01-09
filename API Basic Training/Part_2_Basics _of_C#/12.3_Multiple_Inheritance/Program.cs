@@ -40,14 +40,14 @@ namespace _12._3_Multiple_Inheritance
     /// </summary>
     public class RegularUser : IUser
     {
-        #region field
+        #region public field
         /// <summary>
         /// Gets or sets username.
         /// </summary>
         public string UserName { get; set; }
         #endregion
 
-        #region method
+        #region public method
         /// <summary>
         /// Login the regular user.
         /// </summary>
@@ -73,14 +73,14 @@ namespace _12._3_Multiple_Inheritance
     public class AdminUser : IUser, IAdmin
     {
 
-        #region field
+        #region public field
         /// <summary>
         /// Gets or sets username.
         /// </summary>
         public string UserName { get; set; }
         #endregion
 
-        #region method
+        #region public method
         /// <summary>
         /// Login method
         /// </summary>
@@ -114,14 +114,14 @@ namespace _12._3_Multiple_Inheritance
     /// </summary>
     public class Employee : IUser, IEmployee
     {
-        #region field
+        #region public field
         /// <summary>
         /// Gets or sets the username.
         /// </summary>
         public string UserName { get; set; }
         #endregion
 
-        #region method
+        #region public method
         /// <summary>
         /// Login the employee.
         /// </summary>

@@ -9,14 +9,14 @@ namespace _14_Scope_Accessibility_modifier
     public class PublicClass
     {
 
-        #region field
+        #region public field
         /// <summary>
         /// Public member accessible anywhere in the program.
         /// </summary>
         public int PublicMember = 10;
         #endregion
 
-        #region method
+        #region public method
         /// <summary>
         /// Public method accessible anywhere in the program.
         /// </summary>
@@ -34,14 +34,14 @@ namespace _14_Scope_Accessibility_modifier
     /// </summary>
     public class PrivateClass
     {
-        #region field
+        #region private field
         /// <summary>
         /// Private member accessible only within the class.
         /// </summary>
         private int PrivateMember = 20;
         #endregion
 
-        #region method
+        #region private method
         /// <summary>
         /// Private method accessible only within the class.
         /// </summary>
@@ -69,14 +69,14 @@ namespace _14_Scope_Accessibility_modifier
     public class ProtectedBase
     {
 
-        #region field
+        #region protected field
         /// <summary>
         /// Protected member accessible within the class and its derived classes.
         /// </summary>
         protected int ProtectedMember = 30;
         #endregion
 
-        #region method
+        #region protected method
         /// <summary>
         /// Protected method accessible within the class and its derived classes.
         /// </summary>
@@ -95,7 +95,7 @@ namespace _14_Scope_Accessibility_modifier
     public class DerivedClass : ProtectedBase
     {
 
-        #region AccessProtected
+        #region public method
         /// <summary>
         /// Public method that accesses protected member and method from the base class.
         /// </summary>
@@ -114,14 +114,14 @@ namespace _14_Scope_Accessibility_modifier
     /// </summary>
     internal class InternalClass
     {
-        #region field
+        #region internal field
         /// <summary>
         /// Internal member accessible within the same assembly.
         /// </summary>
         internal int InternalMember = 40;
         #endregion
 
-        #region method
+        #region internal method
         /// <summary>
         /// Internal method accessible within the same assembly.
         /// </summary>
@@ -139,14 +139,14 @@ namespace _14_Scope_Accessibility_modifier
     /// </summary>
     public class ProtectedInternalClass
     {
-        #region field
+        #region  protected internal field
         /// <summary>
         /// Protected internal member accessible within the same assembly and from derived classes.
         /// </summary>
         protected internal int ProtectedInternalMember = 50;
         #endregion
 
-        #region method
+        #region  protected internal method
         /// <summary>
         /// Protected internal method accessible within the same assembly and from derived classes.
         /// </summary>

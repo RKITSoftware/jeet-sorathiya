@@ -8,14 +8,14 @@ namespace _12._4_Hierarchical_Inheritance
     /// </summary>
     public class User
     {
-        #region field
+        #region public field
         /// <summary>
         /// Gets or sets username.
         /// </summary>
         public string UserName { get; set; }
         #endregion
 
-        #region method
+        #region public method
         /// <summary>
         /// Login method
         /// </summary>
@@ -41,7 +41,7 @@ namespace _12._4_Hierarchical_Inheritance
     /// </summary>
     public class RegularUser : User
     {
-        #region method
+        #region public method
         /// <summary>
         /// Login method
         /// </summary>
@@ -67,7 +67,7 @@ namespace _12._4_Hierarchical_Inheritance
     /// </summary>
     public class AdminUser : User
     {
-        #region method
+        #region public method
         /// <summary>
         /// login method
         /// </summary>
@@ -93,7 +93,7 @@ namespace _12._4_Hierarchical_Inheritance
     /// </summary>
     public class SubAdminUser : AdminUser
     {
-        #region method
+        #region public method
         /// <summary>
         /// Adds a specific method for sub-admin users.
         /// </summary>
@@ -111,7 +111,7 @@ namespace _12._4_Hierarchical_Inheritance
     /// </summary>
     public class SubRegularUser : RegularUser
     {
-        #region method
+        #region public method
         /// <summary>
         /// method SubRegularSpecific
         /// </summary>

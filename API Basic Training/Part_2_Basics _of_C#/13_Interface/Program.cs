@@ -28,7 +28,7 @@ namespace _13_Interface
     /// </summary>
     public class Smartphone : IPhone, ICamera
     {
-        #region method
+        #region public method
         /// <summary>
         /// Makesacall Method
         /// </summary>
