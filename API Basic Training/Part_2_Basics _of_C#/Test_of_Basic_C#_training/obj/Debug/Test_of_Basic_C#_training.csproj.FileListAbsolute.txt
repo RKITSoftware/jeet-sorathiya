@@ -1,0 +1,8 @@
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\Test_of_Basic_C#_training\obj\Debug\Test_of_Basic_C#_training.csproj.AssemblyReference.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\Test_of_Basic_C#_training\obj\Debug\Test_of_Basic_C#_training.csproj.SuggestedBindingRedirects.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\Test_of_Basic_C#_training\obj\Debug\Test_of_Basic_C#_training.csproj.CoreCompileInputs.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\Test_of_Basic_C#_training\bin\Debug\Test_of_Basic_C#_training.exe.config
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\Test_of_Basic_C#_training\bin\Debug\Test_of_Basic_C#_training.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\Test_of_Basic_C#_training\bin\Debug\Test_of_Basic_C#_training.pdb
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\Test_of_Basic_C#_training\obj\Debug\Test_of_Basic_C#_training.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Part_2_Basics _of_C#\Test_of_Basic_C#_training\obj\Debug\Test_of_Basic_C#_training.pdb
