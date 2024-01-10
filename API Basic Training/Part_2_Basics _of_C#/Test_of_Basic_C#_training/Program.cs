@@ -3,11 +3,21 @@ using System.Collections.Generic;
 
 namespace Test_of_Basic_C__training
 {
+    #region  class Program
+    /// <summary>
+    /// Console application for managing a Train Management System.
+    /// Allows users to display trains, search for trains, add new trains, and book train tickets.
+    /// </summary>
     class Program
     {
-        static TrainManager trainManager = new TrainManager();
+
+        static ITrainManager trainManager = new TrainManager();
         static int pnrCounter = 1000000001; // Counter for generating PNR numbers
 
+        #region Main Method
+        /// <summary>
+        /// Displays a menu and allows users to interact with the Train Management System.
+        /// </summary>
         static void Main()
         {
             Console.WriteLine("Welcome to the Train Management System!");
@@ -42,6 +52,12 @@ namespace Test_of_Basic_C__training
             }
         }
 
+        #endregion
+
+        #region Methods
+        /// <summary>
+        /// Searches for trains based on source and destination cities.
+        /// </summary>
         static void SearchTrain()
         {
             Console.Write("Enter source city: ");
@@ -49,10 +65,13 @@ namespace Test_of_Basic_C__training
             Console.Write("Enter destination city: ");
             string destination = Console.ReadLine();
 
-            Train searchedTrain = trainManager.SearchTrain(source, destination);
-            if (searchedTrain != null)
+            List<Train> searchedTrain = trainManager.SearchTrain(source, destination);
+            if (searchedTrain.Count != 0)
             {
-                Console.WriteLine($"Train found: {searchedTrain.TrainNumber}");
+                foreach (Train train in searchedTrain)
+                {
+                    Console.WriteLine($"Train found: {train.TrainNumber}");
+                }
             }
             else
             {
@@ -60,6 +79,9 @@ namespace Test_of_Basic_C__training
             }
         }
 
+        /// <summary>
+        /// Adds a new train to the system with details.
+        /// </summary>
         static void AddNewTrain()
         {
             Console.Write("Enter Train Number: ");
@@ -74,7 +96,7 @@ namespace Test_of_Basic_C__training
             Console.Write("Enter Distance: ");
             int distance = int.Parse(Console.ReadLine());
 
-            Console.Write("Enter Coach Configurations (e.g., S1-72,S2-72,B1-72): ");
+            Console.Write("Enter Coach Configurations (e.g., SL-72, 3A-60, 2A-50, 1A-68): ");
             string coachConfigurationsInput = Console.ReadLine();
             Dictionary<string, int> coachConfigurations = ParseCoachConfigurations(coachConfigurationsInput);
 
@@ -91,6 +113,9 @@ namespace Test_of_Basic_C__training
             Console.WriteLine("Train added successfully!");
         }
 
+        /// <summary>
+        /// Books tickets for a selected train based on user input.
+        /// </summary>
         static void BookTrain()
         {
             Console.Write("Enter Train Number to book: ");
@@ -100,9 +125,6 @@ namespace Test_of_Basic_C__training
 
             if (selectedTrain != null)
             {
-                Console.Write("Enter Travel Date (yyyy-MM-dd): ");
-                DateTime travelDate = DateTime.Parse(Console.ReadLine());
-
                 Console.Write("Enter Class (e.g., SL, 3A, 2A, 1A): ");
                 string coachType = Console.ReadLine().ToUpper();
 
@@ -114,7 +136,7 @@ namespace Test_of_Basic_C__training
 
                 Dictionary<string, int> availableSeats = selectedTrain.CoachConfigurations;
 
-                if (CheckAvailability(availableSeats, totalPassengers))
+                if (fare > 0 && CheckAvailability(availableSeats, coachType, totalPassengers))
                 {
                     BookTickets(selectedTrain, coachType, totalPassengers);
                     Console.WriteLine($"PNR: {pnrCounter++}, Fare: {fare}");
@@ -130,7 +152,12 @@ namespace Test_of_Basic_C__training
             }
         }
 
-        static Dictionary<string, int> ParseCoachConfigurations(string input)
+        /// <summary>
+        /// Parses coach configurations input provided by the user.
+        /// </summary>
+        /// <param name="input">Input string containing coach configurations.</param>
+        /// <returns>A dictionary representing coach configurations.</returns>
+        public static Dictionary<string, int> ParseCoachConfigurations(string input)
         {
             Dictionary<string, int> configurations = new Dictionary<string, int>();
 
@@ -154,9 +181,16 @@ namespace Test_of_Basic_C__training
             return configurations;
         }
 
+        /// <summary>
+        /// Calculates the fare for booking train tickets based on coach type, distance, and total passengers.
+        /// </summary>
+        /// <param name="coachType">Type of the coach (e.g., SL, 3A, 2A, 1A).</param>
+        /// <param name="distance">Distance of the journey.</param>
+        /// <param name="totalPassengers">Number of passengers to book for.</param>
+        /// <returns>The calculated fare or -1 if invalid coach type.</returns>
         static int CalculateFare(string coachType, int distance, int totalPassengers)
         {
-            int farePerKM;
+            int farePerKM = -1;
 
             switch (coachType)
             {
@@ -173,29 +207,36 @@ namespace Test_of_Basic_C__training
                     farePerKM = 4;
                     break;
                 default:
-                    farePerKM = 1;
+                    Console.WriteLine("Enter Valid Coach Type");
                     break;
             }
-
-            return distance * farePerKM * totalPassengers;
+            return farePerKM > 0 ? (distance * farePerKM * totalPassengers) : (-1);
         }
 
-        static bool CheckAvailability(Dictionary<string, int> availableSeats, int totalPassengers)
+        /// <summary>
+        /// Checks the availability of seats for a specific coach type and number of passengers.
+        /// </summary>
+        /// <param name="availableSeats">Dictionary representing available seats for each coach type.</param>
+        /// <param name="coachType">Type of the coach (e.g., SL, 3A, 2A, 1A).</param>
+        /// <param name="totalPassengers">Number of passengers to book for.</param>
+        /// <returns>True if seats are available, false otherwise.</returns>
+        static bool CheckAvailability(Dictionary<string, int> availableSeats, string coachType, int totalPassengers)
         {
-            if (availableSeats != null)
+            if (availableSeats != null && availableSeats.ContainsKey(coachType))
             {
-                foreach (var seats in availableSeats)
-                {
-                    if (seats.Value >= totalPassengers)
-                    {
-                        return true;
-                    }
-                }
+                int availableSeatsForCoach = availableSeats[coachType];
+                return availableSeatsForCoach >= totalPassengers;
             }
 
             return false;
         }
 
+        /// <summary>
+        /// Books tickets for a selected train and updates available seats.
+        /// </summary>
+        /// <param name="train">Selected train.</param>
+        /// <param name="coachType">Type of the coach (e.g., SL, 3A, 2A, 1A).</param>
+        /// <param name="totalPassengers">Number of passengers to book for.</param>
         static void BookTickets(Train train, string coachType, int totalPassengers)
         {
             foreach (var seats in train.CoachConfigurations)
@@ -207,12 +248,8 @@ namespace Test_of_Basic_C__training
                 }
             }
         }
+
+        #endregion
     }
+    #endregion
 }
-
-
-
-
-
-
-
