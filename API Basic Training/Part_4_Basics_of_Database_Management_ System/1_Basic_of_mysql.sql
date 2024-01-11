@@ -1,36 +1,36 @@
 -- Create database
-CREATE DATABASE rkit;
+-CREATE DATABASE rkit;
 
 -- Create Table
-CREATE TABLE employee(
-    employeeID int NOT NULL AUTO_INCREMENT,
-    employeeName varchar(40) NOT NULL,
-    employeeJobTitle varchar(20),
-    isActive bool DEFAULT TRUE,
-    CONSTRAINT PK_employee PRIMARY KEY(employeeID)
+CREATE TABLE EMP01(
+	EMP01ID int NOT NULL AUTO_INCREMENT,
+    	EMP01Name varchar(40) NOT NULL,
+    	EMP01JobTitle varchar(20),
+    	isActive bool DEFAULT TRUE,
+    	CONSTRAINT PK_EMP01 PRIMARY KEY(EMP01ID)
 );
 
 -- Insert Into Table
-INSERT INTO employee(
-    employeeName,
-    employeeJobTitle,
+INSERT INTO EMP01(
+    EMP01Name,
+    EMP01JobTitle,
     isActive
 )
 VALUES
-	("Jeet", "Developer"),
-	("Prince", "Developer",FALSE);
+	("Jeet", "Developer",TRUE),
+    	("Prince", "Developer",FALSE);
 
 -- Select Data
-SELECT employeeID, employeeName, employeeJobTitle, isActive
-FROM employee
+SELECT EMP01ID, EMP01Name, EMP01JobTitle, isActive
+FROM EMP01
 WHERE isActive = TRUE;
 
 -- Update Data
-UPDATE employee
+UPDATE EMP01
 SET isActive = 1
-WHERE employeeID = 2;
+WHERE EMP01ID = 2;
 
 -- Delete Data
-DELETE FROM employee
-WHERE employeeID = 2;
+DELETE FROM EMP01
+WHERE EMP01ID = 2;
     
