@@ -3,7 +3,7 @@ CREATE DATABASE rkit;
 
 -- Create Table
 CREATE TABLE employee(
-	employeeID int NOT NULL AUTO_INCREMENT,
+    employeeID int NOT NULL AUTO_INCREMENT,
     employeeName varchar(40) NOT NULL,
     employeeJobTitle varchar(20),
     isActive bool DEFAULT TRUE,
@@ -18,7 +18,7 @@ INSERT INTO employee(
 )
 VALUES
 	("Jeet", "Developer"),
-    ("Prince", "Developer",FALSE);
+	("Prince", "Developer",FALSE);
 
 -- Select Data
 SELECT employeeID, employeeName, employeeJobTitle, isActive
