@@ -10,9 +10,9 @@ namespace _9_Encapsulation
     {
         #region private Fields
         // Private fields
-        private string name;
-        private int age;
-        private DateTime dateOfBirth;
+        private string _name;
+        private int _age;
+        private DateTime _dateOfBirth;
         #endregion
 
         #region Public properties
@@ -24,12 +24,12 @@ namespace _9_Encapsulation
         /// </summary>
         public string Name
         {
-            get { return name; }
+            get { return _name; }
             set
             {
                 if (!string.IsNullOrEmpty(value))
                 {
-                    name = value;
+                    _name = value;
                 }
                 else
                 {
@@ -45,12 +45,12 @@ namespace _9_Encapsulation
 
         public int Age
         {
-            get { return age; }
+            get { return _age; }
             set
             {
                 if (value >= 0)
                 {
-                    age = value;
+                    _age = value;
                 }
                 else
                 {
@@ -67,7 +67,7 @@ namespace _9_Encapsulation
         /// <returns>The date of birth.</returns>
         public DateTime DobGetter()
         {
-            return dateOfBirth;
+            return _dateOfBirth;
         }
 
         /// <summary>
@@ -78,7 +78,7 @@ namespace _9_Encapsulation
         {
             if (value <= DateTime.Now)
             {
-                dateOfBirth = value;
+                _dateOfBirth = value;
             }
             else
             {
@@ -89,7 +89,7 @@ namespace _9_Encapsulation
         // Public method to display
         public void DisplayInfo()
         {
-            Console.WriteLine($"Name: {Name}, Age: {Age}, DateOfBirth: {dateOfBirth}");
+            Console.WriteLine($"Name: {Name}, Age: {Age}, DateOfBirth: {_dateOfBirth}");
         }
 
         #endregion

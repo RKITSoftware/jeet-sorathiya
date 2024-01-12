@@ -38,7 +38,7 @@ namespace _14_Scope_Accessibility_modifier
         /// <summary>
         /// Private member accessible only within the class.
         /// </summary>
-        private int PrivateMember = 20;
+        private int _privateMember = 20;
         #endregion
 
         #region private method
@@ -55,7 +55,7 @@ namespace _14_Scope_Accessibility_modifier
         /// </summary>
         public void AccessPrivate()
         {
-            Console.WriteLine($"Accessing private member: {PrivateMember}");
+            Console.WriteLine($"Accessing private member: {_privateMember}");
             PrivateMethod();
         }
         #endregion
@@ -73,7 +73,7 @@ namespace _14_Scope_Accessibility_modifier
         /// <summary>
         /// Protected member accessible within the class and its derived classes.
         /// </summary>
-        protected int ProtectedMember = 30;
+        protected int protectedMember = 30;
         #endregion
 
         #region protected method
@@ -101,7 +101,7 @@ namespace _14_Scope_Accessibility_modifier
         /// </summary>
         public void AccessProtected()
         {
-            Console.WriteLine($"Accessing protected member: {ProtectedMember}");
+            Console.WriteLine($"Accessing protected member: {protectedMember}");
             ProtectedMethod();
         }
         #endregion
@@ -118,7 +118,7 @@ namespace _14_Scope_Accessibility_modifier
         /// <summary>
         /// Internal member accessible within the same assembly.
         /// </summary>
-        internal int InternalMember = 40;
+        internal int internalMember = 40;
         #endregion
 
         #region internal method
@@ -143,7 +143,7 @@ namespace _14_Scope_Accessibility_modifier
         /// <summary>
         /// Protected internal member accessible within the same assembly and from derived classes.
         /// </summary>
-        protected internal int ProtectedInternalMember = 50;
+        protected internal int protectedInternalMember = 50;
         #endregion
 
         #region  protected internal method
@@ -181,11 +181,11 @@ namespace _14_Scope_Accessibility_modifier
             derivedClass.AccessProtected();
 
             InternalClass internalClass = new InternalClass();
-            Console.WriteLine($"Internal member: {internalClass.InternalMember}");
+            Console.WriteLine($"Internal member: {internalClass.internalMember}");
             internalClass.InternalMethod();
 
             ProtectedInternalClass protectedInternalClass = new ProtectedInternalClass();
-            Console.WriteLine($"Protected Internal member: {protectedInternalClass.ProtectedInternalMember}");
+            Console.WriteLine($"Protected Internal member: {protectedInternalClass.protectedInternalMember}");
             protectedInternalClass.ProtectedInternalMethod();
         }
         #endregion

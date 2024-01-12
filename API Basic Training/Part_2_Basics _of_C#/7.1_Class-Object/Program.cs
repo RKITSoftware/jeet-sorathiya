@@ -13,8 +13,8 @@ namespace _7._1_Class_Object
     {
         #region private Fields
         // Fields
-        private string firstName;
-        private string lastName;
+        private string _firstName;
+        private string _lastName;
         #endregion
 
         #region public Properties
@@ -24,13 +24,13 @@ namespace _7._1_Class_Object
         /// </summary>
         public string FirstName
         {
-            get { return firstName; }
-            set { firstName = value; }
+            get { return _firstName; }
+            set { _firstName = value; }
         }
         public string LastName
         {
-            get { return lastName; }
-            set { lastName = value; }
+            get { return _lastName; }
+            set { _lastName = value; }
         }
         #endregion
 
@@ -39,12 +39,12 @@ namespace _7._1_Class_Object
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="firstName">The first name of the person.</param>
-        /// <param name="lastName">The last name of the person.</param>
-        public Person(string firstName, string lastName)
+        /// <param name="_firstName">The first name of the person.</param>
+        /// <param name="_lastName">The last name of the person.</param>
+        public Person(string _firstName, string _lastName)
         {
-            FirstName = firstName;
-            LastName = lastName;
+            FirstName = _firstName;
+            LastName = _lastName;
         }
         #endregion
 
