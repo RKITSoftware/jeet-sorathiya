@@ -18,7 +18,7 @@ INSERT INTO EMP01(
 )
 VALUES
 	("Jeet", "Developer",TRUE),
-    ("Prince", "Developer",FALSE);
+    	("Prince", "Developer",FALSE);
 
 -- Select Data
 SELECT P01F01, P01F02, P01F03, P01F04
