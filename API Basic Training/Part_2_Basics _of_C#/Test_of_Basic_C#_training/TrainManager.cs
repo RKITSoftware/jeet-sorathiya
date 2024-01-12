@@ -137,7 +137,7 @@ namespace Test_of_Basic_C__training
                         string destination = data[2];
                         int distance = int.Parse(data[3]);
 
-                        Dictionary<string, int> coachConfigurations = Program.ParseCoachConfigurations(data[4]);
+                        Dictionary<string, int> coachConfigurations = TrainLogic.ParseCoachConfigurations(data[4]);
 
                         Train loadedTrain = new Train
                         {
