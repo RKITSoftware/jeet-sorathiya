@@ -25,6 +25,14 @@ namespace _12._1_Single_Inheritance
         {
             Console.WriteLine($"Hi, I'm {Name}, a {Role}.");
         }
+
+        /// <summary>
+        /// Salary of Employee
+        /// </summary>
+        public void salary()
+        {
+            Console.WriteLine("Salary of Employee");
+        }
         #endregion
     }
     #endregion
@@ -49,6 +57,14 @@ namespace _12._1_Single_Inheritance
         public void DisplayTeamSize()
         {
             Console.WriteLine($"I have {TeamSize} members in my Team");
+        }
+
+        /// <summary>
+        /// Salary of TeamLead
+        /// </summary>
+        public new void salary()
+        {
+            Console.WriteLine("Salary of TeamLead");
         }
         #endregion
     }
@@ -87,10 +103,11 @@ namespace _12._1_Single_Inheritance
     {
         #region main method
         /// <summary>
-        /// main method.
+        /// main method
         /// </summary>
         static void Main()
         {
+            // create object of teamlead
             TeamLead objofTeamLead = new TeamLead
             {
                 Name = "Jeet",
@@ -110,6 +127,12 @@ namespace _12._1_Single_Inheritance
 
             objofTrainee.Introduce();
             objofTrainee.DisplayTrainingProgram();
+
+            Employee objofEmployee = new Employee();
+            objofEmployee.salary();
+            objofTeamLead.salary();
+            Employee objofEmployee2 = new TeamLead();
+            objofEmployee2.salary();
         }
         #endregion
     }
