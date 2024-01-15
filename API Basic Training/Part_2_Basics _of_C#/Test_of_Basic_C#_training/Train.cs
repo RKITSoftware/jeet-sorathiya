@@ -132,7 +132,8 @@ namespace Test_of_Basic_C__training
                 if (fare > 0 && CheckAvailability(availableSeats, coachType, totalPassengers))
                 {
                     BookTickets(selectedTrain, coachType, totalPassengers);
-                    Console.WriteLine($"PNR: {pnrCounter++}, Fare: {fare}");
+                    DateTime currantDT = DateTime.Now;
+                    Console.WriteLine($"PNR: {pnrCounter++}, Fare: {fare}, Time: {currantDT}");
                 }
                 else
                 {
