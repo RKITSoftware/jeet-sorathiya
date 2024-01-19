@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CORS Test</title>
+</head>
+<body>
+
+<script>
+    // Replace the URL with your Web API endpoint
+    const apiUrl = 'http://localhost:61943/api/Cors';
+    const apiUrl2 = 'http://localhost:61943/api/Cors/1';
+
+    // Make an asynchronous GET request using fetch and async/await
+    async function fetchAllData() {
+        try {
+            const response = await fetch(apiUrl);
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
+    async function fetchById() {
+        try {
+            const response = await fetch(apiUrl2);
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+    // Call the async function
+    fetchAllData();
+    fetchById();
+</script>
+
+</body>
+</html>
