@@ -1,0 +1,8 @@
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Debugging in Visual Studio\Debugging\bin\Debug\Debugging.exe.config
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Debugging in Visual Studio\Debugging\bin\Debug\Debugging.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Debugging in Visual Studio\Debugging\bin\Debug\Debugging.pdb
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Debugging in Visual Studio\Debugging\obj\Debug\Debugging.csproj.AssemblyReference.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Debugging in Visual Studio\Debugging\obj\Debug\Debugging.csproj.SuggestedBindingRedirects.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Debugging in Visual Studio\Debugging\obj\Debug\Debugging.csproj.CoreCompileInputs.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Debugging in Visual Studio\Debugging\obj\Debug\Debugging.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\Debugging in Visual Studio\Debugging\obj\Debug\Debugging.pdb
