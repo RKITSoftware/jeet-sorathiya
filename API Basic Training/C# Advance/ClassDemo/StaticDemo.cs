@@ -1,7 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Abstract
+namespace ClassDemo
 {
+    #region Staic API Class
     /// <summary>
     /// Static class representing an API with training-related functionalities.
     /// </summary>
@@ -15,6 +20,7 @@ namespace Abstract
         // Cannot create any non-static variable here
         // int Code = 1;
 
+        #region static method
         /// <summary>
         /// Static constructor for the API class.
         /// </summary>
@@ -36,9 +42,12 @@ namespace Abstract
         // {
         //     Console.WriteLine("Db Training Start");
         // }
+        #endregion
 
     }
+    #endregion
 
+    #region GUI
     /// <summary>
     /// Class representing a GUI with training-related functionalities.
     /// </summary>
@@ -54,6 +63,7 @@ namespace Abstract
         /// </summary>
         static int Code = 1;
 
+        #region method
         /// <summary>
         /// Constructor for the GUI class.
         /// </summary>
@@ -77,10 +87,14 @@ namespace Abstract
         {
             Console.WriteLine("JS Training Done");
         }
+        #endregion
     }
-    internal class Program
+    #endregion
+
+    #region StaticClassTest
+    public class StaticDemo
     {
-        static void Main(string[] args)
+        static void StaticClassTest(string[] args)
         {
             // Cannot create an object of a static class
             // API objofAPI = new API();
@@ -94,4 +108,5 @@ namespace Abstract
 
         }
     }
+    #endregion
 }
