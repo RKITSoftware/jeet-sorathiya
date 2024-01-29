@@ -1,0 +1,8 @@
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Generic\obj\Debug\Generic.csproj.AssemblyReference.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Generic\obj\Debug\Generic.csproj.SuggestedBindingRedirects.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Generic\obj\Debug\Generic.csproj.CoreCompileInputs.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Generic\bin\Debug\Generic.exe.config
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Generic\bin\Debug\Generic.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Generic\bin\Debug\Generic.pdb
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Generic\obj\Debug\Generic.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Generic\obj\Debug\Generic.pdb
