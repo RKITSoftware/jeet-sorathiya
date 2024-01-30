@@ -1,0 +1,8 @@
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\LambdaExpression\bin\Debug\LambdaExpression.exe.config
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\LambdaExpression\bin\Debug\LambdaExpression.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\LambdaExpression\bin\Debug\LambdaExpression.pdb
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\LambdaExpression\obj\Debug\LambdaExpression.csproj.AssemblyReference.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\LambdaExpression\obj\Debug\LambdaExpression.csproj.SuggestedBindingRedirects.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\LambdaExpression\obj\Debug\LambdaExpression.csproj.CoreCompileInputs.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\LambdaExpression\obj\Debug\LambdaExpression.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\LambdaExpression\obj\Debug\LambdaExpression.pdb
