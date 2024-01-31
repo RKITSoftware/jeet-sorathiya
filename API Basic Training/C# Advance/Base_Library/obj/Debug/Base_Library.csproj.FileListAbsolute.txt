@@ -1,0 +1,8 @@
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Base_Library\bin\Debug\Base_Library.exe.config
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Base_Library\bin\Debug\Base_Library.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Base_Library\bin\Debug\Base_Library.pdb
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Base_Library\obj\Debug\Base_Library.csproj.AssemblyReference.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Base_Library\obj\Debug\Base_Library.csproj.SuggestedBindingRedirects.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Base_Library\obj\Debug\Base_Library.csproj.CoreCompileInputs.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Base_Library\obj\Debug\Base_Library.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Base_Library\obj\Debug\Base_Library.pdb
