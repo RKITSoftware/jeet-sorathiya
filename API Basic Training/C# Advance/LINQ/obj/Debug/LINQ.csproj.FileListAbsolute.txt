@@ -1,0 +1,8 @@
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\LINQ\bin\Debug\LINQ.exe.config
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\LINQ\bin\Debug\LINQ.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\LINQ\bin\Debug\LINQ.pdb
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\LINQ\obj\Debug\LINQ.csproj.AssemblyReference.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\LINQ\obj\Debug\LINQ.csproj.SuggestedBindingRedirects.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\LINQ\obj\Debug\LINQ.csproj.CoreCompileInputs.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\LINQ\obj\Debug\LINQ.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\LINQ\obj\Debug\LINQ.pdb
