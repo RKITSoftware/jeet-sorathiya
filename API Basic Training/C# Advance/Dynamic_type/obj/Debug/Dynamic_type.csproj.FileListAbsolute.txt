@@ -1,0 +1,8 @@
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Dynamic_type\bin\Debug\Dynamic_type.exe.config
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Dynamic_type\bin\Debug\Dynamic_type.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Dynamic_type\bin\Debug\Dynamic_type.pdb
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Dynamic_type\obj\Debug\Dynamic_type.csproj.AssemblyReference.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Dynamic_type\obj\Debug\Dynamic_type.csproj.SuggestedBindingRedirects.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Dynamic_type\obj\Debug\Dynamic_type.csproj.CoreCompileInputs.cache
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Dynamic_type\obj\Debug\Dynamic_type.exe
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Dynamic_type\obj\Debug\Dynamic_type.pdb
