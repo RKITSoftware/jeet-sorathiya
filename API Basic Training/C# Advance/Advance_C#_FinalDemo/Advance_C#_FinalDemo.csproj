@@ -164,6 +164,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="BL\BLCategory.cs" />
     <Compile Include="BL\BLDirector.cs" />
+    <Compile Include="BL\LoggingExceptionFilterAttribute.cs" />
     <Compile Include="BL\BLMovies.cs" />
     <Compile Include="Controllers\CLCategoryController.cs" />
     <Compile Include="Controllers\CLDirectorController.cs" />

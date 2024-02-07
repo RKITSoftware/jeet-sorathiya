@@ -11,11 +11,17 @@ using System.Web.Http;
 
 namespace Advance_C__FinalDemo.Controllers
 {
+    /// <summary>
+    /// API Controller for managing director-related operations
+    /// </summary>
     [RoutePrefix("api/Director")]
     public class CLDirectorController : ApiController
     {
         private BLDirector _director;
 
+        /// <summary>
+        /// Gets all directors and returns them as JSON
+        /// </summary>
         [HttpGet]
         [Route("Director")]
         public HttpResponseMessage GetAllCategory()
@@ -35,6 +41,9 @@ namespace Advance_C__FinalDemo.Controllers
             return response;
         }
 
+        /// <summary>
+        /// Adds a new director
+        /// </summary>
         [HttpPost]
         [Route("AddNewDirector")]
         public HttpResponseMessage AddDirector(DIR01 newDirector)
@@ -43,11 +52,16 @@ namespace Advance_C__FinalDemo.Controllers
             bool response = _director.Add(newDirector);
             if (response)
             {
+                // If the director is successfully added, return HTTP OK status
                 return new HttpResponseMessage(HttpStatusCode.OK);
             }
+            // If there is an internal server error during director addition, return HTTP InternalServerError status
             return new HttpResponseMessage(HttpStatusCode.InternalServerError);
         }
 
+        /// <summary>
+        /// Updates an existing director by ID
+        /// </summary>
         [HttpPut]
         [Route("UpdateDirector")]
         public HttpResponseMessage UpdateCategory(int id, DIR01 newDirector)
@@ -56,11 +70,16 @@ namespace Advance_C__FinalDemo.Controllers
             bool response = _director.Update(id, newDirector);
             if (response)
             {
+                // If the director is successfully updated, return HTTP OK status
                 return new HttpResponseMessage(HttpStatusCode.OK);
             }
+            // If there is an internal server error during director update, return HTTP InternalServerError status
             return new HttpResponseMessage(HttpStatusCode.InternalServerError);
         }
 
+        /// <summary>
+        /// Deletes a director by ID
+        /// </summary>
         [HttpDelete]
         [Route("DeleteDirector")]
         public HttpResponseMessage DeleteDirector(int id)
@@ -69,8 +88,10 @@ namespace Advance_C__FinalDemo.Controllers
             bool response = _director.Delete(id);
             if (response)
             {
+                // If the director is successfully deleted, return HTTP OK status
                 return new HttpResponseMessage(HttpStatusCode.OK);
             }
+            // If there is an internal server error during director deletion, return HTTP InternalServerError status
             return new HttpResponseMessage(HttpStatusCode.InternalServerError);
         }
     }

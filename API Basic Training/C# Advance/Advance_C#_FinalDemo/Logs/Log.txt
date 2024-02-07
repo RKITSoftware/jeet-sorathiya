@@ -1,0 +1,44 @@
+Exception Id: bcb7a4c9-b643-4403-8227-a44bbd66a44b
+Timestamp: 07-02-2024 11:14:37
+Exception Type: System.Exception
+Exception Message: IDbConnectionFactory not found
+Stack Trace:    at Advance_C__FinalDemo.BL.BLMovies..ctor() in F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Advance_C#_FinalDemo\BL\BLMovies.cs:line 27
+   at Advance_C__FinalDemo.Controllers.CLMoviesController.Movies() in F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Advance_C#_FinalDemo\Controllers\CLMoviesController.cs:line 21
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass6_2.<GetExecutor>b__2(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__6.MoveNext()
+
+Exception Id: 7918827d-18d0-45b3-9304-250d92b92b03
+Timestamp: 07-02-2024 11:18:56
+Exception Type: System.Exception
+Exception Message: Cannot add or update a child row: a foreign key constraint fails (`moviehub_jeet`.`mov01`, CONSTRAINT `CAT ID` FOREIGN KEY (`V01F04`) REFERENCES `cat01` (`T01F01`))
+Stack Trace:    at Advance_C__FinalDemo.BL.BLMovies.Add(MOV01 newMovie) in F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Advance_C#_FinalDemo\BL\BLMovies.cs:line 49
+   at Advance_C__FinalDemo.Controllers.CLMoviesController.AddNewMovie(MOV01 newMovie) in F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Advance_C#_FinalDemo\Controllers\CLMoviesController.cs:line 32
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass6_2.<GetExecutor>b__2(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__6.MoveNext()
+

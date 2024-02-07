@@ -9,6 +9,7 @@ namespace Advance_C__FinalDemo
     {
         public static void Register(HttpConfiguration config)
         {
+            config.Filters.Add(new Advance_C__FinalDemo.BL.LoggingExceptionFilterAttribute());
             // Web API configuration and services
 
             // Web API routes

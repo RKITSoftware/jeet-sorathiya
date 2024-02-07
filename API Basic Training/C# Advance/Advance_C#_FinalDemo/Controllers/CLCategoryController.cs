@@ -8,11 +8,17 @@ using System.Web.Http;
 
 namespace Advance_C__FinalDemo.Controllers
 {
+    /// <summary>
+    /// API Controller for managing category-related operations
+    /// </summary>
     [RoutePrefix("api/Category")]
     public class CLCategoryController : ApiController
     {
         private BLCategory _category;
-       
+
+        /// <summary>
+        /// Gets all categories and returns them as JSON
+        /// </summary>
         [HttpGet]
         [Route("Category")]
         public HttpResponseMessage GetAllCategory()
@@ -32,6 +38,9 @@ namespace Advance_C__FinalDemo.Controllers
             return response;
         }
 
+        /// <summary>
+        /// Adds a new category
+        /// </summary>
         [HttpPost]
         [Route("AddNewCategory")]
         public HttpResponseMessage AddCategory(CAT01 newCategory)
@@ -40,11 +49,16 @@ namespace Advance_C__FinalDemo.Controllers
             bool response = _category.Add(newCategory);
             if (response)
             {
+                // If the category is successfully added, return HTTP OK status
                 return new HttpResponseMessage(HttpStatusCode.OK);
             }
+            // If there is an internal server error during category addition, return HTTP InternalServerError status
             return new HttpResponseMessage(HttpStatusCode.InternalServerError);
         }
 
+        /// <summary>
+        /// Updates an existing category by ID
+        /// </summary>
         [HttpPut]
         [Route("UpdateCategory")]
         public HttpResponseMessage UpdateCategory(int id, CAT01 newCategory)
@@ -53,11 +67,16 @@ namespace Advance_C__FinalDemo.Controllers
             bool response = _category.Update(id, newCategory);
             if (response)
             {
+                // If the category is successfully updated, return HTTP OK status
                 return new HttpResponseMessage(HttpStatusCode.OK);
             }
+            // If there is an internal server error during category update, return HTTP InternalServerError status
             return new HttpResponseMessage(HttpStatusCode.InternalServerError);
         }
 
+        /// <summary>
+        /// Deletes a category by ID
+        /// </summary>
         [HttpDelete]
         [Route("DeleteCategory")]
         public HttpResponseMessage DeleteCategory(int id)
@@ -66,8 +85,10 @@ namespace Advance_C__FinalDemo.Controllers
             bool response = _category.Delete(id);
             if (response)
             {
+                // If the category is successfully deleted, return HTTP OK status
                 return new HttpResponseMessage(HttpStatusCode.OK);
             }
+            // If there is an internal server error during category deletion, return HTTP InternalServerError status
             return new HttpResponseMessage(HttpStatusCode.InternalServerError);
         }
 
