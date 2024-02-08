@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Advance_C__FinalDemo.BL;
+using Advance_C__FinalDemo.Models;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Advance_C__FinalDemo.BL;
-using Advance_C__FinalDemo.Models;
 
 namespace Advance_C__FinalDemo.Controllers
 {
@@ -22,10 +19,10 @@ namespace Advance_C__FinalDemo.Controllers
         /// </summary>
         [HttpGet]
         [Route("Movies")]
-        public IHttpActionResult Movies()
+        public HttpResponseMessage Movies()
         {
             _bLMovies = new BLMovies();
-            return Ok(_bLMovies.GetAll());
+            return _bLMovies.GetAll();
         }
 
         /// <summary>

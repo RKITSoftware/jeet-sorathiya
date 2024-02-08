@@ -6,7 +6,7 @@ using System.Data;
 namespace Advance_C__FinalDemo.BL
 {
     /// <summary>
-    /// Business logic class for managing CRUD operations on the DIR01 table.
+    /// Business logic class for managing CRUD operations on the DIR01 table
     /// </summary>
     public class BLDirector
     {
@@ -14,7 +14,7 @@ namespace Advance_C__FinalDemo.BL
         private readonly string _connectionString = "Server=127.0.0.1;Database=moviehub_jeet;User ID=Admin;Password=gs@123;";
 
         /// <summary>
-        /// Retrieves all directors from the DIR01 table.
+        /// Retrieves all directors from the DIR01 table
         /// </summary>
         /// <returns>DataTable containing all directors</returns>
         public DataTable GetAll()

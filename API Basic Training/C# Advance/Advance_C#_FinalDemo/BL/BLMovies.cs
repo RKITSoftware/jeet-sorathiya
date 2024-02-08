@@ -1,8 +1,13 @@
 ﻿using Advance_C__FinalDemo.Models;
+using Newtonsoft.Json;
 using ServiceStack.Data;
 using ServiceStack.OrmLite;
+using ServiceStack.OrmLite.Legacy;
 using System;
-using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Web;
 
 namespace Advance_C__FinalDemo.BL
@@ -30,18 +35,44 @@ namespace Advance_C__FinalDemo.BL
         }
 
         /// <summary>
-        /// Retrieves all movies from the MOV01 table.
+        /// Retrieves movies along with their category and director information.
         /// </summary>
-        /// <returns>List of MOV01 objects representing all movies</returns>
-        public List<MOV01> GetAll()
+        /// <returns>HttpResponseMessage containing the JSON representation of the retrieved movies.</returns>
+
+        public HttpResponseMessage GetAll()
         {
             try
             {
                 using (var db = _dbFactory.OpenDbConnection())
                 {
-                    // Execute SQL command to select all movies from the MOV01 table
-                    List<MOV01> movies = db.Select<MOV01>();
-                    return movies;
+                    //List<MOV01> movies = db.Select<MOV01>();
+                    // Define SQL query to join MOV01, CAT01, and DIR01 tables
+                    var joinSQL = db.From<MOV01>()
+                                    .Join<CAT01>((m, c) => m.V01F04 == c.T01F01)
+                                    .Join<DIR01>((m, d) => m.V01F05 == d.R01F01);
+
+                    // Execute the multi-table join query and project the result into an anonymous type
+                    var result = db.SelectMulti<MOV01, CAT01, DIR01>(joinSQL)
+                                    .Select(r => new
+                                    {
+                                        MovieID = r.Item1.V01F01,
+                                        MovieName = r.Item1.V01F02,
+                                        MovieDate = r.Item1.V01F03,
+                                        CategoryName = r.Item2.T01F02,
+                                        DirectorName = r.Item3.R01F02
+                                    }).ToList();
+
+                    // Serialize the result to JSON format
+                    string jsonData = JsonConvert.SerializeObject(result, Formatting.Indented);
+                    // Create a new HTTP response message with OK status
+                    HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK);
+
+                    // Set the response content to the serialized JSON data
+                    response.Content = new StringContent(jsonData);
+                    response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+                    // Return the HTTP response message
+                    return response;
                 }
             }
             catch (Exception ex)

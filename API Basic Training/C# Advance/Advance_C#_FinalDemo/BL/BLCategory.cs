@@ -14,7 +14,7 @@ namespace Advance_C__FinalDemo.BL
         private readonly string _connectionString = "Server=127.0.0.1;Database=moviehub_jeet;User ID=Admin;Password=gs@123;";
 
         /// <summary>
-        /// Retrieves all categories from the CAT01 table.
+        /// Retrieves all categories from the CAT01 table
         /// </summary>
         /// <returns>DataTable containing all categories</returns>
         public DataTable GetAll()
@@ -39,7 +39,7 @@ namespace Advance_C__FinalDemo.BL
         }
 
         /// <summary>
-        /// Adds a new category to the CAT01 table.
+        /// Adds a new category to the CAT01 table
         /// </summary>
         /// <param name="objofCategory">CAT01 object representing the category to be added</param>
         /// <returns>Boolean indicating the success or failure of the operation</returns>
@@ -70,7 +70,7 @@ namespace Advance_C__FinalDemo.BL
         }
 
         /// <summary>
-        /// Updates an existing category in the CAT01 table.
+        /// Updates an existing category in the CAT01 table
         /// </summary>
         /// <param name="id">Category ID</param>
         /// <param name="objofCategory">CAT01 object representing the updated category data</param>
@@ -105,7 +105,7 @@ namespace Advance_C__FinalDemo.BL
         }
 
         /// <summary>
-        /// Deletes a category from the CAT01 table by ID.
+        /// Deletes a category from the CAT01 table by ID
         /// </summary>
         /// <param name="id">Category ID to be deleted</param>
         /// <returns>Boolean indicating the success or failure of the operation</returns>
