@@ -43,15 +43,15 @@ namespace Test_of_Basic_C__training
     /// <summary>
     /// this class have all method to performe opration
     /// </summary>
-    class TrainLogic
+    public class TrainLogic
     {
-        static ITrainManager trainManager = new TrainManager();
+        ITrainManager trainManager = new TrainManager();
         static int pnrCounter = 1000000001; // Counter for generating PNR numbers
         #region Methods
         /// <summary>
         /// Searches for trains based on source and destination cities.
         /// </summary>
-        public static void SearchTrain()
+        public  void SearchTrain()
         {
             Console.Write("Enter source city: ");
             string source = Console.ReadLine();
@@ -75,7 +75,7 @@ namespace Test_of_Basic_C__training
         /// <summary>
         /// Adds a new train to the system with details.
         /// </summary>
-        public static void AddNewTrain()
+        public  void AddNewTrain()
         {
             Console.Write("Enter Train Number: ");
             int trainNumber = int.Parse(Console.ReadLine());
@@ -109,7 +109,7 @@ namespace Test_of_Basic_C__training
         /// <summary>
         /// Books tickets for a selected train based on user input.
         /// </summary>
-        public static void BookTrain()
+        public  void BookTrain()
         {
             Console.Write("Enter Train Number to book: ");
             int trainNumber = int.Parse(Console.ReadLine());
@@ -151,12 +151,12 @@ namespace Test_of_Basic_C__training
         /// </summary>
         /// <param name="input">Input string containing coach configurations.</param>
         /// <returns>A dictionary representing coach configurations.</returns>
-        public static Dictionary<string, int> ParseCoachConfigurations(string input)
+        public  Dictionary<string, int> ParseCoachConfigurations(string input)
         {
             Dictionary<string, int> configurations = new Dictionary<string, int>();
 
             string[] parts = input.Split(',');
-            foreach (var part in parts)
+            foreach (string part in parts)
             {
                 string[] coachInfo = part.Split('-');
                 if (coachInfo.Length == 2)
@@ -182,7 +182,7 @@ namespace Test_of_Basic_C__training
         /// <param name="distance">Distance of the journey.</param>
         /// <param name="totalPassengers">Number of passengers to book for.</param>
         /// <returns>The calculated fare or -1 if invalid coach type.</returns>
-        static int CalculateFare(string coachType, int distance, int totalPassengers)
+         int CalculateFare(string coachType, int distance, int totalPassengers)
         {
             int farePerKM = -1;
 
@@ -214,7 +214,7 @@ namespace Test_of_Basic_C__training
         /// <param name="coachType">Type of the coach (e.g., SL, 3A, 2A, 1A).</param>
         /// <param name="totalPassengers">Number of passengers to book for.</param>
         /// <returns>True if seats are available, false otherwise.</returns>
-        static bool CheckAvailability(Dictionary<string, int> availableSeats, string coachType, int totalPassengers)
+         bool CheckAvailability(Dictionary<string, int> availableSeats, string coachType, int totalPassengers)
         {
             if (availableSeats != null && availableSeats.ContainsKey(coachType))
             {
@@ -231,13 +231,13 @@ namespace Test_of_Basic_C__training
         /// <param name="train">Selected train.</param>
         /// <param name="coachType">Type of the coach (e.g., SL, 3A, 2A, 1A).</param>
         /// <param name="totalPassengers">Number of passengers to book for.</param>
-        static void BookTickets(Train train, string coachType, int totalPassengers)
+         void BookTickets(Train train, string coachType, int totalPassengers)
         {
-            foreach (var seats in train.CoachConfigurations)
+            foreach (string seats in train.CoachConfigurations.Keys)
             {
-                if (seats.Key == coachType)
+                if (seats == coachType)
                 {
-                    train.CoachConfigurations[seats.Key] -= totalPassengers;
+                    train.CoachConfigurations[seats] -= totalPassengers;
                     return;
                 }
             }

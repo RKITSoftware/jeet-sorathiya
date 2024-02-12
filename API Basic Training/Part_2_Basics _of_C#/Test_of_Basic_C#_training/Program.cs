@@ -9,13 +9,16 @@ namespace Test_of_Basic_C__training
     /// </summary>
     class Program : Train
     {
-        static ITrainManager trainManager = new TrainManager();
+        
+      
         #region Main Method
         /// <summary>
         /// Displays a menu and allows users to interact with the Train Management System.
         /// </summary>
         static void Main()
         {
+            ITrainManager trainManager = new TrainManager();
+            TrainLogic objTrainLogic = new TrainLogic();
             Console.WriteLine("Welcome to the Train Management System!");
 
             while (true)
@@ -30,16 +33,16 @@ namespace Test_of_Basic_C__training
                         trainManager.DisplayTrains();
                         break;
                     case 2:
-                        TrainLogic.SearchTrain();
+                        objTrainLogic.SearchTrain();
                         break;
                     case 3:
-                        TrainLogic.AddNewTrain();
+                        objTrainLogic.AddNewTrain();
                         break;
                     case 4:
-                        TrainLogic.BookTrain();
+                        objTrainLogic.BookTrain();
                         break;
                     case 5:
-                        Console.WriteLine("Exiting the program. Goodbye!");
+                        Console.WriteLine("Exit");
                         return;
                     default:
                         Console.WriteLine("Invalid choice. Try again.");

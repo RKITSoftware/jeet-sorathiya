@@ -9,11 +9,32 @@ namespace Test_of_Basic_C__training
     /// <summary>
     /// Interface for managing trains.
     /// </summary>
-    interface ITrainManager
+    interface ITrainManager 
     {
+        /// <summary>
+        /// Adds a new train to the system.
+        /// </summary>
+        /// <param name="train">The train object to be added.</param>
         void AddTrain(Train train);
+
+        /// <summary>
+        /// Displays information about all trains in the system.
+        /// </summary>
         void DisplayTrains();
+
+        /// <summary>
+        /// Searches for trains based on source and destination.
+        /// </summary>
+        /// <param name="source">The source station.</param>
+        /// <param name="destination">The destination station.</param>
+        /// <returns>A list of trains matching the search criteria.</returns>
         List<Train> SearchTrain(string source, string destination);
+
+        /// <summary>
+        /// Retrieves a train based on its unique number.
+        /// </summary>
+        /// <param name="trainNumber">The unique number of the train.</param>
+        /// <returns>The train object corresponding to the given number.</returns>
         Train GetTrainByNumber(int trainNumber);
     }
     #endregion
@@ -26,20 +47,20 @@ namespace Test_of_Basic_C__training
     class TrainManager : ITrainManager
     {
         #region private property
-        private List<Train> trains;
+        private static List<Train> _trains;
         #endregion
 
         #region private method
         /// <summary>
         /// Saves train data to a file.
         /// </summary>
-        private void SaveTrainsToFile()
+        private static void SaveTrainsToFile()
         {
             try
             {
                 using (StreamWriter writer = new StreamWriter("TrainData.txt"))
                 {
-                    foreach (var train in trains)
+                    foreach (Train train in _trains)
                     {
                         string coachConfigurations = string.Join(",", train.CoachConfigurations.Select(kv => $"{kv.Key}-{kv.Value}"));
                         writer.WriteLine($"{train.TrainNumber};{train.Source};{train.Destination};{train.Distance};{coachConfigurations}");
@@ -59,9 +80,9 @@ namespace Test_of_Basic_C__training
         /// <summary>
         /// Constructor to initialize the TrainManager and load trains from a file.
         /// </summary>
-        public TrainManager()
+        static TrainManager()
         {
-            trains = new List<Train>();
+            _trains = new List<Train>();
             LoadTrainsFromFile(); // Load trains from file on initialization
         }
 
@@ -71,7 +92,7 @@ namespace Test_of_Basic_C__training
         /// <param name="train">Train object to be added.</param>
         public void AddTrain(Train train)
         {
-            trains.Add(train);
+            _trains.Add(train);
             SaveTrainsToFile();
         }
 
@@ -80,9 +101,9 @@ namespace Test_of_Basic_C__training
         /// </summary>
         public void DisplayTrains()
         {
-            if (trains.Count > 0)
+            if (_trains.Count > 0)
             {
-                foreach (var train in trains)
+                foreach (Train train in _trains)
                 {
                     Console.WriteLine($"Train {train.TrainNumber}: {train.Source} to {train.Destination}");
                 }
@@ -103,7 +124,7 @@ namespace Test_of_Basic_C__training
 
         public List<Train> SearchTrain(string source, string destination)
         {
-            return (trains.FindAll(train => train.Source.ToLower() == source.ToLower() && train.Destination.ToLower() == destination.ToLower()));
+            return (_trains.FindAll(train => train.Source.ToLower() == source.ToLower() && train.Destination.ToLower() == destination.ToLower()));
         }
 
         /// <summary>
@@ -113,20 +134,20 @@ namespace Test_of_Basic_C__training
         /// <returns>The train object with the specified train number.</returns>
         public Train GetTrainByNumber(int trainNumber)
         {
-            return trains.Find(train => train.TrainNumber == trainNumber);
+            return _trains.Find(train => train.TrainNumber == trainNumber);
         }
 
 
         /// <summary>
         /// Loads train data from a file.
         /// </summary>
-        private void LoadTrainsFromFile()
+        private static void LoadTrainsFromFile()
         {
             try
             {
                 string[] lines = File.ReadAllLines("TrainData.txt");
 
-                foreach (var line in lines)
+                foreach (string line in lines)
                 {
                     string[] data = line.Split(';');
 
@@ -136,8 +157,8 @@ namespace Test_of_Basic_C__training
                         string source = data[1];
                         string destination = data[2];
                         int distance = int.Parse(data[3]);
-
-                        Dictionary<string, int> coachConfigurations = TrainLogic.ParseCoachConfigurations(data[4]);
+                        TrainLogic objTrainLogic = new TrainLogic();
+                        Dictionary<string, int> coachConfigurations = objTrainLogic.ParseCoachConfigurations(data[4]);
 
                         Train loadedTrain = new Train
                         {
@@ -148,7 +169,7 @@ namespace Test_of_Basic_C__training
                             CoachConfigurations = coachConfigurations
                         };
 
-                        trains.Add(loadedTrain);
+                        _trains.Add(loadedTrain);
                     }
                 }
 
