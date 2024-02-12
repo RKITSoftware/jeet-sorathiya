@@ -3,6 +3,9 @@ using System.IO;
 
 namespace _22_File_Opration
 {
+    /// <summary>
+    /// file operations in C#.
+    /// </summary>
     internal class Program
     {
         static void Main()
@@ -26,6 +29,11 @@ namespace _22_File_Opration
             DeleteFile(filePath);
         }
 
+        /// <summary>
+        /// Writes content to a file.
+        /// </summary>
+        /// <param name="filePath">The path of the file.</param>
+        /// <param name="content">The content to write to the file.</param>
         static void WriteToFile(string filePath, string content)
         {
             try
@@ -39,6 +47,10 @@ namespace _22_File_Opration
             }
         }
 
+        /// <summary>
+        /// Reads content from a file.
+        /// </summary>
+        /// <param name="filePath">The path of the file to read.</param>
         static void ReadFromFile(string filePath)
         {
             try
@@ -52,6 +64,11 @@ namespace _22_File_Opration
             }
         }
 
+        /// <summary>
+        /// Appends additional content to a file.
+        /// </summary>
+        /// <param name="filePath">The path of the file.</param>
+        /// <param name="additionalContent">The content to append to the file.</param>
         static void AppendToFile(string filePath, string additionalContent)
         {
             try
@@ -65,6 +82,10 @@ namespace _22_File_Opration
             }
         }
 
+        /// <summary>
+        /// Deletes a file.
+        /// </summary>
+        /// <param name="filePath">The path of the file to delete.</param>
         static void DeleteFile(string filePath)
         {
             try
