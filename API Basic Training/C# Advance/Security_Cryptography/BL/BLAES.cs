@@ -10,7 +10,8 @@ namespace Security_Cryptography.BL
     public class BLAES
     {
         private static AesCryptoServiceProvider _objAes = new AesCryptoServiceProvider();
-
+        private static string _generatedKey = "0123456789ABCDEF0123456789ABCDEF";
+        private static string _iv = "0123456789ABCDEF";
         /// <summary>
         /// Encrypts the input data using AES.
         /// </summary>
@@ -20,8 +21,11 @@ namespace Security_Cryptography.BL
         {
             // Convert input data to bytes
             byte[] bytes = Encoding.UTF8.GetBytes(data);
+            byte[] key = Encoding.UTF8.GetBytes(_generatedKey);
+            byte[] iv = Encoding.UTF8.GetBytes(_iv);
 
-            using (ICryptoTransform encript = _objAes.CreateEncryptor())
+
+            using (ICryptoTransform encript = _objAes.CreateEncryptor(key, iv))
             {
                 // Encrypt the bytes using AES
                 byte[] encriptedBytes = encript.TransformFinalBlock(bytes, 0, bytes.Length);
@@ -40,8 +44,10 @@ namespace Security_Cryptography.BL
         {
             // Convert Base64-encoded string to bytes
             byte[] bytes = Convert.FromBase64String(data);
+            byte[] key = Encoding.UTF8.GetBytes(_generatedKey);
+            byte[] iv = Encoding.UTF8.GetBytes(_iv);
 
-            using (ICryptoTransform decript = _objAes.CreateDecryptor())
+            using (ICryptoTransform decript = _objAes.CreateDecryptor(key, iv))
             {
                 // Decrypt the bytes using AES
                 byte[] decriptBytes = decript.TransformFinalBlock(bytes, 0, bytes.Length);

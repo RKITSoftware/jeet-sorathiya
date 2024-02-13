@@ -22,6 +22,8 @@ namespace Security_Cryptography
             Console.WriteLine($"{data} after Encrypted By RSA : {encriptData} ");
             Console.WriteLine($"{encriptData} after Decrypted By RSA : {BLRSA.DecryptByRSA(encriptData)}");
 
+            Console.WriteLine();
+
             // Rijndael key and IV for encryption and decryption
             string generatedKey = "0123456789ABCDEF0123456789ABCDEF";//BLRijndael.GenerateKey(keySizeInBits);
             string iv = "0123456789ABCDEF";
