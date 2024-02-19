@@ -1,6 +1,8 @@
 ﻿using Authentication.Models;
 using Authentication.SEC;
 using System.Collections.Generic;
+using System.Security.Principal;
+using System.Threading;
 using System.Web.Http;
 
 namespace Authentication.Controllers
@@ -25,6 +27,11 @@ namespace Authentication.Controllers
         [HttpGet]
         public IHttpActionResult Get()
         {
+            IPrincipal principal = Thread.CurrentPrincipal;
+            System.Diagnostics.Debug.WriteLine(principal.Identity.Name);
+            System.Diagnostics.Debug.WriteLine(principal.Identity.AuthenticationType);
+            System.Diagnostics.Debug.WriteLine(principal.Identity.IsAuthenticated);
+           
             return Ok(employeeList);
         }
 

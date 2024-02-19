@@ -37,7 +37,8 @@ namespace Authentication.SEC
                 if (ValidateUser.Login(username, password))
                 {
                     // Authentication successful, set the current principal
-                    Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(username), null);
+                    IIdentity identity = new GenericIdentity(username, "BASIC");
+                    Thread.CurrentPrincipal = new GenericPrincipal(identity,null);
                 }
                 else
                 {
