@@ -4,6 +4,8 @@ using ServiceStack.Data;
 using ServiceStack.OrmLite;
 using ServiceStack.OrmLite.Legacy;
 using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -33,6 +35,27 @@ namespace Advance_C__FinalDemo.BL
                 throw new Exception("IDbConnectionFactory not found");
             }
         }
+        /// <summary>
+        /// Retrieves a list of MOV01 data from the database
+        /// </summary>
+        /// <returns>A list of MOV01 objects</returns>
+        public List<MOV01> GetData()
+        {
+            try
+            {
+                using (var db = _dbFactory.OpenDbConnection())
+                {
+                    List<MOV01> movies = db.Select<MOV01>();
+                    return movies;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle and rethrow exception with additional information
+                throw new Exception($"Error retrieving MOV01 data: {ex.Message}");
+            }
+        }
+
 
         /// <summary>
         /// Retrieves movies along with their category and director information.

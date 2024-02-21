@@ -42,3 +42,25 @@ Stack Trace:    at Advance_C__FinalDemo.BL.BLMovies.Add(MOV01 newMovie) in F:\Je
    at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
    at System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__6.MoveNext()
 
+Exception Id: 91d8da74-833b-409a-9faf-b2e50c1c1d09
+Timestamp: 21-02-2024 12:20:21
+Exception Type: System.Exception
+Exception Message: The best overloaded method match for 'OfficeOpenXml.ExcelRangeBase.LoadFromArrays(System.Collections.Generic.IEnumerable<object[]>)' has some invalid arguments
+Stack Trace:    at Advance_C__FinalDemo.BL.BLData.Backup() in F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Advance_C#_FinalDemo\BL\BLData.cs:line 63
+   at Advance_C__FinalDemo.Controllers.CLAdminController.BackupData() in F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Advance_C#_FinalDemo\Controllers\CLAdminController.cs:line 19
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass6_2.<GetExecutor>b__2(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__6.MoveNext()
+

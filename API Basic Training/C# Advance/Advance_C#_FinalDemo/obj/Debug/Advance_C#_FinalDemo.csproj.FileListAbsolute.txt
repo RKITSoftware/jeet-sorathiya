@@ -108,3 +108,10 @@ F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Advance_C#_F
 F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Advance_C#_FinalDemo\obj\Debug\Advance_C#_FinalDemo.csproj.CopyComplete
 F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Advance_C#_FinalDemo\obj\Debug\Advance_C#_FinalDemo.dll
 F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Advance_C#_FinalDemo\obj\Debug\Advance_C#_FinalDemo.pdb
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Advance_C#_FinalDemo\bin\EPPlus.dll
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Advance_C#_FinalDemo\bin\EPPlus.Interfaces.dll
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Advance_C#_FinalDemo\bin\EPPlus.System.Drawing.dll
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Advance_C#_FinalDemo\bin\Microsoft.IO.RecyclableMemoryStream.dll
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Advance_C#_FinalDemo\bin\System.ComponentModel.Annotations.dll
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Advance_C#_FinalDemo\bin\EPPlus.xml
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\Advance_C#_FinalDemo\bin\Microsoft.IO.RecyclableMemoryStream.xml
