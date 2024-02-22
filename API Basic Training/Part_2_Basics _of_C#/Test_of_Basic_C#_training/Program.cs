@@ -9,8 +9,6 @@ namespace Test_of_Basic_C__training
     /// </summary>
     class Program : Train
     {
-        
-      
         #region Main Method
         /// <summary>
         /// Displays a menu and allows users to interact with the Train Management System.
@@ -52,7 +50,6 @@ namespace Test_of_Basic_C__training
         }
 
         #endregion
-
 
     }
     #endregion

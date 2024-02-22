@@ -9,7 +9,7 @@ namespace Test_of_Basic_C__training
     /// <summary>
     /// Interface for managing trains.
     /// </summary>
-    interface ITrainManager 
+    interface ITrainManager
     {
         /// <summary>
         /// Adds a new train to the system.
@@ -74,6 +74,55 @@ namespace Test_of_Basic_C__training
                 Console.WriteLine($"Error saving train data: {ex.Message}");
             }
         }
+
+        /// <summary>
+        /// Loads train data from a file.
+        /// </summary>
+        private static void LoadTrainsFromFile()
+        {
+            try
+            {
+                string[] lines = File.ReadAllLines("TrainData.txt");
+
+                foreach (string line in lines)
+                {
+                    string[] data = line.Split(';');
+
+                    if (data.Length == 5)
+                    {
+                        int trainNumber = int.Parse(data[0]);
+                        string source = data[1];
+                        string destination = data[2];
+                        int distance = int.Parse(data[3]);
+                        TrainLogic objTrainLogic = new TrainLogic();
+                        Dictionary<string, int> coachConfigurations = objTrainLogic.ParseCoachConfigurations(data[4]);
+
+                        Train loadedTrain = new Train
+                        {
+                            TrainNumber = trainNumber,
+                            Source = source,
+                            Destination = destination,
+                            Distance = distance,
+                            CoachConfigurations = coachConfigurations
+                        };
+
+                        _trains.Add(loadedTrain);
+                    }
+                }
+
+                Console.WriteLine("Train data loaded successfully.");
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("Train data file not found. Creating a new one.");
+                SaveTrainsToFile();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading train data: {ex.Message}");
+            }
+        }
+
         #endregion
 
         #region public method
@@ -138,53 +187,6 @@ namespace Test_of_Basic_C__training
         }
 
 
-        /// <summary>
-        /// Loads train data from a file.
-        /// </summary>
-        private static void LoadTrainsFromFile()
-        {
-            try
-            {
-                string[] lines = File.ReadAllLines("TrainData.txt");
-
-                foreach (string line in lines)
-                {
-                    string[] data = line.Split(';');
-
-                    if (data.Length == 5)
-                    {
-                        int trainNumber = int.Parse(data[0]);
-                        string source = data[1];
-                        string destination = data[2];
-                        int distance = int.Parse(data[3]);
-                        TrainLogic objTrainLogic = new TrainLogic();
-                        Dictionary<string, int> coachConfigurations = objTrainLogic.ParseCoachConfigurations(data[4]);
-
-                        Train loadedTrain = new Train
-                        {
-                            TrainNumber = trainNumber,
-                            Source = source,
-                            Destination = destination,
-                            Distance = distance,
-                            CoachConfigurations = coachConfigurations
-                        };
-
-                        _trains.Add(loadedTrain);
-                    }
-                }
-
-                Console.WriteLine("Train data loaded successfully.");
-            }
-            catch (FileNotFoundException)
-            {
-                Console.WriteLine("Train data file not found. Creating a new one.");
-                SaveTrainsToFile();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error loading train data: {ex.Message}");
-            }
-        }
         #endregion
     }
     #endregion

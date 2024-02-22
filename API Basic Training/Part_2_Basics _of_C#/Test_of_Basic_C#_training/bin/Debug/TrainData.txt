@@ -1,7 +1,6 @@
 1;Rajkot;Morbi;60;SL-40,3A-18,2A-50,1A-10
-20;morbi;jamnagar;90;SL-10,3A-60,2A-30,1A-50
-2;jamnagar;dwarka;60;SL-50,3A-30,2A-60,1A-63
-3;dehli;rajkot;1500;SL-50,3A-52,2A-72,1A-60
-100;rajkot;goa;500;SL-50,3A-20,2A-10,1A-10
-50;rajkot;jamnagar;100;SL-50,3A-10,2A-20,1A-10
-600;r;m;300;SL-72
+2;Morbi;Jamnagar;90;SL-10,3A-60,2A-30,1A-50
+3;Jamnagar;Dwarka;60;SL-50,3A-30,2A-60,1A-63
+4;Delhi;Rajkot;1500;SL-50,3A-52,2A-72,1A-60
+5;Rajkot;Goa;500;SL-50,3A-20,2A-10,1A-8
+6;Rajkot;Jamnagar;100;SL-50,3A-10,2A-20,1A-10
