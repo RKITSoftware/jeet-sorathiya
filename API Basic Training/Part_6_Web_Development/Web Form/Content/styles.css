@@ -1,0 +1,33 @@
+﻿.container {
+    width: 50%;
+    margin: auto;
+}
+
+table {
+    border: 1px solid #ddd;
+    width: 100%;
+    background-color: #fff;
+}
+
+td {
+    padding: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin: 4px 0;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+}
+
+    button:hover {
+        background-color: #c7edd1;
+    }
