@@ -39,9 +39,31 @@ REVOKE INSERT ON PRJ01 FROM 'username'@'localhost';
 
 -- TCL (Transaction Control Language)
 -- Commit a transaction
+-- Start a new transaction
+START TRANSACTION;
+
+-- Inserting a new project record
+INSERT INTO PRJ01 (J01F01, J01F02, J01F03, J01F04) 
+VALUES (1, 'Project A', '2024-04-01', '2024-04-30');
+
+-- Commit the transaction to make the changes permanent
 COMMIT;
--- Rollback a transaction
+
+-- Start a new transaction
+START TRANSACTION;
+
+-- Inserting another project record
+INSERT INTO PRJ01 (J01F01, J01F02, J01F03, J01F04) 
+VALUES (2, 'Project B', '2024-05-01', '2024-05-15');
+
+-- Display the current state of the PRJ01 table
+SELECT * FROM PRJ01;
+
+-- Rollback the transaction to undo the changes
 ROLLBACK;
+
+-- Display the current state of the PRJ01 table
+SELECT * FROM PRJ01;
 
 -- DQL (Data Query Language):
 -- Select Data
