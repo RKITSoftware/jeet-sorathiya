@@ -47,10 +47,11 @@ namespace CacheClass.BL
                 return employees;
             }
 
-            // If the list is not in the cache, add it to the cache with a 10-second expiration time
-            TimeSpan ts = new TimeSpan(0, 0, 10);
+            // If the list is not in the cache, add it to the cache with a 100-second expiration time
+            TimeSpan ts = new TimeSpan(0, 0, 100);
             _cache.Add("_lstEmployee", _lstEmployee, null, DateTime.MaxValue, ts, CacheItemPriority.Default, null);
 
+            _lstEmployee.Add(new Employee { Id = 11, Name = "Captain Marvel" });
             // Return the list of employees
             return _lstEmployee;
         }
