@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "Hash": "4E0BTZvf1G4YfnV8cxOSMHHrp4dAU7HdIIR7a9n/wNo=",
+  "Source": "Middleware",
+  "BasePath": "_content/Middleware",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Middleware\\wwwroot",
+      "Source": "Middleware",
+      "ContentRoot": "F:\\Jeet - 369\\Training\\jeet-sorathiya\\DotNet Core\\Middleware\\wwwroot\\",
+      "BasePath": "_content/Middleware",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "F:\\Jeet - 369\\Training\\jeet-sorathiya\\DotNet Core\\Middleware\\wwwroot\\img.png",
+      "SourceId": "Middleware",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\Jeet - 369\\Training\\jeet-sorathiya\\DotNet Core\\Middleware\\wwwroot\\",
+      "BasePath": "_content/Middleware",
+      "RelativePath": "img.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img.png"
+    }
+  ]
+}
