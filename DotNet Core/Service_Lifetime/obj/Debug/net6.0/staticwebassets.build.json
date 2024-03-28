@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "F6mtV+1UmhTdu5ojgTilMBflB1dczIpKmQgjdyxBwtY=",
+  "Source": "Service_Lifetime",
+  "BasePath": "_content/Service_Lifetime",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
