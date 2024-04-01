@@ -1,0 +1,3 @@
+2024-04-01 12:41:32.1953|Logging.Controllers.EmployeeController|INFO|User string registered successfully 
+2024-04-01 12:42:46.6492|Logging.Controllers.EmployeeController|ERROR|Error registering user string System.Exception: Id Invalid
+   at Logging.Controllers.EmployeeController.RegisterUser(Employee employee) in F:\Jeet - 369\Training\jeet-sorathiya\DotNet Core\Logging\Controllers\EmployeeController.cs:line 20
