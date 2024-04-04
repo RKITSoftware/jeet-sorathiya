@@ -64,3 +64,6 @@ F:\Jeet - 369\Training\jeet-sorathiya\DotNet Core\CPContestRegistration\obj\Debu
 F:\Jeet - 369\Training\jeet-sorathiya\DotNet Core\CPContestRegistration\obj\Debug\net6.0\CPContestRegistration.genruntimeconfig.cache
 F:\Jeet - 369\Training\jeet-sorathiya\DotNet Core\CPContestRegistration\obj\Debug\net6.0\ref\CPContestRegistration.dll
 F:\Jeet - 369\Training\jeet-sorathiya\DotNet Core\CPContestRegistration\bin\Debug\net6.0\Newtonsoft.Json.dll
+F:\Jeet - 369\Training\jeet-sorathiya\DotNet Core\CPContestRegistration\bin\Debug\net6.0\nlog.config
+F:\Jeet - 369\Training\jeet-sorathiya\DotNet Core\CPContestRegistration\bin\Debug\net6.0\NLog.dll
+F:\Jeet - 369\Training\jeet-sorathiya\DotNet Core\CPContestRegistration\bin\Debug\net6.0\NLog.Extensions.Logging.dll

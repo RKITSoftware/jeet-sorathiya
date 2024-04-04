@@ -1,5 +1,9 @@
 ﻿using CPContestRegistration.BL.Interface;
 using CPContestRegistration.BL.Service;
+using CPContestRegistration.CustomMiddleware;
+using CPContestRegistration.Filters;
+using Microsoft.OpenApi.Models;
+using NLog;
 /// <summary>
 /// Class responsible for configuring the application during startup.
 /// </summary>
@@ -16,6 +20,7 @@ public class Startup
     /// <param name="configuration">The application's configuration.</param>
     public Startup(IConfiguration configuration)
     {
+        LogManager.Setup().LoadConfigurationFromFile(string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
         Configuration = configuration;
     }
 
@@ -25,13 +30,54 @@ public class Startup
     /// <param name="services">Collection of services to be configured.</param>
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddControllers();
+        //services.AddControllers(config =>
+        //{
+        //    config.Filters.Add(typeof(HandleExceptionFilter));
+        //});
+        services.AddControllers(configure =>
+        {
+            configure.Filters.Add<ValidateModelFilter>();
+            configure.Filters.Add<HandleExceptionFilter>();
+        });
         services.AddEndpointsApiExplorer();
-        services.AddSwaggerGen();
+        // Swagger Service
+        services.AddSwaggerGen(c =>
+        {
+            // Adds basic authentication security definition to Swagger.
+            c.AddSecurityDefinition("basic", new OpenApiSecurityScheme
+            {
+                Name = "Authorization",
+                Type = SecuritySchemeType.Http,
+                Scheme = "basic",
+                In = ParameterLocation.Header,
+                Description = "Basic Authorization header"
+            });
+
+            // Adds security requirement for basic authentication to Swagger.
+            c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                         new OpenApiSecurityScheme
+                          {
+                            Reference = new OpenApiReference
+                                {
+                                    Type = ReferenceType.SecurityScheme,
+                                    Id = "basic"
+                                }
+                            },
+
+                        new string[] {}
+                    }
+                });
+        });
+
         services.AddTransient<IDatabaseService, DatabaseService>();
-        services.AddTransient<IContestManagement,  ContestManagement>();
+        services.AddTransient<IContestManagement, ContestManagement>();
         services.AddTransient<IParticipateManagement, ParticipateManagement>();
         services.AddTransient<IUserManagement, UserManagement>();
+        services.AddHttpContextAccessor();
+        services.AddScoped<RequestAuthorizationMiddleware>();
+        services.AddSingleton<ILoggerService, LoggerService>();
     }
 
     /// <summary>
@@ -50,7 +96,7 @@ public class Startup
 
         // Redirect HTTP requests to HTTPS
         app.UseHttpsRedirection();
-
+        app.UseMiddleware<RequestAuthorizationMiddleware>();
         // Authorize requests
         app.UseAuthorization();
 
