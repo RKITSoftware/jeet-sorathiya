@@ -14,7 +14,7 @@
         /// Generates a new unique employee ID.
         /// </summary>
         /// <returns>A new employee ID.</returns>
-        public static int newEmpID()
+        public static int NewEmpID()
         {
             return employeeIdCounter++;
         }
