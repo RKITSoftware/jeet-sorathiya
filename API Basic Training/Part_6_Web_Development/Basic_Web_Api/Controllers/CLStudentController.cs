@@ -7,7 +7,8 @@ namespace Basic_Web_Api.Controllers
     /// <summary>
     /// Controller for managing student information through Web API.
     /// </summary>
-    public class StudentController : ApiController
+    [RoutePrefix("api/Student")]
+    public class CLStudentController : ApiController
     {
         // Static list to store student data.
         private static List<Student> studentList = new List<Student>
@@ -20,6 +21,7 @@ namespace Basic_Web_Api.Controllers
         /// Gets the list of all students.
         /// </summary>
         [HttpGet]
+        [Route("Get")]
         public List<Student> Get()
         {
             return studentList;
@@ -29,6 +31,8 @@ namespace Basic_Web_Api.Controllers
         /// Gets a specific student by ID.
         /// </summary>
         [HttpGet]
+        [Route("GetById/{id}")]
+
         public Student Get(int id)
         {
             return studentList.Find(student => student.studentID == id);
@@ -38,6 +42,7 @@ namespace Basic_Web_Api.Controllers
         /// Adds a new student to the list.
         /// </summary>
         [HttpPost]
+        [Route("AddStudent")]
         public void Post(Student student)
         {
             studentList.Add(student);
@@ -47,6 +52,7 @@ namespace Basic_Web_Api.Controllers
         /// Deletes a student by ID.
         /// </summary>
         [HttpDelete]
+        [Route("DeleteStudent/{id}")]
         public void Delete(int id)
         {
             var deleteStudent = studentList.Find(student => student.studentID == id);
@@ -60,6 +66,7 @@ namespace Basic_Web_Api.Controllers
         /// Updates an existing student by ID.
         /// </summary>
         [HttpPut]
+        [Route("UpdateStudent/{id}")]
         public void Put(int id, Student newStudent)
         {
             var currentStudent = studentList.Find(student => student.studentID == id);

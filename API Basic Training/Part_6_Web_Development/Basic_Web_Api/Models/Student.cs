@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Basic_Web_Api.Models
+﻿namespace Basic_Web_Api.Models
 {
     /// <summary>
     /// Represents a student entity with basic information.
@@ -25,3 +20,4 @@ namespace Basic_Web_Api.Models
         /// </summary>
         public bool IsActive { get; set; }
     }
+}
