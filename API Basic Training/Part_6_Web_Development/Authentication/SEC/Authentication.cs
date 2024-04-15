@@ -34,7 +34,7 @@ namespace Authentication.SEC
                 string username = loginCredentials[0];
                 string password = loginCredentials[1];
 
-                if (ValidateUser.Login(username, password))
+                if (BLValidateUser.Login(username, password))
                 {
                     // Authentication successful, set the current principal
                     IIdentity identity = new GenericIdentity(username, "BASIC");

@@ -85,14 +85,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="BL\BLEmployee.cs" />
+    <Compile Include="Controllers\CLEmployeeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SEC\Authentication.cs" />
-    <Compile Include="ValidateUser.cs" />
+    <Compile Include="BL\BLValidateUser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

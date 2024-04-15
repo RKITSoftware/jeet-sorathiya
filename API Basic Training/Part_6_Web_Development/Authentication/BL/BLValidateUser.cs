@@ -3,7 +3,7 @@
     /// <summary>
     /// Provides methods for user authentication.
     /// </summary>
-    public class ValidateUser
+    public class BLValidateUser
     {
         /// <summary>
         /// Validates the user's login credentials.

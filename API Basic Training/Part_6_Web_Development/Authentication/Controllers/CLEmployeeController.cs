@@ -1,6 +1,5 @@
-﻿using Authentication.Models;
+﻿using Authentication.BL;
 using Authentication.SEC;
-using System.Collections.Generic;
 using System.Security.Principal;
 using System.Threading;
 using System.Web.Http;
@@ -10,14 +9,18 @@ namespace Authentication.Controllers
     /// <summary>
     /// Controller for managing employee data.
     /// </summary>
-    public class EmployeeController : ApiController
+    [RoutePrefix("api/Employee")]
+    public class CLEmployeeController : ApiController
     {
-        // Sample data - a list of employees
-        public static List<Employee> employeeList = new List<Employee>
+        BLEmployee _blEmployee;
+
+        /// <summary>
+        ///  Initializes a new instance of the BLEmployee class.
+        /// </summary>
+        public CLEmployeeController()
         {
-            new Employee { EmployeeID = 1, EmployeeName = "Jeet", EmployeeDesignation = "TeamLead", IsActive = true },
-            // Add more employees if needed
-        };
+            _blEmployee = new BLEmployee();
+        }
 
         /// <summary>
         /// Retrieves a list of all employees.
@@ -25,34 +28,27 @@ namespace Authentication.Controllers
         /// </summary>
         [Authentication]
         [HttpGet]
+        [Route("Get")]
         public IHttpActionResult Get()
         {
             IPrincipal principal = Thread.CurrentPrincipal;
             System.Diagnostics.Debug.WriteLine(principal.Identity.Name);
             System.Diagnostics.Debug.WriteLine(principal.Identity.AuthenticationType);
             System.Diagnostics.Debug.WriteLine(principal.Identity.IsAuthenticated);
-           
-            return Ok(employeeList);
+
+            return Ok(_blEmployee.GetAll());
         }
 
         /// <summary>
         /// Retrieves an employee by ID.
-        /// Requires authentication.
         /// </summary>
         /// <param name="id">The ID of the employee to retrieve.</param>
-        /// <returns>The requested employee or NotFound if not found.</returns>
+        /// <returns>The requested employee.</returns>
         [HttpGet]
+        [Route("GetById/{id}")]
         public IHttpActionResult Get(int id)
         {
-            // Check if the provided ID is valid
-            if (id <= 0 || id > employeeList.Count)
-            {
-                return NotFound();
-            }
-
-            // Retrieve the employee with the specified ID
-            Employee requestedEmployee = employeeList[id - 1];
-            return Ok(requestedEmployee);
+            return Ok(_blEmployee.GetByID(id));
         }
     }
 }
