@@ -18,7 +18,7 @@ namespace Authorization.BL
             new Employee{EmployeeID = 1, EmployeeName = "Jeet", EmployeeRole = "Admin", IsActive = true,  Password = "1234"},
             new Employee{EmployeeID = 2,EmployeeName = "Tony-Stark", EmployeeRole = "Cordinator", IsActive = true, Password = "1234"},
             new Employee{EmployeeID = 3,EmployeeName = "SpiderMan", EmployeeRole = "Trainee", IsActive = !true, Password = "1234"},
-            new Employee{EmployeeID = 3,EmployeeName = "hokai", EmployeeRole = "Trainee", IsActive = !true, Password = "1234"},
+            new Employee{EmployeeID = 4,EmployeeName = "hokai", EmployeeRole = "Trainee", IsActive = !true, Password = "1234"},
         };
 
         /// <summary>
