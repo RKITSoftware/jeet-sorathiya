@@ -6,7 +6,7 @@
     public class Employee
     {
         /// <summary>
-        /// Gets or sets the unique identifier for the employee.
+        /// Gets or sets the Id for the employee.
         /// </summary>
         public int EmployeeID { get; set; }
 
@@ -21,12 +21,12 @@
         public string EmployeeRole { get; set; }
 
         /// <summary>
-        /// Gets or sets the password associated with the employee's account.
+        /// Gets or sets the password
         /// </summary>
         public string Password { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether the employee's account is active.
+        /// Gets or sets a value of isActive.
         /// </summary>
         public bool IsActive { get; set; }
     }

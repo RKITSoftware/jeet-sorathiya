@@ -85,7 +85,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="BL\BLEmployee.cs" />
+    <Compile Include="Controllers\CLEmployeeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -93,7 +94,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SEC\BasicAuthenticationAttribute.cs" />
     <Compile Include="SEC\BasicAuthorizationAttribute.cs" />
-    <Compile Include="SEC\Validation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Authorization.BL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -18,6 +19,14 @@ namespace Authorization.SEC
     /// </summary>
     public class BasicAuthenticationAttribute : AuthorizationFilterAttribute
     {
+        BLEmployee _blEmployee;
+        /// <summary>
+        ///  Initializes a new instance of the BLEmployee class.
+        /// </summary>
+        public BasicAuthenticationAttribute()
+        {
+            _blEmployee = new BLEmployee();
+        }
         /// <summary>
         /// Overrides the default authorization behavior to perform basic authentication.
         /// </summary>
@@ -42,10 +51,10 @@ namespace Authorization.SEC
                 string password = usernamepassword[1];
 
                 // Validate the login credentials
-                if (Validation.Login(username, password))
+                if (_blEmployee.Login(username, password))
                 {
                     // Retrieve additional user details
-                    var employeeDetails = Validation.UserDetails(username, password);
+                    var employeeDetails = _blEmployee.UserDetails(username, password);
 
                     // Create a generic identity with the username
                     var identity = new GenericIdentity(username);
@@ -55,29 +64,25 @@ namespace Authorization.SEC
 
                     // Create a generic principal with the identity and roles
                     IPrincipal principal = new GenericPrincipal(identity, employeeDetails.EmployeeRole.Split(','));
-                  
+
                     // Set the current principal for the current thread
                     Thread.CurrentPrincipal = principal;
 
                     // Set the current user for the current HTTP context
                     if (HttpContext.Current != null)
                     {
-                          HttpContext.Current.User = principal;
+                        HttpContext.Current.User = principal;
                     }
                     else
                     {
                         // If there is no HTTP context, return an unauthorized response
                         actionContext.Response = actionContext.Request.CreateErrorResponse(HttpStatusCode.Unauthorized, "Authorization Denied");
-
                     }
-
-
                 }
                 else
                 {
                     // If credentials are invalid, return an unauthorized response
                     actionContext.Response = actionContext.Request.CreateErrorResponse(HttpStatusCode.Unauthorized, "Invaild Credentials");
-
                 }
             }
         }
