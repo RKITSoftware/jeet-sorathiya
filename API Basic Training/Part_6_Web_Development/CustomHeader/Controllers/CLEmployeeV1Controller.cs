@@ -7,7 +7,7 @@ namespace CustomHeader.Controllers
     /// <summary>
     /// Controller for managing employee data with version 1 of the API.
     /// </summary>
-    public class EmployeeV1Controller : ApiController
+    public class CLEmployeeV1Controller : ApiController
     {
         /// <summary>
         /// Represents a static list of employees for version 1.

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Net.Http;
@@ -28,7 +27,7 @@ namespace CustomHeader.BAL
         }
 
         /// <summary>
-        /// Selects the appropriate controller based on versioning information in the request headers.
+        /// Selects the appropriate controller
         /// </summary>
         /// <param name="request">HttpRequestMessage instance.</param>
         /// <returns>HttpControllerDescriptor for the selected controller.</returns>
@@ -44,7 +43,7 @@ namespace CustomHeader.BAL
 
             // Parse version from query string
             NameValueCollection versionQueryString = HttpUtility.ParseQueryString(request.RequestUri.Query);
-           
+
             // Header to check for API version
             string apiHeader = "API-Version";
 
