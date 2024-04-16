@@ -1,21 +1,15 @@
 ﻿using Swagger.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
 
-namespace Swagger.Controllers
+namespace Swagger.BL
 {
     /// <summary>
-    /// Controller for managing Employee operations.
+    /// Business logic for managing employees.
     /// </summary>
-    [RoutePrefix("api/Employee")]
-    public class EmployeeController : ApiController
+    public class BLEmployee
     {
         // Static list to store employee data
-        public static List<Employee> employeeList = new List<Employee>
+        static readonly List<Employee> employeeList = new List<Employee>
         {
             new Employee { EmployeeID = 1, EmployeeName = "Jeet", EmployeeDescription = "Leader" },
             new Employee { EmployeeID = 2, EmployeeName = "Tony Stark", EmployeeDescription = "Iron Man" },
@@ -30,65 +24,60 @@ namespace Swagger.Controllers
         };
 
         /// <summary>
-        /// Gets all employees.
+        /// Get all employees.
         /// </summary>
-        [HttpGet]
-        [Route("GetAllEmployee")]
-        public IHttpActionResult GetAllEmployee()
+        /// <returns>A collection of all employees.</returns>
+        public IEnumerable<Employee> GetAll()
         {
-            return Ok(employeeList);
+            return employeeList;
         }
 
         /// <summary>
-        /// Gets details of a specific employee.
+        /// Get an employee by ID.
         /// </summary>
-        /// <param name="id">Employee ID.</param>
-        [HttpGet]
-        [Route("GetEmployeeDetail")]
-        public IHttpActionResult GetEmployeeDetail(int id)
+        /// <param name="id">The ID of the employee to retrieve.</param>
+        /// <returns>The employee with the specified ID, if found; otherwise, null.</returns>
+        public Employee GetById(int id)
         {
-            return Ok(employeeList.Find(emp => emp.EmployeeID == id));
+            return employeeList.Find(emp => emp.EmployeeID == id);
         }
 
         /// <summary>
-        /// Adds a new employee.
+        /// Add a new employee.
         /// </summary>
-        /// <param name="newEmployee">Employee object to add.</param>
-        [HttpPost]
-        [Route("AddNewEmployee")]
-        public IHttpActionResult AddNewEmployee(Employee newEmployee)
+        /// <param name="newEmployee">The employee to add.</param>
+        /// <returns>A collection of all employees after adding the new employee.</returns>
+        public IEnumerable<Employee> Add(Employee newEmployee)
         {
             employeeList.Add(newEmployee);
-            return Ok(employeeList);
+            return employeeList;
         }
 
         /// <summary>
-        /// Deletes an employee by ID.
+        /// Delete an employee by ID.
         /// </summary>
-        /// <param name="id">Employee ID to delete.</param>
-        [HttpDelete]
-        [Route("DeleteEmployee")]
-        public IHttpActionResult DeleteEmployee(int id)
+        /// <param name="id">The ID of the employee to delete.</param>
+        /// <returns>A collection of all employees after deleting the specified employee.</returns>
+        public IEnumerable<Employee> Delete(int id)
         {
             var deleteEmp = employeeList.Find(emp => emp.EmployeeID == id);
             employeeList.Remove(deleteEmp);
-            return Ok(employeeList);
+            return employeeList;
         }
 
         /// <summary>
-        /// Updates details of an existing employee.
+        /// Update an existing employee.
         /// </summary>
-        /// <param name="id">Employee ID to update.</param>
-        /// <param name="newEmployee">Updated Employee object.</param>
-        [HttpPut]
-        [Route("UpdateDetails")]
-        public IHttpActionResult UpdateDetails(int id, Employee newEmployee)
+        /// <param name="id">The ID of the employee to update.</param>
+        /// <param name="newEmployee">The updated information of the employee.</param>
+        /// <returns>The updated employee.</returns>
+        public Employee Update(int id, Employee newEmployee)
         {
             var currentEmp = employeeList.Find(emp => emp.EmployeeID == id);
             currentEmp.EmployeeID = newEmployee.EmployeeID;
             currentEmp.EmployeeName = newEmployee.EmployeeName;
             currentEmp.EmployeeDescription = newEmployee.EmployeeDescription;
-            return Ok(currentEmp);
+            return currentEmp;
         }
     }
 }
