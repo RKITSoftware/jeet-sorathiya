@@ -1,9 +1,5 @@
 ﻿using QueryStringParameter.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace QueryStringParameter.Controllers
@@ -11,7 +7,7 @@ namespace QueryStringParameter.Controllers
     /// <summary>
     /// Controller for managing employee data with version 1 of the API.
     /// </summary>
-    public class EmployeeV1Controller : ApiController
+    public class CLEmployeeV1Controller : ApiController
     {
         /// <summary>
         /// Represents a static list of employees for version 1.

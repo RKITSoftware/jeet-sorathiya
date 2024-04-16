@@ -10,7 +10,7 @@ using System.Web.Http.Routing;
 namespace QueryStringParameter.BAL
 {
     /// <summary>
-    /// Custom HttpControllerSelector to handle versioning based on query string parameters.
+    /// Handle versioning based on query string parameters.
     /// </summary>
     public class QueryStringParameter : DefaultHttpControllerSelector
     {
@@ -26,7 +26,7 @@ namespace QueryStringParameter.BAL
         }
 
         /// <summary>
-        /// Selects the appropriate controller based on versioning information in the query string parameter.
+        /// Selects the appropriate controller
         /// </summary>
         /// <param name="request">HttpRequestMessage instance.</param>
         /// <returns>HttpControllerDescriptor for the selected controller.</returns>

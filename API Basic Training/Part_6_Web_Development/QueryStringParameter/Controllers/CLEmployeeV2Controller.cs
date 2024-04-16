@@ -11,7 +11,7 @@ namespace QueryStringParameter.Controllers
     /// <summary>
     /// Controller for managing employee data with version 2 of the API.
     /// </summary>
-    public class EmployeeV2Controller : ApiController
+    public class CLEmployeeV2Controller : ApiController
     {
         /// <summary>
         /// Represents a static list of employees for version 2.
