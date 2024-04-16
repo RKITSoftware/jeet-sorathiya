@@ -1,24 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Net;
 using System.Net.Http;
-using System.Net;
-using System.Web;
 using System.Web.Http.Filters;
-using System.Web.UI.WebControls;
 
 namespace Exception
 {
     /// <summary>
-    /// CustomExceptionFilterAttribute is an attribute class that extends ExceptionFilterAttribute in ASP.NET Web API.
-    /// It provides a way to handle exceptions globally and modify the HTTP response accordingly.
+    /// Custom exception filter attribute for handling exceptions
     /// </summary>
     public class CustomExceptionFilterAttribute : ExceptionFilterAttribute
     {
         /// <summary>
-        /// Overrides the OnException method to handle exceptions and modify the HTTP response.
+        /// Handles the exception and modifies the response.
         /// </summary>
-        /// <param name="context">HttpActionExecutedContext containing information about the executed action and exception.</param>
+        /// <param name="context">The context of the HttpActionExecutedContext</param>
         public override void OnException(HttpActionExecutedContext context)
         {
             // Handle the exception and modify the response
