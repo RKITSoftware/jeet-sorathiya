@@ -129,6 +129,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="BL\BLEmployee.cs" />
     <Compile Include="BL\BLJWTToken.cs" />
     <Compile Include="Controllers\CLEmployeeController.cs" />
     <Compile Include="Global.asax.cs">
