@@ -50,14 +50,7 @@ namespace CustomHeader.BAL
             // Check if the request headers contain API version information
             if (request.Headers.Contains(apiHeader))
             {
-
-                version = request.Headers.GetValues(apiHeader).FirstOrDefault();
-
-                // Handle multiple versions in the header
-                if (version.Contains(","))
-                {
-                    version = version.Substring(0, version.IndexOf(","));
-                }
+                version = request.Headers.GetValues(apiHeader).FirstOrDefault();               
             }
 
             // Append version suffix to the controller name
