@@ -7,7 +7,7 @@ using System.Web.Http;
 namespace File_System.Controllers
 {
     [RoutePrefix("api/Employee")]
-    public class EmployeeController : ApiController
+    public class CLEmployeeController : ApiController
     {
         public static List<Employee> employeeList = new List<Employee>();
 
@@ -19,7 +19,7 @@ namespace File_System.Controllers
         [Route("EmployeeList")]
         public HttpResponseMessage EmployeeList()
         {
-            return Request.CreateResponse(FileOperation.ReadFromFile());
+            return Request.CreateResponse(BLFileOperation.ReadFromFile());
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace File_System.Controllers
         [Route("EmployeeDetail/{id}")]
         public HttpResponseMessage EmployeeDetail(int id)
         {
-            return Request.CreateResponse(FileOperation.EmployeeInfo(id));
+            return Request.CreateResponse(BLFileOperation.EmployeeInfo(id));
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace File_System.Controllers
         [Route("Download")]
         public HttpResponseMessage Download()
         {
-            return (FileOperation.DownloadFile());
+            return (BLFileOperation.DownloadFile());
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace File_System.Controllers
         {
             employee.EmployeeID = Employee.GetEmployeeID();
             employeeList.Add(employee);
-            FileOperation.AddToFile(employee);
+            BLFileOperation.AddToFile(employee);
             return Ok(employeeList);
         }
 
@@ -70,7 +70,7 @@ namespace File_System.Controllers
         [Route("UpdateData/{id}")]
         public IHttpActionResult UpdateData(int id, Employee employee)
         {
-            FileOperation.UpdateEmployeeById(id, employee);
+            BLFileOperation.UpdateEmployeeById(id, employee);
             return Ok();
         }
 
@@ -83,7 +83,7 @@ namespace File_System.Controllers
         [Route("DeleteEmployee/{id}")]
         public IHttpActionResult DeleteEmployee(int id)
         {
-            FileOperation.DeleteEmployeeById(id);
+            BLFileOperation.DeleteEmployeeById(id);
             return Ok();
         }
 

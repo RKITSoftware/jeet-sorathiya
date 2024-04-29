@@ -12,7 +12,7 @@ namespace File_System.BL
     /// <summary>
     /// Provides file operations related to Employee data.
     /// </summary>
-    public static class FileOperation
+    public static class BLFileOperation
     {
         // The directory and file paths
         static string currentDirectory = HttpContext.Current.Server.MapPath("~/Data");
@@ -22,7 +22,7 @@ namespace File_System.BL
         /// <summary>
         /// Initializes the FileOperation class by creating the file if it doesn't exist.
         /// </summary>
-        static FileOperation()
+        static BLFileOperation()
         {
             try
             {
