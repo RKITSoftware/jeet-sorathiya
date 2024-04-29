@@ -1,5 +1,8 @@
 ﻿using Advance_C__FinalDemo.BL;
 using Advance_C__FinalDemo.Models;
+using Advance_C__FinalDemo.Models.DTO;
+using Advance_C__FinalDemo.Models.Enum;
+using Advance_C__FinalDemo.Models.POCO;
 using Newtonsoft.Json;
 using System.Data;
 using System.Net;
@@ -14,17 +17,26 @@ namespace Advance_C__FinalDemo.Controllers
     [RoutePrefix("api/Category")]
     public class CLCategoryController : ApiController
     {
-        private BLCategory _category;
+        private BLCategory _objBLCategory;
+        public Response _objResponse;
 
         /// <summary>
-        /// Gets all categories and returns them as JSON
+        /// Initializes a new instance of the CLCategoryController class.
         /// </summary>
+        public CLCategoryController()
+        {
+            _objBLCategory = new BLCategory();
+        }
+
+        /// <summary>
+        /// Retrieves all categories from the database.
+        /// </summary>
+        /// <returns>An HttpResponseMessage containing JSON type categories.</returns>
         [HttpGet]
         [Route("Category")]
         public HttpResponseMessage GetAllCategory()
         {
-            _category = new BLCategory();
-            DataTable dataTableOfCategory = _category.GetAll();
+            DataTable dataTableOfCategory = _objBLCategory.GetAll();
 
             // Serialize the DataTable to JSON using Json.NET
             string jsonData = JsonConvert.SerializeObject(dataTableOfCategory);
@@ -39,50 +51,54 @@ namespace Advance_C__FinalDemo.Controllers
         }
 
         /// <summary>
-        /// Adds a new category
+        /// Adds a new category to the database.
         /// </summary>
+        /// <param name="newCategory">The DTOCAT01 object </param>
+        /// <returns>A Response object indicating the outcome of the operation.</returns>
         [HttpPost]
         [Route("AddNewCategory")]
-        public HttpResponseMessage AddCategory(CAT01 newCategory)
+        public Response AddCategory(DTOCAT01 newCategory)
         {
-            _category = new BLCategory();
-            bool response = _category.Add(newCategory);
-            if (response)
+            _objBLCategory.Type = EnmType.A;
+            _objBLCategory.PreSave(null,newCategory);
+            _objResponse = _objBLCategory.Validation();
+            if(!_objResponse.IsError)
             {
-                // If the category is successfully added, return HTTP OK status
-                return new HttpResponseMessage(HttpStatusCode.OK);
+                _objResponse = _objBLCategory.Save();
             }
-            // If there is an internal server error during category addition, return HTTP InternalServerError status
-            return new HttpResponseMessage(HttpStatusCode.InternalServerError);
+            return _objResponse;
         }
 
         /// <summary>
-        /// Updates an existing category by ID
+        /// Updates an existing category in the database.
         /// </summary>
+        /// <param name="id">The ID of the category </param>
+        /// <param name="newCategory">The DTOCAT01 object </param>
+        /// <returns>A Response object indicating the outcome of the operation.</returns>
         [HttpPut]
         [Route("UpdateCategory")]
-        public HttpResponseMessage UpdateCategory(int id, CAT01 newCategory)
+        public Response UpdateCategory(int id, DTOCAT01 newCategory)
         {
-            _category = new BLCategory();
-            bool response = _category.Update(id, newCategory);
-            if (response)
+            _objBLCategory.Type = EnmType.E;
+            _objBLCategory.PreSave(id, newCategory);
+            _objResponse = _objBLCategory.Validation();
+            if (!_objResponse.IsError)
             {
-                // If the category is successfully updated, return HTTP OK status
-                return new HttpResponseMessage(HttpStatusCode.OK);
+                _objResponse = _objBLCategory.Save();
             }
-            // If there is an internal server error during category update, return HTTP InternalServerError status
-            return new HttpResponseMessage(HttpStatusCode.InternalServerError);
+            return _objResponse;
         }
 
         /// <summary>
-        /// Deletes a category by ID
+        /// Deletes a category from the database.
         /// </summary>
+        /// <param name="id">The ID of the category</param>
+        /// <returns>An HttpResponseMessage indicating the outcome of the deletion operation.</returns>
         [HttpDelete]
         [Route("DeleteCategory")]
         public HttpResponseMessage DeleteCategory(int id)
         {
-            _category = new BLCategory();
-            bool response = _category.Delete(id);
+            bool response = _objBLCategory.Delete(id);
             if (response)
             {
                 // If the category is successfully deleted, return HTTP OK status

@@ -1,7 +1,7 @@
 ﻿using ServiceStack.DataAnnotations;
 using System;
 
-namespace Advance_C__FinalDemo.Models
+namespace Advance_C__FinalDemo.Models.POCO
 {
     /// <summary>
     /// Represents a movie model

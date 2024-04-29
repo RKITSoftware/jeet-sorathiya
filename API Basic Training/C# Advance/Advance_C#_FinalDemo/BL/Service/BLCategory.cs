@@ -1,17 +1,37 @@
-﻿using Advance_C__FinalDemo.Models;
+﻿using Advance_C__FinalDemo.BL.Interface;
+using Advance_C__FinalDemo.Extension;
+using Advance_C__FinalDemo.Models;
+using Advance_C__FinalDemo.Models.DTO;
+using Advance_C__FinalDemo.Models.Enum;
+using Advance_C__FinalDemo.Models.POCO;
 using MySql.Data.MySqlClient;
 using System;
 using System.Data;
+using System.Web;
 
 namespace Advance_C__FinalDemo.BL
 {
     /// <summary>
     /// Business logic class for managing CRUD operations on the CAT01 table
     /// </summary>
-    public class BLCategory
+    public class BLCategory : IDataHandlerService<DTOCAT01>
     {
-        // Connection string for the database
-        private readonly string _connectionString = "Server=127.0.0.1;Database=moviehub_jeet;User ID=Admin;Password=gs@123;";
+        private string _connectionString;
+        private Response _objResponse;
+        private CAT01 _objCAT01;
+        private int _id;
+
+        public EnmType Type { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the BLCategory class.
+        /// </summary>
+        public BLCategory()
+        {
+            _objResponse = new Response();
+            _objCAT01 = new CAT01();
+            _connectionString = HttpContext.Current.Application["ConnectionString"] as string;
+        }
 
         /// <summary>
         /// Retrieves all categories from the CAT01 table
@@ -20,7 +40,7 @@ namespace Advance_C__FinalDemo.BL
         public DataTable GetAll()
         {
             DataTable allCategorys = new DataTable();
-            MySqlConnection conn = new MySqlConnection(this._connectionString);
+            MySqlConnection conn = new MySqlConnection(_connectionString);
             try
             {
                 conn.Open();
@@ -39,14 +59,13 @@ namespace Advance_C__FinalDemo.BL
         }
 
         /// <summary>
-        /// Adds a new category to the CAT01 table
+        /// Adds a new category to the database.
         /// </summary>
-        /// <param name="objofCategory">CAT01 object representing the category to be added</param>
-        /// <returns>Boolean indicating the success or failure of the operation</returns>
-        public bool Add(CAT01 objofCategory)
+        /// <param name="objofCategory">The category object to be added.</param>
+        /// <returns>A Response object indicating the outcome of the operation.</returns>
+        public Response Add(CAT01 objofCategory)
         {
-            bool isResponse = true;
-            MySqlConnection conn = new MySqlConnection(this._connectionString);
+            MySqlConnection conn = new MySqlConnection(_connectionString);
             try
             {
                 using (MySqlCommand cmd = new MySqlCommand())
@@ -59,26 +78,27 @@ namespace Advance_C__FinalDemo.BL
                     // Execute SQL command to add a new category
                     cmd.ExecuteNonQuery();
                 }
+                _objResponse.Message = "Data Added";
             }
             catch (Exception ex)
             {
-                isResponse = false;
+                _objResponse.IsError = true;
+                _objResponse.Message = ex.Message;
                 throw new Exception(ex.Message);
             }
             finally { conn.Close(); }
-            return isResponse;
+            return _objResponse;
         }
 
         /// <summary>
-        /// Updates an existing category in the CAT01 table
+        /// Updates an existing category in the database.
         /// </summary>
-        /// <param name="id">Category ID</param>
-        /// <param name="objofCategory">CAT01 object representing the updated category data</param>
-        /// <returns>Boolean indicating the success or failure of the operation</returns>
-        public bool Update(int id, CAT01 objofCategory)
+        /// <param name="id">The ID of the category to be updated.</param>
+        /// <param name="objofCategory">The category object containing the updated information.</param>
+        /// <returns>A Response object indicating the outcome of the operation.</returns>
+        public Response Update(int id, CAT01 objofCategory)
         {
-            bool isResponse = true;
-            MySqlConnection conn = new MySqlConnection(this._connectionString);
+            MySqlConnection conn = new MySqlConnection(_connectionString);
             try
             {
                 using (MySqlCommand cmd = new MySqlCommand())
@@ -94,14 +114,16 @@ namespace Advance_C__FinalDemo.BL
                     // Execute SQL command to update an existing category
                     cmd.ExecuteNonQuery();
                 }
+                _objResponse.Message = "Data Updated";
             }
             catch (Exception ex)
             {
-                isResponse = false;
+                _objResponse.IsError = true;
+                _objResponse.Message = ex.Message;
                 throw new Exception(ex.Message);
             }
             finally { conn.Close(); }
-            return isResponse;
+            return _objResponse;
         }
 
         /// <summary>
@@ -112,7 +134,7 @@ namespace Advance_C__FinalDemo.BL
         public bool Delete(int id)
         {
             bool isResponse = true;
-            MySqlConnection conn = new MySqlConnection(this._connectionString);
+            MySqlConnection conn = new MySqlConnection(_connectionString);
             try
             {
                 using (MySqlCommand cmd = new MySqlCommand())
@@ -137,5 +159,57 @@ namespace Advance_C__FinalDemo.BL
             return isResponse;
         }
 
+        /// <summary>
+        /// Prepares the object for saving
+        /// </summary>
+        /// <param name="id">The ID of the object, if available.</param>
+        /// <param name="objDto">The DTOCAT01 object </param>
+        public void PreSave(int? id, DTOCAT01 objDto)
+        {
+            _objCAT01 = objDto.Convert<CAT01>();
+            if (Type == EnmType.E)
+            {
+                if (id > 0)
+                {
+                    _id = (int)id;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Validates the object before saving
+        /// </summary>
+        /// <returns>A Response object indicating any validation errors.</returns>
+        public Response Validation()
+        {
+            if (Type == EnmType.E)
+            {
+                if (!(_id > 0))
+                {
+                    _objResponse.IsError = true;
+                    _objResponse.Message = "Enter Correct Id";
+                }
+            }
+            return _objResponse;
+        }
+
+        /// <summary>
+        /// Saves the object based on the type
+        /// </summary>
+        /// <returns>A Response object indicating the outcome of the save operation.</returns>
+        public Response Save()
+        {
+            if (Type == EnmType.A)
+            {
+                return Add(_objCAT01);
+            }
+            if (Type == EnmType.E)
+            {
+                return Update(_id, _objCAT01);
+            }
+            _objResponse.IsError = true;
+            _objResponse.Message = "Internal Error";
+            return _objResponse;
+        }
     }
 }

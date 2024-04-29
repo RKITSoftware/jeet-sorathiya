@@ -13,12 +13,15 @@ namespace Advance_C__FinalDemo
     {
         protected void Application_Start()
         {
+            OrmLiteConfig.DialectProvider = MySqlDialect.Provider;
             // Database connection using connection string and orm lite tool
-            var connectionString = ConfigurationManager.ConnectionStrings["MyORMConnectionString"].ConnectionString;
-            var dbFactory = new OrmLiteConnectionFactory(connectionString, MySqlDialect.Provider);
+            var connectionString = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+            var dbFactory = new OrmLiteConnectionFactory(connectionString);
 
             // Storing OrmLiteConnectionFactory instance for further usage in any other component
             Application["DbFactory"] = dbFactory;
+
+            Application["ConnectionString"] = connectionString;
             GlobalConfiguration.Configure(WebApiConfig.Register);
         }
     }

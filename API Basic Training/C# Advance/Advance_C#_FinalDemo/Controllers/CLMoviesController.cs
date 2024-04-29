@@ -1,5 +1,7 @@
 ﻿using Advance_C__FinalDemo.BL;
 using Advance_C__FinalDemo.Models;
+using Advance_C__FinalDemo.Models.DTO;
+using Advance_C__FinalDemo.Models.Enum;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -12,84 +14,79 @@ namespace Advance_C__FinalDemo.Controllers
     [RoutePrefix("api/Movies")]
     public class CLMoviesController : ApiController
     {
-        private BLMovies _bLMovies;
+        private BLMovies _objBLMovies;
+        public Response _objResponse;
 
         /// <summary>
-        /// Gets a list of all movies
+        /// Initializes a new instance of the CLMoviesController class.
         /// </summary>
+        public CLMoviesController()
+        {
+            _objBLMovies = new BLMovies();
+        }
+
+        /// <summary>
+        /// Retrieves all movies from the database.
+        /// </summary>
+        /// <returns>An HttpResponseMessage containing JSON of movies.</returns>
         [HttpGet]
         [Route("Movies")]
         public HttpResponseMessage Movies()
         {
-            _bLMovies = new BLMovies();
-            return _bLMovies.GetAll();
+            return _objBLMovies.GetAll();
         }
 
         /// <summary>
-        /// Adds a new movie
+        /// Adds a new movie to the database.
         /// </summary>
+        /// <param name="newMovie">The DTOMOV01 object </param>
+        /// <returns>A Response object indicating the outcome of the operation.</returns>
         [HttpPost]
         [Route("AddMovie")]
-        public HttpResponseMessage AddNewMovie(MOV01 newMovie)
+        public Response AddNewMovie(DTOMOV01 newMovie)
         {
-            _bLMovies = new BLMovies();
-            if (newMovie != null)
+            _objBLMovies.Type = EnmType.A;
+            _objBLMovies.PreSave(null, newMovie);
+            _objResponse = _objBLMovies.Validation();
+            if (!_objResponse.IsError)
             {
-                // If the movie is successfully added, return HTTP Created status
-                if (_bLMovies.Add(newMovie))
-                {
-                    return new HttpResponseMessage(HttpStatusCode.Created);
-                }
-                else
-                {
-                    // If there is an internal server error during movie addition, return HTTP InternalServerError status
-                    return new HttpResponseMessage(HttpStatusCode.InternalServerError);
-                }
+                _objResponse = _objBLMovies.Save();
             }
-            // If the provided movie is null, return HTTP BadRequest status
-            return new HttpResponseMessage(HttpStatusCode.BadRequest);
+            return _objResponse;
         }
 
         /// <summary>
-        /// Updates an existing movie
+        /// Updates an existing movie in the database.
         /// </summary>
+        /// <param name="newMovie">The DTOMOV01 object </param>
+        /// <returns>A Response object indicating the outcome of the operation.</returns>
         [HttpPut]
         [Route("UpdateMovie")]
-        public HttpResponseMessage UpdateMovie(MOV01 newMovie)
+        public Response UpdateMovie(DTOMOV01 newMovie)
         {
-            _bLMovies = new BLMovies();
-            if (newMovie != null)
+            _objBLMovies.Type = EnmType.E;
+            _objBLMovies.PreSave(null, newMovie);
+            _objResponse = _objBLMovies.Validation();
+            if (!_objResponse.IsError)
             {
-                // If the movie is successfully updated, return HTTP OK status
-                if (_bLMovies.Update(newMovie))
-                {
-                    return new HttpResponseMessage(HttpStatusCode.OK);
-                }
-                else
-                {
-                    // If there is an internal server error during movie update, return HTTP InternalServerError status
-                    return new HttpResponseMessage(HttpStatusCode.InternalServerError);
-                }
+                _objResponse = _objBLMovies.Save();
             }
-            else
-            {
-                // If the provided movie is null, return HTTP BadRequest status
-                return new HttpResponseMessage(HttpStatusCode.BadRequest);
-            }
+            return _objResponse;
         }
 
         /// <summary>
-        /// Deletes a movie by its ID
+        /// Deletes a movie from the database.
         /// </summary>
+        /// <param name="id">The ID of the movie </param>
+        /// <returns>An HttpResponseMessage indicating the outcome of the deletion operation.</returns>
         [HttpDelete]
         [Route("Delete")]
         public HttpResponseMessage DeleteMovie(int id)
         {
-            _bLMovies = new BLMovies();
             if (id > 0)
             {
                 // If the movie is successfully deleted, return HTTP OK status
-                if (_bLMovies.Delete(id))
+                if (_objBLMovies.Delete(id))
                 {
                     return new HttpResponseMessage(HttpStatusCode.OK);
                 }

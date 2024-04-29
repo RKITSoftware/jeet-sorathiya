@@ -1,5 +1,7 @@
 ﻿using Advance_C__FinalDemo.BL;
 using Advance_C__FinalDemo.Models;
+using Advance_C__FinalDemo.Models.DTO;
+using Advance_C__FinalDemo.Models.Enum;
 using Newtonsoft.Json;
 using System.Data;
 using System.Net;
@@ -14,17 +16,26 @@ namespace Advance_C__FinalDemo.Controllers
     [RoutePrefix("api/Director")]
     public class CLDirectorController : ApiController
     {
-        private BLDirector _director;
+        private BLDirector _objBLDirector;
+        public Response _objResponse;
 
         /// <summary>
-        /// Gets all directors and returns them as JSON
+        /// Initializes a new instance of the CLDirectorController class.
         /// </summary>
+        public CLDirectorController()
+        {
+            _objBLDirector = new BLDirector();
+        }
+
+        /// <summary>
+        /// Retrieves all directors from the database.
+        /// </summary>
+        /// <returns>An HttpResponseMessage containing JSON of directors.</returns>
         [HttpGet]
         [Route("Director")]
         public HttpResponseMessage GetAllCategory()
         {
-            _director = new BLDirector();
-            DataTable dataTableOfDirector = _director.GetAll();
+            DataTable dataTableOfDirector = _objBLDirector.GetAll();
 
             // Serialize the DataTable to JSON using Json.NET
             string jsonData = JsonConvert.SerializeObject(dataTableOfDirector);
@@ -39,50 +50,56 @@ namespace Advance_C__FinalDemo.Controllers
         }
 
         /// <summary>
-        /// Adds a new director
+        /// Adds a new director to the database.
         /// </summary>
+        /// <param name="newDirector">The DTODIR01 object</param>
+        /// <returns>A Response object indicating the outcome of the operation.</returns>
         [HttpPost]
         [Route("AddNewDirector")]
-        public HttpResponseMessage AddDirector(DIR01 newDirector)
+        public Response AddDirector(DTODIR01 newDirector)
         {
-            _director = new BLDirector();
-            bool response = _director.Add(newDirector);
-            if (response)
+            _objBLDirector.Type = EnmType.A;
+            _objBLDirector.PreSave(null, newDirector);
+            _objResponse = _objBLDirector.Validation();
+            if (!_objResponse.IsError)
             {
-                // If the director is successfully added, return HTTP OK status
-                return new HttpResponseMessage(HttpStatusCode.OK);
+                _objResponse = _objBLDirector.Save();
             }
-            // If there is an internal server error during director addition, return HTTP InternalServerError status
-            return new HttpResponseMessage(HttpStatusCode.InternalServerError);
+            return _objResponse;
+
         }
 
         /// <summary>
-        /// Updates an existing director by ID
+        /// Updates an existing director in the database.
         /// </summary>
+        /// <param name="id">The ID of the director</param>
+        /// <param name="newDirector">The DTODIR01 object </param>
+        /// <returns>A Response object indicating the outcome of the operation.</returns>
         [HttpPut]
         [Route("UpdateDirector")]
-        public HttpResponseMessage UpdateCategory(int id, DIR01 newDirector)
+        public Response UpdateCategory(int id, DTODIR01 newDirector)
         {
-            _director = new BLDirector();
-            bool response = _director.Update(id, newDirector);
-            if (response)
+            _objBLDirector.Type = EnmType.A;
+            _objBLDirector.PreSave(id, newDirector);
+            _objResponse = _objBLDirector.Validation();
+            if (!_objResponse.IsError)
             {
-                // If the director is successfully updated, return HTTP OK status
-                return new HttpResponseMessage(HttpStatusCode.OK);
+                _objResponse = _objBLDirector.Save();
             }
-            // If there is an internal server error during director update, return HTTP InternalServerError status
-            return new HttpResponseMessage(HttpStatusCode.InternalServerError);
+            return _objResponse;
         }
 
         /// <summary>
-        /// Deletes a director by ID
+        /// Deletes a director from the database.
         /// </summary>
+        /// <param name="id">The ID of the director </param>
+        /// <returns>An HttpResponseMessage indicating the outcome of the operation.</returns>
         [HttpDelete]
         [Route("DeleteDirector")]
         public HttpResponseMessage DeleteDirector(int id)
         {
-            _director = new BLDirector();
-            bool response = _director.Delete(id);
+
+            bool response = _objBLDirector.Delete(id);
             if (response)
             {
                 // If the director is successfully deleted, return HTTP OK status

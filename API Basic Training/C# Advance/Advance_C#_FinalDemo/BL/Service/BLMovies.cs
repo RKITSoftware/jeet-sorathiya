@@ -1,4 +1,9 @@
-﻿using Advance_C__FinalDemo.Models;
+﻿using Advance_C__FinalDemo.BL.Interface;
+using Advance_C__FinalDemo.Extension;
+using Advance_C__FinalDemo.Models;
+using Advance_C__FinalDemo.Models.DTO;
+using Advance_C__FinalDemo.Models.Enum;
+using Advance_C__FinalDemo.Models.POCO;
 using Newtonsoft.Json;
 using ServiceStack.Data;
 using ServiceStack.OrmLite;
@@ -17,24 +22,32 @@ namespace Advance_C__FinalDemo.BL
     /// <summary>
     /// Business logic class for managing CRUD operations on the MOV01 table.
     /// </summary>
-    [LoggingExceptionFilterAttribute]
-    public class BLMovies
+    [LoggingExceptionFilter]
+    public class BLMovies : IDataHandlerService<DTOMOV01>
     {
         // Retrieve IDbConnectionFactory from the application context
         private readonly IDbConnectionFactory _dbFactory;
+        private Response _objResponse;
+        private MOV01 _objMOV01;
+        private int _id;
+
+        public EnmType Type { get; set; }
+
 
         /// <summary>
-        /// Constructor initializes IDbConnectionFactory from the application context.
+        /// Initializes a new instance of the BLMovies class.
         /// </summary>
         public BLMovies()
         {
             _dbFactory = HttpContext.Current.Application["DbFactory"] as IDbConnectionFactory;
-
+            _objMOV01 = new MOV01();
+            _objResponse = new Response();
             if (_dbFactory == null)
             {
                 throw new Exception("IDbConnectionFactory not found");
             }
         }
+
         /// <summary>
         /// Retrieves a list of MOV01 data from the database
         /// </summary>
@@ -60,8 +73,7 @@ namespace Advance_C__FinalDemo.BL
         /// <summary>
         /// Retrieves movies along with their category and director information.
         /// </summary>
-        /// <returns>HttpResponseMessage containing the JSON representation of the retrieved movies.</returns>
-
+        /// <returns>HttpResponseMessage containing the JSON type movies.</returns>
         public HttpResponseMessage GetAll()
         {
             try
@@ -107,13 +119,12 @@ namespace Advance_C__FinalDemo.BL
         }
 
         /// <summary>
-        /// Adds a new movie to the MOV01 table.
+        /// Adds a new movie to the database.
         /// </summary>
-        /// <param name="newMovie">MOV01 object representing the new movie to be added</param>
-        /// <returns>Boolean indicating the success or failure of the operation</returns>
-        public bool Add(MOV01 newMovie)
+        /// <param name="newMovie">The MOV01 object </param>
+        /// <returns>A Response object indicating the outcome of the operation.</returns>
+        public Response Add(MOV01 newMovie)
         {
-            bool isResponse = true;
             try
             {
                 using (var db = _dbFactory.OpenDbConnection())
@@ -121,48 +132,41 @@ namespace Advance_C__FinalDemo.BL
                     // Execute SQL command to insert a new movie into the MOV01 table
                     db.Insert(newMovie);
                 }
+                _objResponse.Message = "Data Added";
             }
             catch (Exception ex)
             {
+                _objResponse.IsError = true;
+                _objResponse.Message = "Data Not Added";
                 // Handle and rethrow exception with additional information
-                isResponse = false;
                 throw new Exception(ex.Message);
             }
-            return isResponse;
+            return _objResponse;
         }
 
         /// <summary>
-        /// Updates an existing movie in the MOV01 table.
+        /// Updates an existing movie in the database.
         /// </summary>
-        /// <param name="newMovie">MOV01 object representing the updated movie data</param>
-        /// <returns>Boolean indicating the success or failure of the operation</returns>
-        public bool Update(MOV01 newMovie)
+        /// <param name="newMovie">The MOV01 object </param>
+        /// <returns>A Response object indicating the outcome of the operation.</returns>
+        public Response Update(MOV01 newMovie)
         {
-            bool isResponse = true;
             try
             {
                 using (var db = _dbFactory.OpenDbConnection())
                 {
-                    // Check if the movie object is not null before updating
-                    if (newMovie != null)
-                    {
-                        // Execute SQL command to update an existing movie in the MOV01 table
-                        db.Update(newMovie);
-                    }
-                    else
-                    {
-                        // If the movie object is null, set the response to false
-                        isResponse = false;
-                    }
+                    // Execute SQL command to update an existing movie in the MOV01 table
+                    db.Update(newMovie);
                 }
+                _objResponse.Message = "Data Is Updated";
             }
             catch (Exception ex)
             {
-                // Handle and rethrow exception with additional information
-                isResponse = false;
+                _objResponse.IsError = true;
+                _objResponse.Message = "Internal Error";
                 throw new Exception(ex.Message);
             }
-            return isResponse;
+            return _objResponse;
         }
 
         /// <summary>
@@ -173,7 +177,6 @@ namespace Advance_C__FinalDemo.BL
         public bool Delete(int id)
         {
             bool isResponse = true;
-
             try
             {
                 using (var db = _dbFactory.OpenDbConnection())
@@ -189,6 +192,45 @@ namespace Advance_C__FinalDemo.BL
                 throw new Exception(ex.Message);
             }
             return isResponse;
+        }
+
+        /// <summary>
+        /// Prepares the object for saving MOV01 object 
+        /// </summary>
+        /// <param name="id">The ID of the object, if available.</param>
+        /// <param name="objDto">The DTOMOV01 object containing data to be converted and saved.</param>
+        public void PreSave(int? id, DTOMOV01 objDto)
+        {
+            _objMOV01 = objDto.Convert<MOV01>();
+        }
+
+        /// <summary>
+        /// Performs validation before saving.
+        /// </summary>
+        /// <returns>A Response object indicating the outcome of the validation.</returns>
+        public Response Validation()
+        {
+
+            return _objResponse;
+        }
+
+        /// <summary>
+        /// Saves the object based on the type (add or update)
+        /// </summary>
+        /// <returns>A Response object indicating the outcome of the save operation.</returns>
+        public Response Save()
+        {
+            if (Type == EnmType.A)
+            {
+                return Add(_objMOV01);
+            }
+            if (Type == EnmType.E)
+            {
+                return Update(_objMOV01);
+            }
+            _objResponse.IsError = true;
+            _objResponse.Message = "Internal Error";
+            return _objResponse;
         }
     }
 }
