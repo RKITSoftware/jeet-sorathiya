@@ -33,7 +33,7 @@ namespace CPContestRegistration.BL.Interface
         /// </summary>
         /// <param name="id">The ID of the participation to retrieve</param>
         /// <returns>The participation  corresponding to the given ID, or null if not found</returns>
-        PAR01 SelectPk(int id);
+        List<PAR01> SelectPk(int id);
 
         /// <summary>
         /// Updates an existing participation

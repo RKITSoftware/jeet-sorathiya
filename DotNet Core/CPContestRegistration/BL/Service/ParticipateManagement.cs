@@ -160,7 +160,7 @@ namespace CPContestRegistration.BL.Service
         /// </summary>
         /// <param name="id">The ID of the participation to retrieve</param>
         /// <returns>The participation  corresponding to the given ID, or null if not found</returns>
-        public PAR01 SelectPk(int id)
+        public List<PAR01> SelectPk(int id)
         {
             try
             {
@@ -169,7 +169,7 @@ namespace CPContestRegistration.BL.Service
                 {
                     using (var db = _connectionFactory.OpenDbConnection())
                     {
-                        return db.SingleById<PAR01>(id);
+                        return db.Select<PAR01>(p=>p.R01F02 == id);
                     }
                 }
 

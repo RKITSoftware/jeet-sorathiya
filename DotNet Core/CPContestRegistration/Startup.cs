@@ -36,7 +36,7 @@ public class Startup
         //});
         services.AddControllers(configure =>
         {
-            configure.Filters.Add<ValidateModelFilter>();
+           // configure.Filters.Add<ValidateModelFilter>();
             configure.Filters.Add<HandleExceptionFilter>();
         });
         services.AddEndpointsApiExplorer();
