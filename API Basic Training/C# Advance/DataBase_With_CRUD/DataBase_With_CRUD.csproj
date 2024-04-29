@@ -146,12 +146,18 @@
   <ItemGroup>
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="BL\BLEmployee.cs" />
+    <Compile Include="BL\Interface\IDataHandlerService.cs" />
+    <Compile Include="BL\Service\BLEmployee.cs" />
     <Compile Include="Controllers\CLEmployeeController.cs" />
+    <Compile Include="Extension\DTOtoPOCOExtension.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\EMP01.cs" />
+    <Compile Include="Models\DTO\DTOEMP01.cs" />
+    <Compile Include="Models\Enum\EnmRole.cs" />
+    <Compile Include="Models\Enum\EnmType.cs" />
+    <Compile Include="Models\POCO\EMP01.cs" />
+    <Compile Include="Models\Response.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

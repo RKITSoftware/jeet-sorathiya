@@ -1,29 +1,44 @@
-﻿using DataBase_With_CRUD.Models;
+﻿using DataBase_With_CRUD.BL.Interface;
+using DataBase_With_CRUD.Extension;
+using DataBase_With_CRUD.Models;
+using DataBase_With_CRUD.Models.DTO;
+using DataBase_With_CRUD.Models.Enum;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Net;
 using System.Net.Http;
-
+using System.Web;
 namespace DataBase_With_CRUD.BL
 {
     /// <summary>
     /// Business logic class for handling CRUD operations on EMP01 table
     /// </summary>
-    public class BLEmployee
+    public class BLEmployee : IDataHandlerService<DTOEMP01>
     {
-        private readonly string _connectionString = "Server=127.0.0.1;Database=employee_jeet;User ID=Admin;Password=gs@123;";
+        private string _connectionString;
+        private EMP01 _objEMP01;
+        private Response _objResponse;
+        private int _id;
+        public EnmType Type { get; set; }
 
+        /// <summary>
+        /// Constructor for the BLEmployee class.
+        /// </summary>
+        public BLEmployee()
+        {
+            _objResponse = new Response();
+            _connectionString = HttpContext.Current.Application["ConnectionString"] as string;
+        }
         #region GetAll
         /// <summary>
         /// Retrieves all employees from the EMP01 table
         /// </summary>
         /// <returns>List of EMP01 objects representing employees</returns>
-
         public List<EMP01> GetAll()
         {
-            MySqlConnection connection = new MySqlConnection(this._connectionString);
+            MySqlConnection connection = new MySqlConnection(_connectionString);
             List<EMP01> employeeList = new List<EMP01>();
             try
             {
@@ -66,10 +81,9 @@ namespace DataBase_With_CRUD.BL
         /// </summary>
         /// <param name="employee">Employee data to be added</param>
         /// <returns>HTTP response</returns>
-
-        public HttpResponseMessage Add(EMP01 employee)
+        public Response Add(EMP01 employee)
         {
-            MySqlConnection connection = new MySqlConnection(this._connectionString);
+            MySqlConnection connection = new MySqlConnection(_connectionString);
             try
             {
                 using (MySqlCommand cmd = new MySqlCommand())
@@ -88,30 +102,26 @@ namespace DataBase_With_CRUD.BL
             }
             catch (Exception ex)
             {
-                return new HttpResponseMessage(HttpStatusCode.InternalServerError)
-                {
-                    Content = new StringContent(ex.Message)
-                };
+                _objResponse.IsError = true;
+                _objResponse.Message = ex.Message;
+                return _objResponse;
             }
             finally { connection.Close(); }
-            return new HttpResponseMessage(HttpStatusCode.OK)
-            {
-                Content = new StringContent("Data Added")
-            };
+            _objResponse.Message = "Data Added";
+            return _objResponse;
         }
         #endregion
 
         #region Update
-
         /// <summary>
         /// Updates an existing employee in the EMP01 table
         /// </summary>
         /// <param name="Id">Employee ID to be updated</param>
         /// <param name="employee">Updated employee data</param>
         /// <returns>HTTP response</returns>
-        public HttpResponseMessage Update(int Id, EMP01 employee)
+        public Response Update(int Id, EMP01 employee)
         {
-            MySqlConnection connection = new MySqlConnection(this._connectionString);
+            MySqlConnection connection = new MySqlConnection(_connectionString);
             try
             {
                 using (MySqlCommand cmd = new MySqlCommand())
@@ -131,13 +141,16 @@ namespace DataBase_With_CRUD.BL
                     cmd.ExecuteNonQuery();
                 }
             }
-            catch (Exception ex) { Console.WriteLine(ex.Message); }
+            catch (Exception ex)
+            {
+                _objResponse.IsError = true;
+                _objResponse.Message = ex.Message;
+                return _objResponse;
+            }
             finally { connection.Close(); }
 
-            return new HttpResponseMessage(HttpStatusCode.OK)
-            {
-                Content = new StringContent("Data Update")
-            };
+            _objResponse.Message = "Data Update";
+            return _objResponse;
         }
         #endregion
 
@@ -150,7 +163,7 @@ namespace DataBase_With_CRUD.BL
         /// <returns>HttpResponseMessage</returns>
         public HttpResponseMessage Delete(int empid)
         {
-            MySqlConnection connection = new MySqlConnection(this._connectionString);
+            MySqlConnection connection = new MySqlConnection(_connectionString);
             try
             {
                 using (MySqlCommand cmd = new MySqlCommand())
@@ -172,6 +185,59 @@ namespace DataBase_With_CRUD.BL
                 Content = new StringContent("Data Delete")
             };
         }
+
+
         #endregion
+
+        /// <summary>
+        /// PreSave method for preparing data before saving.
+        /// </summary>
+        /// <param name="id">The ID of the object.</param>
+        /// <param name="objDto">The DTO object to convert.</param>
+        public void PreSave(int? id, DTOEMP01 objDto)
+        {
+            _objEMP01 = objDto.Convert<EMP01>();
+            if (Type == EnmType.E)
+            {
+                if (id > 0)
+                {
+                    _id = (int)id;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Validates the object before saving.
+        /// </summary>
+        /// <returns>A response object indicating validation success or failure.</returns>
+        public Response Validation()
+        {
+            if (Type == EnmType.E)
+            {
+                if (!(_id > 0))
+                {
+                    _objResponse.IsError = true;
+                    _objResponse.Message = "Enter Correct id";
+                }
+            }
+            return _objResponse;
+        }
+
+        /// <summary>
+        /// Saves the object.
+        /// </summary>
+        /// <returns>A response object indicating the result of the save operation.</returns>
+        public Response Save()
+        {
+            if (Type == EnmType.A)
+            {
+                return Add(_objEMP01);
+            }
+            if (Type == EnmType.E)
+            {
+                return Update(_id, _objEMP01);
+            }
+            return _objResponse;
+        }
     }
 }
