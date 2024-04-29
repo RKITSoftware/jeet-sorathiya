@@ -9,7 +9,7 @@ namespace CORS.Controllers
     /// Controller for handling CORS-related requests.
     /// </summary>
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class CorsController : ApiController
+    public class CLCorsController : ApiController
     {
         // Data to be returned by the API
         public List<string> data = new List<string> { "Jeet", "Tony-Stark", "Captain-America", "SpiderMan" };
@@ -32,11 +32,11 @@ namespace CORS.Controllers
         [DisableCors] // Disabling CORS for this specific action
         public IHttpActionResult Get(int id)
         {
-            if(id < 1 && id > data.Count)
+            if (id < 1 && id > data.Count)
             {
                 return NotFound();
             }
-            return Ok(data[id-1]);
+            return Ok(data[id - 1]);
         }
     }
 }
