@@ -8,7 +8,7 @@ namespace Serialization.Controllers
     /// Controller for handling data serialization.
     /// </summary>
     [RoutePrefix("api/Employee")]
-    public class EmployeeController : ApiController
+    public class CLEmployeeController : ApiController
     {
         /// <summary>
         /// Gets the JSON serialization of an Employee object.
