@@ -5,13 +5,11 @@ namespace ORMTools.Models
     /// <summary>
     /// Represents the EMP01 table entity.
     /// </summary>
-    [Alias("EMP01")]
     public class EMP01
     {
         /// <summary>
         /// Gets or sets the auto-incremented primary key for EmployeeId.
         /// </summary>
-        [AutoIncrement]
         public int P01F01 { get; set; }
 
         /// <summary>
