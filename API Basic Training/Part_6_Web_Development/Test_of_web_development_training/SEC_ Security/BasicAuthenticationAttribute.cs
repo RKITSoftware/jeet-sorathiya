@@ -8,7 +8,8 @@ using System.Threading;
 using System.Web;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
-using Test_of_web_development_training.Models;
+using Test_of_web_development_training.BL;
+using Test_of_web_development_training.Models.POCO;
 
 namespace Test_of_web_development_training.SEC__Security
 {
@@ -17,6 +18,11 @@ namespace Test_of_web_development_training.SEC__Security
     /// </summary>
     public class BasicAuthenticationAttribute : AuthorizationFilterAttribute
     {
+        readonly BLUserManager _blUserManager;
+        public BasicAuthenticationAttribute()
+        {
+            _blUserManager = new BLUserManager();
+        }
         /// <summary>
         /// Overrides the default authorization behavior to perform basic authentication.
         /// </summary>
@@ -40,10 +46,10 @@ namespace Test_of_web_development_training.SEC__Security
                 string password = usernamePassword[1];
 
                 // Check if the provided credentials are valid
-                if (User.isUser(username, password))
+                if (_blUserManager.IsUser(username, password))
                 {
                     // Get user details from the database
-                    User userDetails = User.UserDetails(username);
+                    User userDetails = _blUserManager.UserDetails(username);
 
                     // Create a new identity with the username
                     var identity = new GenericIdentity(username);

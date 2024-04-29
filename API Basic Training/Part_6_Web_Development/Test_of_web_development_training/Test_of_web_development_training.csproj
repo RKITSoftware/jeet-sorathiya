@@ -156,16 +156,27 @@
   <ItemGroup>
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\MarvelCharacterV1Controller.cs" />
-    <Compile Include="Controllers\MarvelCharacterV2Controller.cs" />
-    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="BL\Interface\IDataHandlerService.cs" />
+    <Compile Include="BL\Service\BLMarvelCharacterManagerV1.cs" />
+    <Compile Include="BL\Service\BLMarvelCharacterManagerV2.cs" />
+    <Compile Include="BL\Service\BLUserManager.cs" />
+    <Compile Include="Controllers\CLMarvelCharacterV1Controller.cs" />
+    <Compile Include="Controllers\CLMarvelCharacterV2Controller.cs" />
+    <Compile Include="Controllers\CLUserController.cs" />
     <Compile Include="DAL\CacheManager.cs" />
+    <Compile Include="Extension\DTOtoPOCOExtension.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\MarvelCharacterV1.cs" />
-    <Compile Include="Models\MarvelCharacterV2.cs" />
-    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\DTO\DTOMarvelCharacterV1.cs" />
+    <Compile Include="Models\DTO\DTOMarvelCharacterV2.cs" />
+    <Compile Include="Models\DTO\DTOUser.cs" />
+    <Compile Include="Models\Enum\EnmRole.cs" />
+    <Compile Include="Models\Enum\EnmType.cs" />
+    <Compile Include="Models\POCO\MarvelCharacterV1.cs" />
+    <Compile Include="Models\POCO\MarvelCharacterV2.cs" />
+    <Compile Include="Models\POCO\User.cs" />
+    <Compile Include="Models\Response.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SEC_ Security\BasicAuthenticationAttribute.cs" />
     <Compile Include="SEC_ Security\BasicAuthorizationAttribute.cs" />
