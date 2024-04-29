@@ -15,12 +15,12 @@ namespace LambdaExpression
             name();
 
             // Lambda expression with parameters
-            Func<int, int, double> add = (a, b) => a + b;
+            Func<int, int, long> add = (a, b) => a + b;
             Console.WriteLine("Sum: " + add(4, 4));
 
             // Lambda expression in a List
             List<int> employeeId = new List<int> { 365, 366, 367, 368, 369, 370 };
-            var myId = employeeId.Find(id => id == 369);
+            int myId = employeeId.Find(id => id == 369);
             Console.WriteLine("my Id: " + myId);
 
         }
