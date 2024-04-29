@@ -13,8 +13,7 @@ namespace QueryStringParameter.BAL
     /// Handle versioning based on query string parameters.
     /// </summary>
     public class QueryStringParameter : DefaultHttpControllerSelector
-    {
-        private HttpConfiguration _config;
+    {      
 
         /// <summary>
         /// Constructor for QueryStringParameter class.
@@ -22,7 +21,7 @@ namespace QueryStringParameter.BAL
         /// <param name="config">HttpConfiguration instance.</param>
         public QueryStringParameter(HttpConfiguration config) : base(config)
         {
-            _config = config;
+           
         }
 
         /// <summary>
@@ -41,19 +40,14 @@ namespace QueryStringParameter.BAL
             // Extract controller name from route data
             string controllerName = routeData.Values["controller"].ToString();
 
-
             string version = "1";
 
-
             NameValueCollection queryString = HttpUtility.ParseQueryString(request.RequestUri.Query);
-
 
             if (queryString["v"] != null)
             {
                 version = queryString["v"];
             }
-
-
             if (version == "1")
             {
                 controllerName = controllerName + "V1";
