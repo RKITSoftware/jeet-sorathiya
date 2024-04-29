@@ -2,20 +2,10 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using LINQ.Models;
 
 namespace LINQ
 {
-    /// <summary>
-    /// Represents an Employee
-    /// </summary>
-    public class Employee
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public int Age { get; set; }
-        public string Department { get; set; }
-    }
-
     /// <summary>
     /// Provides methods for employee
     /// </summary>
