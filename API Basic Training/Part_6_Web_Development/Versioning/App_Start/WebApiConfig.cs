@@ -14,12 +14,12 @@ namespace Versioning
             config.Routes.MapHttpRoute(
                 name: "v1",
                 routeTemplate: "api/v1/Employee/{id}",
-                defaults: new { id = RouteParameter.Optional, Controller = "EmployeeV1" }
+                defaults: new { id = RouteParameter.Optional, Controller = "CLEmployeeV1" }
             );
             config.Routes.MapHttpRoute(
                name: "v2",
                routeTemplate: "api/v2/Employee/{id}",
-               defaults: new { id = RouteParameter.Optional, Controller = "EmployeeV2" }
+               defaults: new { id = RouteParameter.Optional, Controller = "CLEmployeeV2" }
            );
         }
     }
