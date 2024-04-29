@@ -13,7 +13,7 @@ namespace CustomHeader.BAL
     /// <summary>
     /// Custom HttpControllerSelector to handle versioning based on custom headers.
     /// </summary>
-    public class Header : DefaultHttpControllerSelector
+    public class BLHeader : DefaultHttpControllerSelector
     {
         private HttpConfiguration _config;
 
@@ -21,7 +21,7 @@ namespace CustomHeader.BAL
         /// Constructor for Header class.
         /// </summary>
         /// <param name="config">HttpConfiguration instance.</param>
-        public Header(HttpConfiguration config) : base(config)
+        public BLHeader(HttpConfiguration config) : base(config)
         {
             _config = config;
         }

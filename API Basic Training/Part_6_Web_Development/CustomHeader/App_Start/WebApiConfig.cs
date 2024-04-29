@@ -13,7 +13,7 @@ namespace CustomHeader
             // Web API configuration and services
 
             // Web API routes
-            config.Services.Replace(typeof(IHttpControllerSelector), new BAL.Header(config));
+            config.Services.Replace(typeof(IHttpControllerSelector), new BAL.BLHeader(config));
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
