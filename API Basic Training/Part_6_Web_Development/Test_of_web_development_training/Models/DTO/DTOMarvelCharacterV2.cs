@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using Test_of_web_development_training.Models.Enum;
 
 namespace Test_of_web_development_training.Models.DTO

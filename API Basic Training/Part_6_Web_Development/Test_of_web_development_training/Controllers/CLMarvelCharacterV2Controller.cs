@@ -2,7 +2,6 @@
 using System.Web.Http;
 using System.Web.Http.Cors;
 using Test_of_web_development_training.BL;
-using Test_of_web_development_training.DAL;
 using Test_of_web_development_training.Models.DTO;
 using Test_of_web_development_training.Models.Enum;
 using Test_of_web_development_training.SEC__Security;
@@ -20,7 +19,6 @@ namespace Test_of_web_development_training.Controllers
     {
         // Cache manager instance for caching responses
         private readonly BLMarvelCharacterManagerV2 _bLMarvelCharacterManagerV2;
-        private readonly CacheManager _cacheManager;
         private Response _objResponse;
 
         /// <summary>
@@ -29,7 +27,6 @@ namespace Test_of_web_development_training.Controllers
         public CLMarvelCharacterV2Controller()
         {
             _bLMarvelCharacterManagerV2 = new BLMarvelCharacterManagerV2();
-            _cacheManager = new CacheManager();
         }
 
 
@@ -42,9 +39,9 @@ namespace Test_of_web_development_training.Controllers
         [HttpGet]
         [Route("ListOfCharacters")]
         [BasicAuthorization(Roles = "Admin,Subscriber,NonSubscriber")]
-        public HttpResponseMessage ListOfCharacters()
+        public Response ListOfCharacters()
         {
-            return _cacheManager.GetCachedResponse(Request, _bLMarvelCharacterManagerV2.GetAllCharacters);
+            return _bLMarvelCharacterManagerV2.GetAllCharacters();
         }
 
 

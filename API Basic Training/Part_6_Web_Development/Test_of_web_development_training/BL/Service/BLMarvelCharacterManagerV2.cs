@@ -47,9 +47,10 @@ namespace Test_of_web_development_training.BL
         /// Retrieves all Marvel characters.
         /// </summary>
         /// <returns>List of all Marvel characters.</returns>
-        public List<MarvelCharacterV2> GetAllCharacters()
+        public Response GetAllCharacters()
         {
-            return marvelCharacterList;
+            objResponse.Data = marvelCharacterList;
+            return objResponse;
         }
 
         /// <summary>

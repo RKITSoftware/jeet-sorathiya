@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Test_of_web_development_training.Models.POCO
+﻿namespace Test_of_web_development_training.Models.POCO
 {
     /// <summary>
     /// Represents a Marvel character in Version 2 with additional details.

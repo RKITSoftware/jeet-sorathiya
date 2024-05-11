@@ -31,7 +31,7 @@ namespace Test_of_web_development_training.BL
             new MarvelCharacterV1 {CharacterId = 10, Name = "Scott Lang", SuperheroName = "Ant-Man", Role = "Superhero"}
         };
         public Response objResponse;
-        public EnmType Type { get; set; }
+        public EnmType Type { get; set; } // entrytype??
 
         /// <summary>
         /// constructor 
@@ -46,9 +46,10 @@ namespace Test_of_web_development_training.BL
         /// Retrieves all Marvel characters.
         /// </summary>
         /// <returns>List of all Marvel characters.</returns>
-        public List<MarvelCharacterV1> GetAllCharacters()
+        public Response GetAllCharacters()
         {
-            return _marvelCharacterList;
+            objResponse.Data = _marvelCharacterList;
+            return objResponse;
         }
 
         /// <summary>
@@ -84,7 +85,7 @@ namespace Test_of_web_development_training.BL
         /// </summary>
         /// <param name="id">ID of the character </param>
         /// <returns>True if the character was successfully deleted, otherwise false.</returns>
-        public bool DeleteCharacter(int id)
+        public bool DeleteCharacter(int id) // id op??
         {
             MarvelCharacterV1 targetCharacter = _marvelCharacterList.FirstOrDefault(chr => chr.CharacterId == id);
             if (targetCharacter != null)

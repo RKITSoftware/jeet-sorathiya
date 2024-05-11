@@ -163,7 +163,6 @@
     <Compile Include="Controllers\CLMarvelCharacterV1Controller.cs" />
     <Compile Include="Controllers\CLMarvelCharacterV2Controller.cs" />
     <Compile Include="Controllers\CLUserController.cs" />
-    <Compile Include="DAL\CacheManager.cs" />
     <Compile Include="Extension\DTOtoPOCOExtension.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

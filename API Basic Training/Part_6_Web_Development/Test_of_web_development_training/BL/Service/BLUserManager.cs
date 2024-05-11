@@ -59,7 +59,7 @@ namespace Test_of_web_development_training.BL
         /// Deletes a user based ID.
         /// </summary>
         /// <param name="id">The ID of the user to be deleted.</param>
-        public void Delete(int id)
+        public void Delete(int id) // id??
         {
             User currentUser = _userList.Find(usr => usr.Id == id);
             _userList.Remove(currentUser);
@@ -81,7 +81,7 @@ namespace Test_of_web_development_training.BL
         /// <param name="userName">The username of the user.</param>
         /// <param name="password">The password of the user.</param>
         /// <returns>True if the user exists with the provided credentials; otherwise, false.</returns>
-        public bool IsUser(string userName, string password)
+        public bool IsUser(string userName, string password) // op?? isequle
         {
             if (_userList.Any(usr => usr.UserName == userName && usr.Password == password))
             {
@@ -153,9 +153,9 @@ namespace Test_of_web_development_training.BL
             {
                 _userList.Add(_objUser);
                 objResponse.Data = _userList;
-                return objResponse;
+                return objResponse; // op??
             }
-            if (Type == EnmType.E)
+            if (Type == EnmType.E) // op??
             {
                 objResponse.Data.UserName = _objUser.UserName;
                 objResponse.Data.Password = _objUser.Password;

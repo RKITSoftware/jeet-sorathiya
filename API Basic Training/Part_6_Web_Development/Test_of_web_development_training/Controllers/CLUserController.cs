@@ -46,7 +46,7 @@ namespace Test_of_web_development_training.Controllers
         [HttpGet]
         [Route("UserInfo/{id}")]
         [BasicAuthorization(Roles = "Admin")]
-        public IHttpActionResult UserInfo(int id)
+        public IHttpActionResult UserInfo(int id) // bl??
         {
             var user = _blUserManager.GetUserById(id);
             if (user == null)
@@ -65,7 +65,7 @@ namespace Test_of_web_development_training.Controllers
         [HttpPut]
         [Route("UpdateUserDetails/{id}")]
         [BasicAuthorization(Roles = "Admin")]
-        public Response UpdateUserDetails(int id, [FromBody] DTOUser newUser)
+        public Response UpdateUserDetails(int id, [FromBody] DTOUser newUser) // return ok ??
         {
 
             _blUserManager.Type = EnmType.E;

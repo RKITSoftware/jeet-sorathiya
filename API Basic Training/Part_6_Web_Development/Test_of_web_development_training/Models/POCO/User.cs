@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace Test_of_web_development_training.Models.POCO
+﻿namespace Test_of_web_development_training.Models.POCO
 {
     /// <summary>
     /// Represents a user 

@@ -2,7 +2,6 @@
 using System.Web.Http;
 using System.Web.Http.Cors;
 using Test_of_web_development_training.BL;
-using Test_of_web_development_training.DAL;
 using Test_of_web_development_training.Models;
 using Test_of_web_development_training.Models.DTO;
 using Test_of_web_development_training.Models.Enum;
@@ -18,7 +17,6 @@ namespace Test_of_web_development_training.Controllers
     [BasicAuthentication]
     public class CLMarvelCharacterV1Controller : ApiController
     {
-        private readonly CacheManager _cacheManager;
         private readonly BLMarvelCharacterManagerV1 _blMarvelCharacterManagerV1;
         private Response _objResponse;
 
@@ -27,7 +25,7 @@ namespace Test_of_web_development_training.Controllers
         /// </summary>
         public CLMarvelCharacterV1Controller()
         {
-            _cacheManager = new CacheManager();
+
             _blMarvelCharacterManagerV1 = new BLMarvelCharacterManagerV1();
         }
         #region Get Methods
@@ -39,9 +37,9 @@ namespace Test_of_web_development_training.Controllers
         [HttpGet]
         [Route("ListOfCharacters")]
         [BasicAuthorization(Roles = "Admin,Subscriber,NonSubscriber")]
-        public HttpResponseMessage ListOfCharacters()
-        {
-            return _cacheManager.GetCachedResponse(Request, _blMarvelCharacterManagerV1.GetAllCharacters);
+        public Response ListOfCharacters()
+        {          
+            return _blMarvelCharacterManagerV1.GetAllCharacters();
         }
 
 
@@ -53,7 +51,7 @@ namespace Test_of_web_development_training.Controllers
         [HttpGet]
         [Route("CharacterInfo/{id}")]
         [BasicAuthorizationAttribute(Roles = "Admin,Subscriber")]
-        public IHttpActionResult CharacterInfo(int id)
+        public IHttpActionResult CharacterInfo(int id) // bl??
         {
             var character = _blMarvelCharacterManagerV1.GetCharacterById(id);
             if (character == null)
@@ -71,7 +69,7 @@ namespace Test_of_web_development_training.Controllers
         [HttpGet]
         [Route("ListOfSuperHeros")]
         [BasicAuthorizationAttribute(Roles = "Admin,Subscriber")]
-        public IHttpActionResult ListOfSuperHeros()
+        public IHttpActionResult ListOfSuperHeros() // bl??
         {
             var superHeros = _blMarvelCharacterManagerV1.GetSuperheroes();
             if (superHeros.Count == 0)

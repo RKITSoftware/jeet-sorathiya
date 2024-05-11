@@ -2,6 +2,9 @@ using System.Web.Http;
 using WebActivatorEx;
 using Test_of_web_development_training;
 using Swashbuckle.Application;
+using Swashbuckle.Swagger;
+using System.Collections.Generic;
+using System.Web.Http.Description;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
@@ -34,9 +37,12 @@ namespace Test_of_web_development_training
                         //
                         c.SingleApiVersion("v1", "Test_of_web_development_training");
 
+                        c.BasicAuth("basic")
+                            .Description("Basic HTTP Authentication");
                         // If you want the output Swagger docs to be indented properly, enable the "PrettyPrint" option.
                         //
                         //c.PrettyPrint();
+                        c.OperationFilter<AssignOAuth2SecurityRequirements>();
 
                         // If your API has multiple versions, use "MultipleApiVersions" instead of "SingleApiVersion".
                         // In this case, you must provide a lambda that tells Swashbuckle which actions should be
@@ -61,7 +67,7 @@ namespace Test_of_web_development_training
                         //c.BasicAuth("basic")
                         //    .Description("Basic HTTP Authentication");
                         //
-						// NOTE: You must also configure 'EnableApiKeySupport' below in the SwaggerUI section
+                        // NOTE: You must also configure 'EnableApiKeySupport' below in the SwaggerUI section
                         //c.ApiKey("apiKey")
                         //    .Description("API Key Authentication")
                         //    .Name("apiKey")
@@ -250,6 +256,55 @@ namespace Test_of_web_development_training
                         //
                         //c.EnableApiKeySupport("apiKey", "header");
                     });
+        }
+
+        public class AssignOAuth2SecurityRequirements : IOperationFilter
+        {
+            public void Apply(Operation operation, SchemaRegistry schemaRegistry, ApiDescription apiDescription)
+            {
+                ////Check if the method has the BasicAuth attribute
+                //var basicAuthRequired = apiDescription.GetControllerAndActionAttributes<BasicAuthentication>().Any();
+
+                //// Check if the method has the BearerAuth attribute
+                //var bearerAuthRequired = apiDescription.GetControllerAndActionAttributes<BearerAuthentication>().Any();
+
+                //if (basicAuthRequired)
+                //{
+                //    //Apply Basic Authentication
+                //    if (operation.security == null)
+                //        operation.security = new List<IDictionary<string, IEnumerable<string>>>();
+
+                //    var basicAuth = new Dictionary<string, IEnumerable<string>>
+                //    {
+                //        { "basic", new string[] { } }
+                //    };
+
+                //    operation.security.Add(basicAuth);
+                //}
+
+                //if (bearerAuthRequired)
+                //{
+                //    // Apply Bearer Authentication
+                //    if (operation.security == null)
+                //        operation.security = new List<IDictionary<string, IEnumerable<string>>>();
+
+                //    var bearerAuth = new Dictionary<string, IEnumerable<string>>
+                //    {
+                //        { "BearerToken", new string[] { } }
+                //    };
+
+                //    operation.security.Add(bearerAuth);
+                //}
+                if (operation.security == null)
+                    operation.security = new List<IDictionary<string, IEnumerable<string>>>();
+
+                var basicAuth = new Dictionary<string, IEnumerable<string>>
+                    {
+                        { "basic", new string[] { } }
+                    };
+
+                operation.security.Add(basicAuth);
+            }
         }
     }
 }

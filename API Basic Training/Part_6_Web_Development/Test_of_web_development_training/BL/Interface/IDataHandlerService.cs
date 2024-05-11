@@ -19,7 +19,7 @@ namespace Test_of_web_development_training.BL.Interface
         /// </summary>
         /// <param name="id">The ID of the object (if any).</param>
         /// <param name="objDto">The data object to be saved.</param>
-        void PreSave(int? id, T objDto);
+        void PreSave(int? id, T objDto); // optional??
 
         /// <summary>
         /// Validates the data before saving.
