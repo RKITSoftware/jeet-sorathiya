@@ -101,7 +101,7 @@ namespace Test_of_web_development_training.BL
         /// </summary>
         /// <param name="id">ID of the character (if any).</param>
         /// <param name="objDto">DTO representation of the Marvel character.</param>
-        public void PreSave(int? id, DTOMarvelCharacterV1 objDto)
+        public void PreSave(DTOMarvelCharacterV1 objDto, int id = 0)
         {
             _objMarvelCharacter = objDto.Convert<MarvelCharacterV1>();
             if (Type == EnmType.A)
@@ -115,7 +115,7 @@ namespace Test_of_web_development_training.BL
             {
                 if (id > 0)
                 {
-                    _characterId = (int)id;
+                    _characterId = id;
                 }
             }
         }
@@ -163,7 +163,7 @@ namespace Test_of_web_development_training.BL
                 objResponse.Data = _objMarvelCharacter;
                 objResponse.Message = "New Character is Added";
             }
-            if (Type == EnmType.E)
+           else if (Type == EnmType.E)
             {
 
                 objResponse.Data.Name = _objMarvelCharacter.Name;

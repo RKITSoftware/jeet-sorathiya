@@ -69,7 +69,7 @@ namespace Test_of_web_development_training.Controllers
         {
 
             _blUserManager.Type = EnmType.E;
-            _blUserManager.PreSave(id, newUser);
+            _blUserManager.PreSave(newUser, id);
             _objResponse = _blUserManager.Validation();
             if (!_objResponse.IsError)
             {
@@ -89,7 +89,7 @@ namespace Test_of_web_development_training.Controllers
         public Response AddNewUser(DTOUser newUser)
         {
             _blUserManager.Type = EnmType.A;
-            _blUserManager.PreSave(null, newUser);
+            _blUserManager.PreSave(newUser);
             _objResponse = _blUserManager.Validation();
             if (!_objResponse.IsError)
             {

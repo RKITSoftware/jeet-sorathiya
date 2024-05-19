@@ -114,7 +114,7 @@ namespace Test_of_web_development_training.Controllers
         public Response AddNewCharacter(DTOMarvelCharacterV2 character)
         {
             _bLMarvelCharacterManagerV2.Type = EnmType.A;
-            _bLMarvelCharacterManagerV2.PreSave(null, character);
+            _bLMarvelCharacterManagerV2.PreSave(character);
             _objResponse = _bLMarvelCharacterManagerV2.Validation();
             if (!_objResponse.IsError)
             {
@@ -138,7 +138,7 @@ namespace Test_of_web_development_training.Controllers
         public Response UpdateCharacterInfo(int id, DTOMarvelCharacterV2 character)
         {
             _bLMarvelCharacterManagerV2.Type = EnmType.E;
-            _bLMarvelCharacterManagerV2.PreSave(id, character);
+            _bLMarvelCharacterManagerV2.PreSave(character, id);
             _objResponse = _bLMarvelCharacterManagerV2.Validation();
             if (!_objResponse.IsError)
             {

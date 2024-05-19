@@ -81,13 +81,11 @@ namespace Test_of_web_development_training.BL
         /// <param name="userName">The username of the user.</param>
         /// <param name="password">The password of the user.</param>
         /// <returns>True if the user exists with the provided credentials; otherwise, false.</returns>
-        public bool IsUser(string userName, string password) // op?? isequle
+        public bool IsUser(string userName, string password)
         {
-            if (_userList.Any(usr => usr.UserName == userName && usr.Password == password))
-            {
-                return true;
-            }
-            return false;
+            return _userList.Exists(usr =>
+                    string.Equals(usr.UserName, userName) && // defaults to StringComparison.Ordinal
+                    string.Equals(usr.Password, password));
         }
 
         /// <summary>
@@ -95,7 +93,7 @@ namespace Test_of_web_development_training.BL
         /// </summary>
         /// <param name="id">ID of the user (if any).</param>
         /// <param name="objDto">DTO representation of the user.</param>
-        public void PreSave(int? id, DTOUser objDto)
+        public void PreSave(DTOUser objDto, int id = 0)
         {
             _objUser = objDto.Convert<User>();
             if (Type == EnmType.A)
@@ -108,7 +106,7 @@ namespace Test_of_web_development_training.BL
             {
                 if (id > 0)
                 {
-                    _id = (int)id;
+                    _id = id;
                 }
             }
         }
@@ -153,9 +151,8 @@ namespace Test_of_web_development_training.BL
             {
                 _userList.Add(_objUser);
                 objResponse.Data = _userList;
-                return objResponse; // op??
             }
-            if (Type == EnmType.E) // op??
+            else if (Type == EnmType.E)
             {
                 objResponse.Data.UserName = _objUser.UserName;
                 objResponse.Data.Password = _objUser.Password;

@@ -111,7 +111,7 @@ namespace Test_of_web_development_training.Controllers
         public Response AddNewCharacter(DTOMarvelCharacterV1 character)
         {
             _blMarvelCharacterManagerV1.Type = EnmType.A;
-            _blMarvelCharacterManagerV1.PreSave(null, character);
+            _blMarvelCharacterManagerV1.PreSave(character);
             _objResponse = _blMarvelCharacterManagerV1.Validation();
             if (!_objResponse.IsError)
             {
@@ -136,7 +136,7 @@ namespace Test_of_web_development_training.Controllers
         public Response UpdateCharacterInfo(int id, DTOMarvelCharacterV1 character)
         {
             _blMarvelCharacterManagerV1.Type = EnmType.E;
-            _blMarvelCharacterManagerV1.PreSave(id, character);
+            _blMarvelCharacterManagerV1.PreSave(character, id);
             _objResponse = _blMarvelCharacterManagerV1.Validation();
             if (!_objResponse.IsError)
             {
