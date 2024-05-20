@@ -1,8 +1,10 @@
-﻿using System.Web.Http;
+﻿using System.Collections.Generic;
+using System.Web.Http;
 using Test_of_web_development_training.BL;
 using Test_of_web_development_training.Models;
 using Test_of_web_development_training.Models.DTO;
 using Test_of_web_development_training.Models.Enum;
+using Test_of_web_development_training.Models.POCO;
 using Test_of_web_development_training.SEC__Security;
 
 namespace Test_of_web_development_training.Controllers
@@ -14,9 +16,12 @@ namespace Test_of_web_development_training.Controllers
     [RoutePrefix("api/User")]
     public class CLUserController : ApiController
     {
+        #region  Private Fields
         private readonly BLUserManager _blUserManager;
         private Response _objResponse;
+        #endregion
 
+        #region Constructor
         /// <summary>
         /// Constructor to initialize the UserManager.
         /// </summary>
@@ -24,7 +29,10 @@ namespace Test_of_web_development_training.Controllers
         {
             _blUserManager = new BLUserManager();
         }
+        #endregion
 
+        #region Public Methods
+        #region Get Methods
         /// <summary>
         /// Retrieves a list of all users.
         /// </summary>
@@ -34,7 +42,7 @@ namespace Test_of_web_development_training.Controllers
         [BasicAuthorization(Roles = "Admin")]
         public IHttpActionResult AllUserList()
         {
-            var userList = _blUserManager.GetAllUsers();
+            List<User> userList = _blUserManager.GetAllUsers();
             return Ok(userList);
         }
 
@@ -46,16 +54,18 @@ namespace Test_of_web_development_training.Controllers
         [HttpGet]
         [Route("UserInfo/{id}")]
         [BasicAuthorization(Roles = "Admin")]
-        public IHttpActionResult UserInfo(int id) // bl??
+        public IHttpActionResult UserInfo(int id)
         {
-            var user = _blUserManager.GetUserById(id);
+            User user = _blUserManager.GetUserById(id);
             if (user == null)
             {
                 return NotFound();
             }
             return Ok(user);
         }
+        #endregion
 
+        #region Put Methods
         /// <summary>
         /// Updates details of a specific user by ID.
         /// </summary>
@@ -65,19 +75,21 @@ namespace Test_of_web_development_training.Controllers
         [HttpPut]
         [Route("UpdateUserDetails/{id}")]
         [BasicAuthorization(Roles = "Admin")]
-        public Response UpdateUserDetails(int id, [FromBody] DTOUser newUser) // return ok ??
+        public IHttpActionResult UpdateUserDetails(int id, [FromBody] DTOUser newUser)
         {
 
-            _blUserManager.Type = EnmType.E;
-            _blUserManager.PreSave(id, newUser);
+            _blUserManager.EntryType = EnmType.E;
+            _blUserManager.PreSave(newUser, id);
             _objResponse = _blUserManager.Validation();
             if (!_objResponse.IsError)
             {
                 _objResponse = _blUserManager.Save();
             }
-            return _objResponse;
+            return Ok(_objResponse);
         }
+        #endregion
 
+        #region Post Methods
         /// <summary>
         /// Adds a new user.
         /// </summary>
@@ -86,18 +98,20 @@ namespace Test_of_web_development_training.Controllers
         [HttpPost]
         [Route("AddNewUser")]
         [BasicAuthorization(Roles = "Admin")]
-        public Response AddNewUser(DTOUser newUser)
+        public IHttpActionResult AddNewUser(DTOUser newUser)
         {
-            _blUserManager.Type = EnmType.A;
-            _blUserManager.PreSave(null, newUser);
+            _blUserManager.EntryType = EnmType.A;
+            _blUserManager.PreSave(newUser);
             _objResponse = _blUserManager.Validation();
             if (!_objResponse.IsError)
             {
                 _objResponse = _blUserManager.Save();
             }
-            return _objResponse;
+            return Ok(_objResponse);
         }
+        #endregion
 
+        #region Delete Methods
         /// <summary>
         /// Deletes a user by ID.
         /// </summary>
@@ -111,6 +125,7 @@ namespace Test_of_web_development_training.Controllers
             _blUserManager.Delete(id);
             return Ok();
         }
-
+        #endregion 
+        #endregion
     }
 }

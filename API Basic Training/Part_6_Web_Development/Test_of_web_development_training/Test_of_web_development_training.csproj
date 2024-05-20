@@ -156,6 +156,7 @@
   <ItemGroup>
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="BL\Common\BLCache.cs" />
     <Compile Include="BL\Interface\IDataHandlerService.cs" />
     <Compile Include="BL\Service\BLMarvelCharacterManagerV1.cs" />
     <Compile Include="BL\Service\BLMarvelCharacterManagerV2.cs" />

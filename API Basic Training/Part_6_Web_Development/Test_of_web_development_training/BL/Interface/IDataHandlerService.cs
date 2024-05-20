@@ -9,17 +9,20 @@ namespace Test_of_web_development_training.BL.Interface
     /// <typeparam name="T">The type of data to handle.</typeparam>
     public interface IDataHandlerService<T> where T : class
     {
+        #region Public Property
         /// <summary>
         /// Gets or sets the type of opration (Edit, Add).
         /// </summary>
-        EnmType Type { get; set; }
+        EnmType EntryType { get; set; }
+        #endregion
 
+        #region Public Methods
         /// <summary>
         /// Performs pre-save operations on the data object before saving.
         /// </summary>
         /// <param name="id">The ID of the object (if any).</param>
         /// <param name="objDto">The data object to be saved.</param>
-        void PreSave(int? id, T objDto); // optional??
+        void PreSave(T objDto, int id = 0);
 
         /// <summary>
         /// Validates the data before saving.
@@ -31,6 +34,7 @@ namespace Test_of_web_development_training.BL.Interface
         /// Saves the data.
         /// </summary>
         /// <returns>A response indicating the result of the save operation.</returns>
-        Response Save();
+        Response Save(); 
+        #endregion
     }
 }

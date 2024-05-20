@@ -1,11 +1,12 @@
-﻿using System.Net.Http;
+﻿using System.Collections.Generic;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using Test_of_web_development_training.BL;
+using Test_of_web_development_training.Models;
 using Test_of_web_development_training.Models.DTO;
 using Test_of_web_development_training.Models.Enum;
+using Test_of_web_development_training.Models.POCO;
 using Test_of_web_development_training.SEC__Security;
-using Response = Test_of_web_development_training.Models.Response;
 
 namespace Test_of_web_development_training.Controllers
 {
@@ -17,10 +18,13 @@ namespace Test_of_web_development_training.Controllers
     [BasicAuthentication]
     public class CLMarvelCharacterV2Controller : ApiController
     {
+        #region  Private Fields
         // Cache manager instance for caching responses
         private readonly BLMarvelCharacterManagerV2 _bLMarvelCharacterManagerV2;
         private Response _objResponse;
+        #endregion
 
+        #region Constructor
         /// <summary>
         /// Default constructor to initialize necessary instances.
         /// </summary>
@@ -28,8 +32,9 @@ namespace Test_of_web_development_training.Controllers
         {
             _bLMarvelCharacterManagerV2 = new BLMarvelCharacterManagerV2();
         }
+        #endregion
 
-
+        #region Public Methods
         #region Get Methods
 
         /// <summary>
@@ -39,9 +44,9 @@ namespace Test_of_web_development_training.Controllers
         [HttpGet]
         [Route("ListOfCharacters")]
         [BasicAuthorization(Roles = "Admin,Subscriber,NonSubscriber")]
-        public Response ListOfCharacters()
+        public IHttpActionResult ListOfCharacters()
         {
-            return _bLMarvelCharacterManagerV2.GetAllCharacters();
+            return Ok(_bLMarvelCharacterManagerV2.GetAllCharacters());
         }
 
 
@@ -55,7 +60,7 @@ namespace Test_of_web_development_training.Controllers
         [BasicAuthorizationAttribute(Roles = "Admin,Subscriber")]
         public IHttpActionResult CharacterInfo(int id)
         {
-            var character = _bLMarvelCharacterManagerV2.GetCharacterById(id);
+            MarvelCharacterV2 character = _bLMarvelCharacterManagerV2.GetCharacterById(id);
             if (character == null)
             {
                 return NotFound();
@@ -73,7 +78,7 @@ namespace Test_of_web_development_training.Controllers
         [BasicAuthorizationAttribute(Roles = "Admin,Subscriber")]
         public IHttpActionResult ListOfSuperHeros()
         {
-            var superHeros = _bLMarvelCharacterManagerV2.GetSuperheroes();
+            List<MarvelCharacterV2> superHeros = _bLMarvelCharacterManagerV2.GetSuperheroes();
             if (superHeros.Count == 0)
             {
                 return NotFound();
@@ -91,7 +96,7 @@ namespace Test_of_web_development_training.Controllers
         [BasicAuthorizationAttribute(Roles = "Admin,Subscriber")]
         public IHttpActionResult ListOfVillain()
         {
-            var villains = _bLMarvelCharacterManagerV2.GetVillains();
+            List<MarvelCharacterV2> villains = _bLMarvelCharacterManagerV2.GetVillains();
             if (villains.Count == 0)
             {
                 return NotFound();
@@ -111,16 +116,16 @@ namespace Test_of_web_development_training.Controllers
         [HttpPost]
         [Route("AddNewCharacter")]
         [BasicAuthorization(Roles = "Admin")]
-        public Response AddNewCharacter(DTOMarvelCharacterV2 character)
+        public IHttpActionResult AddNewCharacter(DTOMarvelCharacterV2 character)
         {
-            _bLMarvelCharacterManagerV2.Type = EnmType.A;
-            _bLMarvelCharacterManagerV2.PreSave(null, character);
+            _bLMarvelCharacterManagerV2.EntryType = EnmType.A;
+            _bLMarvelCharacterManagerV2.PreSave(character);
             _objResponse = _bLMarvelCharacterManagerV2.Validation();
             if (!_objResponse.IsError)
             {
                 _bLMarvelCharacterManagerV2.Save();
             }
-            return _objResponse;
+            return Ok(_objResponse);
         }
         #endregion
 
@@ -135,16 +140,16 @@ namespace Test_of_web_development_training.Controllers
         [HttpPut]
         [Route("UpdateCharacterInfo/{id}")]
         [BasicAuthorization(Roles = "Admin")]
-        public Response UpdateCharacterInfo(int id, DTOMarvelCharacterV2 character)
+        public IHttpActionResult UpdateCharacterInfo(int id, DTOMarvelCharacterV2 character)
         {
-            _bLMarvelCharacterManagerV2.Type = EnmType.E;
-            _bLMarvelCharacterManagerV2.PreSave(id, character);
+            _bLMarvelCharacterManagerV2.EntryType = EnmType.E;
+            _bLMarvelCharacterManagerV2.PreSave(character, id);
             _objResponse = _bLMarvelCharacterManagerV2.Validation();
             if (!_objResponse.IsError)
             {
                 _objResponse = _bLMarvelCharacterManagerV2.Save();
             }
-            return _objResponse;
+            return Ok(_objResponse);
         }
         #endregion
 
@@ -161,13 +166,14 @@ namespace Test_of_web_development_training.Controllers
         [BasicAuthorization(Roles = "Admin")]
         public IHttpActionResult DeleteCharacter(int id)
         {
-            var deleted = _bLMarvelCharacterManagerV2.DeleteCharacter(id);
+            bool deleted = _bLMarvelCharacterManagerV2.DeleteCharacter(id);
             if (!deleted)
             {
                 return NotFound();
             }
             return Ok();
         }
+        #endregion 
         #endregion
     }
 }
