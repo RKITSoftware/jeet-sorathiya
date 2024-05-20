@@ -1,5 +1,8 @@
 ﻿namespace Test_of_web_development_training.Models.Enum
 {
+    /// <summary>
+    /// specified operations types
+    /// </summary>
     public enum EnmType
     {
         /// <summary>
