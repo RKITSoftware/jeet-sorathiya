@@ -1,0 +1,50 @@
+[
+  {
+    "_id": "1",
+    "name": "Iron Man",
+    "age": 40,
+    "occupation": "CEO of Stark Industries",
+    "skills": [ "Genius-level intellect", "Engineering", "Armor Technology" ],
+    "email": "ironman@avengers.com"
+  },
+  {
+    "_id": "2",
+    "name": "Captain America",
+    "age": 100,
+    "occupation": "Super Soldier",
+    "skills": [ "Peak human strength", "Combat expert", "Shield mastery" ],
+    "email": "captainamerica@avengers.com"
+  },
+  {
+    "_id": "4",
+    "name": "Thor",
+    "age": 1500,
+    "occupation": "Prince of Asgard",
+    "skills": [ "Godly strength", "Control over lightning" ],
+    "email": "thor@avengers.com"
+  },
+  {
+    "_id": "5",
+    "name": "Hulk",
+    "age": 45,
+    "occupation": "Scientist",
+    "skills": [ "Gamma radiation expertise", "Superhuman strength" ],
+    "email": "hulk@avengers.com"
+  },
+  {
+    "_id": "6",
+    "name": "Doctor Strange",
+    "age": 42,
+    "occupation": "Sorcerer Supreme",
+    "skills": [ "Mystic arts", "Dimensional travel" ],
+    "email": "doctorstrange@avengers.com"
+  },
+  {
+    "_id": "7",
+    "name": "Spider-Man",
+    "age": 25,
+    "occupation": "Freelance Photographer, Superhero",
+    "skills": [ "Agility", "Web-slinging", "Spidey sense" ],
+    "email": "spiderman@avengers.com"
+  }
+]

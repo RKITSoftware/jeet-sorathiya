@@ -1,0 +1,17 @@
+﻿.date .dateBox,
+.time .dateBox,
+.datetime .dateBox,
+.datetype .dateBox {
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.date, .time, .datetime, .datetype {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,8 @@
+﻿.dropdownBox {
+    display: block;
+    margin-bottom: 40px;
+    width: 20vw;
+    float: left;
+    justify-content: space-between;
+    padding: 10px;
+}

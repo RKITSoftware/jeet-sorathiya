@@ -1,0 +1,8 @@
+﻿.TextArea {
+    display: block;
+    margin-bottom: 10px;
+    width: 20vw;
+    float: left;
+    justify-content: space-between;
+    padding: 10px;
+}
