@@ -1,4 +1,5 @@
 ﻿using Advance_C__FinalDemo.BL.Interface;
+using Advance_C__FinalDemo.DL;
 using Advance_C__FinalDemo.Extension;
 using Advance_C__FinalDemo.Models;
 using Advance_C__FinalDemo.Models.DTO;
@@ -20,6 +21,7 @@ namespace Advance_C__FinalDemo.BL
 
         private string _connectionString;
         private Response _objResponse;
+        private DBDirectorContext _dbDirectorContext;
         private DIR01 _objDIR01;
         private int _id;
 
@@ -28,136 +30,50 @@ namespace Advance_C__FinalDemo.BL
         /// </summary>
         public BLDirector()
         {
+            _dbDirectorContext = new DBDirectorContext();
             _objDIR01 = new DIR01();
             _objResponse = new Response();
             _connectionString = HttpContext.Current.Application["ConnectionString"] as string;
         }
         public EnmType Type { get; set; }
 
-        /// <summary>
-        /// Retrieves all directors from the DIR01 table
-        /// </summary>
-        /// <returns>DataTable containing all directors</returns>
-        public DataTable GetAll()
+      
+        public Response GetAll()
         {
-            DataTable allCategorys = new DataTable();
-            MySqlConnection conn = new MySqlConnection(_connectionString);
-            try
+            DataTable allDirectors = _dbDirectorContext.GetAllDirectors();
+            if(allDirectors.Rows.Count == 0)
             {
-                conn.Open();
-                using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM DIR01;", conn))
-                {
-                    // Execute SQL command and populate the DataTable with results
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        allCategorys.Load(reader);
-                    }
-                }
+                _objResponse.IsError = true;
+                _objResponse.Message = "Directors Not Found";
             }
-            catch (Exception ex) { throw new Exception(ex.Message); }
-            finally { conn.Close(); }
-            return allCategorys;
+            _objResponse.Data = allDirectors;
+            return _objResponse;
         }
 
-        /// <summary>
-        /// Adds a new director to the database.
-        /// </summary>
-        /// <param name="objofDirector">The director object to be added.</param>
-        /// <returns>A Response object indicating the outcome of the operation.</returns>
+  
         public Response Add(DIR01 objofDirector)
         {           
-            MySqlConnection conn = new MySqlConnection(_connectionString);
-            try
-            {
-                using (MySqlCommand cmd = new MySqlCommand())
-                {
-                    cmd.Connection = conn;
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "INSERT INTO DIR01 (R01F02) VALUES (@Director)";
-                    cmd.Parameters.AddWithValue("@Director", objofDirector.R01F02);
-                    conn.Open();
-                    // Execute SQL command to add a new director
-                    cmd.ExecuteNonQuery();
-                }
-                _objResponse.Message = "Data Added";
-            }
-            catch (Exception ex)
-            {
-                _objResponse.IsError = true;
-                _objResponse.Message = ex.Message;
-                throw new Exception(ex.Message);
-            }
-            finally { conn.Close(); }
-            return _objResponse;
+            return _dbDirectorContext.AddDirectors(objofDirector);
         }
 
-        /// <summary>
-        /// Updates an existing director in the database.
-        /// </summary>
-        /// <param name="id">The ID of the director to be updated.</param>
-        /// <param name="objofDirector">The director object containing the updated information.</param>
-        /// <returns>A Response object indicating the outcome of the operation.</returns>
+      
         public Response Update(int id, DIR01 objofDirector)
         {
-            MySqlConnection conn = new MySqlConnection(_connectionString);
-            try
-            {
-                using (MySqlCommand cmd = new MySqlCommand())
-                {
-                    cmd.Connection = conn;
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "UPDATE DIR01 " +
-                                       "SET R01F02 = @DirectorName " +
-                                       "WHERE R01F01 = @ID";
-                    cmd.Parameters.AddWithValue("@DirectorName", objofDirector.R01F02);
-                    cmd.Parameters.AddWithValue("@ID", id);
-                    conn.Open();
-                    // Execute SQL command to update an existing director
-                    cmd.ExecuteNonQuery();
-                }
-                _objResponse.Message = "Data Updated";
-            }
-            catch (Exception ex)
-            {
-                _objResponse.IsError = true;
-                _objResponse.Message = ex.Message;
-                throw new Exception(ex.Message);
-            }
-            finally { conn.Close(); }
-            return _objResponse;
+            return _dbDirectorContext.UpdateDirector(id, objofDirector);
         }
 
-        /// <summary>
-        /// Deletes a director from the DIR01 table by ID.
-        /// </summary>
-        /// <param name="id">Director ID to be deleted</param>
-        /// <returns>Boolean indicating the success or failure of the operation</returns>
-        public bool Delete(int id)
+        public Response Delete(int id)
         {
-            bool isResponse = true;
-            MySqlConnection conn = new MySqlConnection(_connectionString);
-            try
+           if(_dbDirectorContext.DeleteDirector(id))
             {
-                using (MySqlCommand cmd = new MySqlCommand())
-                {
-                    cmd.Connection = conn;
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "DELETE FROM DIR01 " +
-                                       "WHERE R01F01 = @ID";
-
-                    cmd.Parameters.AddWithValue("@ID", id);
-                    conn.Open();
-                    // Execute SQL command to delete a director
-                    cmd.ExecuteNonQuery();
-                }
+                _objResponse.Message = "Director Deleted";
             }
-            catch (Exception ex)
+           else
             {
-                isResponse = false;
-                throw new Exception(ex.Message);
+                _objResponse.IsError = true;
+                _objResponse.Message = "Director is Not Deleted";
             }
-            finally { conn.Close(); }
-            return isResponse;
+            return _objResponse;
         }
 
         /// <summary>
@@ -165,7 +81,7 @@ namespace Advance_C__FinalDemo.BL
         /// </summary>
         /// <param name="id">The ID of the object, if available.</param>
         /// <param name="objDto">The DTODIR01 object containing data to be converted and saved.</param>
-        public void PreSave(int? id, DTODIR01 objDto)
+        public void PreSave(DTODIR01 objDto, int id = 0)
         {
             _objDIR01 = objDto.Convert<DIR01>();
             if (Type == EnmType.E)

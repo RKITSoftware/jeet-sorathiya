@@ -17,9 +17,9 @@ namespace Advance_C__FinalDemo.BL.Interface
         /// <summary>
         /// Performs pre-save operations on the data object before saving.
         /// </summary>
-        /// <param name="id">The Id (nullable)</param>
         /// <param name="objDto">The data object to be saved.</param>
-        void PreSave(int? id, T objDto);
+        /// <param name="id">The Id (optional)</param>
+        void PreSave(T objDto, int id = 0);
 
         /// <summary>
         /// Validates the data before saving.

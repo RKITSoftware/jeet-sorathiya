@@ -37,13 +37,13 @@ namespace Advance_C__FinalDemo.BL
                     // Write Category Data into Excel
                     ExcelWorksheet categorySheet = package.Workbook.Worksheets.Add("Category");                   
                     BLCategory objOfBLCategory = new BLCategory();
-                    DataTable categoryData = objOfBLCategory.GetAll();
+                    DataTable categoryData = objOfBLCategory.GetAll().Data;
                     categorySheet.Cells.LoadFromDataTable(categoryData, true);
 
                     // Write Director Data into Excel
                     ExcelWorksheet directorSheet = package.Workbook.Worksheets.Add("Director");
                     BLDirector objOfBLDirector = new BLDirector();
-                    DataTable directorData = objOfBLDirector.GetAll();
+                    DataTable directorData = objOfBLDirector.GetAll().Data;
                     directorSheet.Cells.LoadFromDataTable(directorData, true);
 
                     // Write Movie Data into Excel

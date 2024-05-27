@@ -199,7 +199,7 @@ namespace Advance_C__FinalDemo.BL
         /// </summary>
         /// <param name="id">The ID of the object, if available.</param>
         /// <param name="objDto">The DTOMOV01 object containing data to be converted and saved.</param>
-        public void PreSave(int? id, DTOMOV01 objDto)
+        public void PreSave(DTOMOV01 objDto, int id = 0)
         {
             _objMOV01 = objDto.Convert<MOV01>();
         }

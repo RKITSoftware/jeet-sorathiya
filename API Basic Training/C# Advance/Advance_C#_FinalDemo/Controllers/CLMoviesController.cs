@@ -46,7 +46,7 @@ namespace Advance_C__FinalDemo.Controllers
         public Response AddNewMovie(DTOMOV01 newMovie)
         {
             _objBLMovies.Type = EnmType.A;
-            _objBLMovies.PreSave(null, newMovie);
+            _objBLMovies.PreSave(newMovie);
             _objResponse = _objBLMovies.Validation();
             if (!_objResponse.IsError)
             {
@@ -65,7 +65,7 @@ namespace Advance_C__FinalDemo.Controllers
         public Response UpdateMovie(DTOMOV01 newMovie)
         {
             _objBLMovies.Type = EnmType.E;
-            _objBLMovies.PreSave(null, newMovie);
+            _objBLMovies.PreSave(newMovie);
             _objResponse = _objBLMovies.Validation();
             if (!_objResponse.IsError)
             {

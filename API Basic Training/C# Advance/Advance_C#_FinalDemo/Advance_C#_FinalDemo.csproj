@@ -183,6 +183,8 @@
     <Compile Include="BL\Service\BLCategory.cs" />
     <Compile Include="BL\Service\BLData.cs" />
     <Compile Include="BL\Service\BLDirector.cs" />
+    <Compile Include="DL\DBCategoryContext.cs" />
+    <Compile Include="DL\DBDirectorContext.cs" />
     <Compile Include="Filters\LoggingExceptionFilterAttribute.cs" />
     <Compile Include="BL\Service\BLMovies.cs" />
     <Compile Include="Controllers\CLAdminController.cs" />
