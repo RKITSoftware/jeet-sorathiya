@@ -1,0 +1,15 @@
+﻿.validators {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.validator {
+    margin-bottom: 15px;
+    width: 400px;
+}
+
+    .validator label {
+        display: block;
+        margin-bottom: 5px;
+    }

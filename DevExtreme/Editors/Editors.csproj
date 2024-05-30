@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\upload.png" />
     <Content Include="Button\Button.css" />
     <Content Include="Button\Button.html" />
     <Content Include="Button\Button.js" />
@@ -127,6 +128,9 @@
     <Content Include="NumberBox\NumberBox.css" />
     <Content Include="NumberBox\NumberBox.html" />
     <Content Include="NumberBox\NumberBox.js" />
+    <Content Include="RadioGroup\RadioGroup.css" />
+    <Content Include="RadioGroup\RadioGroup.html" />
+    <Content Include="RadioGroup\RadioGroup.js" />
     <Content Include="Scripts\cldr.js" />
     <Content Include="Scripts\cldr\event.js" />
     <Content Include="Scripts\cldr\supplemental.js" />
@@ -198,6 +202,9 @@
     <Content Include="TextBox\TextBox.css" />
     <Content Include="TextBox\TextBox.html" />
     <Content Include="TextBox\TextBox.js" />
+    <Content Include="Validator\Validator.css" />
+    <Content Include="Validator\Validator.html" />
+    <Content Include="Validator\Validator.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

@@ -1,2 +1,14 @@
-﻿body {
+﻿.FileUploader label {
+    display: block;
+    margin-bottom: 10px;
+    background-color: wheat;
+}
+
+.FileUploader {
+    margin-bottom: 30px;
+    background-color: aliceblue;
+}
+
+#uploadImg {
+    display: block;
 }
