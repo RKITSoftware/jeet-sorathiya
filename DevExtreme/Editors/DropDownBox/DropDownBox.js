@@ -32,7 +32,7 @@
         stylingMode: "filled",
         deferRendering: false, // data load immediately
         displayValueFormatter: function (value) {
-            // console.log(value);
+             console.log(value);
             if (value.length == 1)
                 return "Name : " + value;
         },
