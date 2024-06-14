@@ -1,5 +1,6 @@
 ﻿using File_System.Models;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -12,7 +13,7 @@ namespace File_System.BL
     /// <summary>
     /// Provides file operations related to Employee data.
     /// </summary>
-    public static class BLFileOperation
+    public class BLFileOperation
     {
         // The directory and file paths
         static string currentDirectory = HttpContext.Current.Server.MapPath("~/Data");
@@ -22,7 +23,7 @@ namespace File_System.BL
         /// <summary>
         /// Initializes the FileOperation class by creating the file if it doesn't exist.
         /// </summary>
-        static BLFileOperation()
+        public BLFileOperation()
         {
             try
             {
@@ -42,7 +43,7 @@ namespace File_System.BL
         /// Adds employee data to the file.
         /// </summary>
         /// <param name="employeeData">The Employee object to be added.</param>
-        public static void AddToFile(Employee employeeData)
+        public  void AddToFile(Employee employeeData)
         {
             string text = $"{employeeData.EmployeeID.ToString()}\t {employeeData.EmployeeName}\t" +
                 $"{employeeData.EmailId}\t {employeeData.PhoneNumber}\t" +
@@ -58,7 +59,7 @@ namespace File_System.BL
         /// Reads employee data from the file.
         /// </summary>
         /// <returns>An array of Employee objects.</returns>
-        public static Employee[] ReadFromFile()
+        public  Employee[] ReadFromFile()
         {
             try
             {
@@ -98,7 +99,7 @@ namespace File_System.BL
         /// </summary>
         /// <param name="employeeId">The ID of the employee.</param>
         /// <returns>The Employee object if found, otherwise null.</returns>
-        public static Employee EmployeeInfo(int employeeId)
+        public  Employee EmployeeInfo(int employeeId)
         {
             var employees = ReadFromFile().ToList();
 
@@ -120,13 +121,13 @@ namespace File_System.BL
         /// </summary>
         /// <param name="employeeId">The ID of the employee to update.</param>
         /// <param name="updatedEmployee">The updated Employee object.</param>
-        public static void UpdateEmployeeById(int employeeId, Employee updatedEmployee)
+        public  void UpdateEmployeeById(int employeeId, Employee updatedEmployee)
         {
 
-            var employees = ReadFromFile().ToList();
+            List<Employee> employees = ReadFromFile().ToList();
 
 
-            var employeeToUpdate = employees.FirstOrDefault(e => e.EmployeeID == employeeId);
+            Employee employeeToUpdate = employees.FirstOrDefault(e => e.EmployeeID == employeeId);
 
             if (employeeToUpdate != null)
             {
@@ -150,7 +151,7 @@ namespace File_System.BL
         /// Deletes an employee by their ID.
         /// </summary>
         /// <param name="employeeId">The ID of the employee to delete.</param>
-        public static void DeleteEmployeeById(int employeeId)
+        public  void DeleteEmployeeById(int employeeId)
         {
             var employees = ReadFromFile().ToList();
 
@@ -171,7 +172,7 @@ namespace File_System.BL
         /// Writes employee data to the file.
         /// </summary>
         /// <param name="employees">An array of Employee objects to write to the file.</param>
-        public static void WriteToFile(Employee[] employees)
+        public  void WriteToFile(Employee[] employees)
         {
             try
             {
@@ -190,7 +191,7 @@ namespace File_System.BL
         /// Downloads the file containing employee data.
         /// </summary>
         /// <returns>An HttpResponseMessage containing the file for download.</returns>
-        public static HttpResponseMessage DownloadFile()
+        public  HttpResponseMessage DownloadFile()
         {
             try
             {

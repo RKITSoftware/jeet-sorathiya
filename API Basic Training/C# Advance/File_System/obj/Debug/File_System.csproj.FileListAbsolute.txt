@@ -68,3 +68,14 @@ F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\File_System\
 F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\File_System\bin\Microsoft.Web.Infrastructure.dll
 F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\File_System\bin\Swashbuckle.Core.dll
 F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\File_System\bin\WebActivatorEx.dll
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\File_System\bin\Microsoft.IO.RecyclableMemoryStream.dll
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\File_System\bin\System.Buffers.dll
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\File_System\bin\System.ComponentModel.Annotations.dll
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\File_System\bin\System.Memory.dll
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\File_System\bin\System.Numerics.Vectors.dll
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\File_System\bin\System.Runtime.CompilerServices.Unsafe.dll
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\File_System\bin\Microsoft.IO.RecyclableMemoryStream.xml
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\File_System\bin\System.Buffers.xml
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\File_System\bin\System.Memory.xml
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\File_System\bin\System.Numerics.Vectors.xml
+F:\Jeet - 369\Training\jeet-sorathiya\API Basic Training\C# Advance\File_System\bin\System.Runtime.CompilerServices.Unsafe.xml

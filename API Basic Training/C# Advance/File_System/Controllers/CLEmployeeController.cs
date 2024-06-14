@@ -6,10 +6,27 @@ using System.Web.Http;
 
 namespace File_System.Controllers
 {
+    /// <summary>
+    /// CLEmployeeController for manage Employee Oprations
+    /// </summary>
     [RoutePrefix("api/Employee")]
     public class CLEmployeeController : ApiController
     {
+        /// <summary>
+        /// Object of BLFileOperation
+        /// </summary>
+        private BLFileOperation _objBLFileOperation;
+
         public static List<Employee> employeeList = new List<Employee>();
+
+        /// <summary>
+        /// Initialize object
+        /// </summary>
+        public CLEmployeeController()
+        {
+            _objBLFileOperation = new BLFileOperation();
+        }
+        
 
         /// <summary>
         /// Retrieves the list of employees.
@@ -19,7 +36,7 @@ namespace File_System.Controllers
         [Route("EmployeeList")]
         public HttpResponseMessage EmployeeList()
         {
-            return Request.CreateResponse(BLFileOperation.ReadFromFile());
+            return Request.CreateResponse(_objBLFileOperation.ReadFromFile());
         }
 
         /// <summary>
@@ -31,7 +48,7 @@ namespace File_System.Controllers
         [Route("EmployeeDetail/{id}")]
         public HttpResponseMessage EmployeeDetail(int id)
         {
-            return Request.CreateResponse(BLFileOperation.EmployeeInfo(id));
+            return Request.CreateResponse(_objBLFileOperation.EmployeeInfo(id));
         }
 
         /// <summary>
@@ -42,7 +59,7 @@ namespace File_System.Controllers
         [Route("Download")]
         public HttpResponseMessage Download()
         {
-            return (BLFileOperation.DownloadFile());
+            return (_objBLFileOperation.DownloadFile());
         }
 
         /// <summary>
@@ -56,7 +73,7 @@ namespace File_System.Controllers
         {
             employee.EmployeeID = Employee.GetEmployeeID();
             employeeList.Add(employee);
-            BLFileOperation.AddToFile(employee);
+            _objBLFileOperation.AddToFile(employee);
             return Ok(employeeList);
         }
 
@@ -70,7 +87,7 @@ namespace File_System.Controllers
         [Route("UpdateData/{id}")]
         public IHttpActionResult UpdateData(int id, Employee employee)
         {
-            BLFileOperation.UpdateEmployeeById(id, employee);
+            _objBLFileOperation.UpdateEmployeeById(id, employee);
             return Ok();
         }
 
@@ -83,7 +100,7 @@ namespace File_System.Controllers
         [Route("DeleteEmployee/{id}")]
         public IHttpActionResult DeleteEmployee(int id)
         {
-            BLFileOperation.DeleteEmployeeById(id);
+            _objBLFileOperation.DeleteEmployeeById(id);
             return Ok();
         }
 
