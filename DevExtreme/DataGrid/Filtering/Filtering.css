@@ -1,0 +1,14 @@
+﻿.dx-icon-man {
+    background-image: url("../image/man.png");
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    height: 64px;
+    /*width: 300px;*/
+}
+.dx-icon-woman {
+    background-image: url("../image/woman.png");
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    height: 64px;
+    /*width: 300px;*/
+}
