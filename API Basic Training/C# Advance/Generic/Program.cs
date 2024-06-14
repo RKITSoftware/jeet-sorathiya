@@ -2,12 +2,12 @@
 
 namespace Generic
 {
-    #region  public class MathFunctions<T>
+    #region  public class GenericFunctions<T>
     /// <summary>
-    /// Generic class representing mathematical functions with values of type T.
+    /// Generic class representing functions with values of type T.
     /// </summary>
     /// <typeparam name="T">Type parameter representing the data type of values.</typeparam>
-    public class MathFunctions<T>
+    public class GenericFunctions<T>
     {
         #region public property
         /// <summary>
@@ -23,11 +23,11 @@ namespace Generic
 
         #region public method
         /// <summary>
-        /// Constructor for MathFunctions class.
+        /// Constructor for GenericFunctions class.
         /// </summary>
         /// <param name="value1">First value of type T.</param>
         /// <param name="value2">Second value of type T.</param>
-        public MathFunctions(T value1, T value2)
+        public GenericFunctions(T value1, T value2)
         {
             Value1 = value1;
             Value2 = value2;
@@ -58,15 +58,15 @@ namespace Generic
     public class Program
     {
         static void Main(string[] args)
-        {  // Creating an instance of MathFunctions with int values
-            MathFunctions<int> objofmathFunctions1 = new MathFunctions<int>(10, 20);
-            objofmathFunctions1.Display();
-            objofmathFunctions1.Display<int>(10);
-            objofmathFunctions1.Display<string>("hii");
+        {  // Creating an instance of GenericFunctions with int values
+            GenericFunctions<int> objofGenericFunctions1 = new GenericFunctions<int>(10, 20);
+            objofGenericFunctions1.Display();
+            objofGenericFunctions1.Display<int>(10);
+            objofGenericFunctions1.Display<string>("hii");
 
-            // Creating an instance of MathFunctions with string values
-            MathFunctions<string> objofmathFunctions2 = new MathFunctions<string>("Hi", "Hello");
-            objofmathFunctions2.Display();
+            // Creating an instance of GenericFunctions with string values
+            GenericFunctions<string> objofGenericFunctions2 = new GenericFunctions<string>("Hi", "Hello");
+            objofGenericFunctions2.Display();
 
         }
     }
