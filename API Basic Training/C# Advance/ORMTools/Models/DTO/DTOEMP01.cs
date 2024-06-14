@@ -9,7 +9,7 @@ namespace ORMTools.Models.DTO
         /// <summary>
         /// Gets or sets the auto-incremented primary key for EmployeeId.
         /// </summary>       
-        [JsonProperty("P01101")]
+        [JsonProperty("P01101")] // id??
         public int P01F01 { get; set; }
 
         /// <summary>
