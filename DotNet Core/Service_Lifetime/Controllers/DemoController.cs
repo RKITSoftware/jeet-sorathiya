@@ -11,10 +11,13 @@ namespace Service_Lifetime.Controllers
     [ApiController]
     public class DemoController : ControllerBase
     {
+        #region Private Field
         private readonly ITransientService _transientService;
         private readonly IScopedService _scopedService;
         private readonly ISingletonService _singletonService;
+        #endregion
 
+        #region Constructor
         /// <summary>
         /// Initializes a instances
         /// </summary>
@@ -29,7 +32,9 @@ namespace Service_Lifetime.Controllers
             _scopedService = scopedService;
             _singletonService = singletonService;
         }
+        #endregion
 
+        #region Public Methods
         /// <summary>
         /// Retrieves the instance ID of the transient service.
         /// </summary>
@@ -58,7 +63,8 @@ namespace Service_Lifetime.Controllers
         public ActionResult<string> GetSingletonInstanceId()
         {
             return _singletonService.GetInstanceId();
-        }
+        } 
+        #endregion
 
     }
 }

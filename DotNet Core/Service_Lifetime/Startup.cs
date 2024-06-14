@@ -23,7 +23,7 @@ public class Startup
     /// Configures services required by the application.
     /// </summary>
     /// <param name="services">Collection of services to be configured.</param>
-    public void ConfigureServices(IServiceCollection services)
+    public void ConfigureServices(IServiceCollection services) //IHttpContextAccessor??
     {
         services.AddControllers();
         services.AddEndpointsApiExplorer();
