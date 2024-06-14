@@ -1,6 +1,3 @@
-
-using Dependency_Injection;
-
 public class Program
 {
     public static void Main(string[] args)

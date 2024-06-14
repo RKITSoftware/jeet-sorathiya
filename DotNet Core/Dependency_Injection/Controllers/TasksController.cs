@@ -11,8 +11,11 @@ namespace Dependency_Injection.Controllers
     [ApiController]
     public class TasksController : ControllerBase
     {
+        #region Private Field
         private readonly ITaskAssignment _taskAssignment;
+        #endregion
 
+        #region Constructor
         /// <summary>
         /// Initializes a new instance of the TasksController class.
         /// </summary>
@@ -21,7 +24,9 @@ namespace Dependency_Injection.Controllers
         {
             _taskAssignment = taskAssignment;
         }
+        #endregion
 
+        #region Public Methods
         /// <summary>
         /// Retrieves all assignments for a task.
         /// </summary>
@@ -56,6 +61,7 @@ namespace Dependency_Injection.Controllers
             {
                 return StatusCode(StatusCodes.Status500InternalServerError); // Return 500 Internal Server Error for other exceptions.
             }
-        }
+        } 
+        #endregion
     }
 }

@@ -1,5 +1,4 @@
-﻿using Dependency_Injection.BL;
-using Dependency_Injection.Interface;
+﻿using Dependency_Injection.Extension;
 /// <summary>
 /// Class responsible for configuring the application during startup.
 /// </summary>
@@ -28,8 +27,6 @@ public class Startup
         services.AddControllers();
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
-        services.AddSingleton<IEmployeeManagement, EmployeeManagement>();
-        services.AddScoped<ITaskManagement, TaskManagement>();
         services.AddService();
     }
 
@@ -57,25 +54,9 @@ public class Startup
         // Authorize requests
         //app.UseAuthorization();
 
-
-
-
         // End the request pipeline
         app.Run();
 
-
     }
 }
 
-/// <summary>
-/// Adds services to the service collection.
-/// </summary>
-/// <param name="services">The service collection.</param>
-public static class ServiceExtensions
-{
-    public static void AddService(this IServiceCollection services)
-    {
-        // Add TaskAssignment as a scoped service implementing ITaskAssignment.
-        services.AddScoped<ITaskAssignment, TaskAssignment>();
-    }
-}

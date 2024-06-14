@@ -8,13 +8,16 @@ namespace Dependency_Injection.BL
     /// </summary>
     public class EmployeeManagement : IEmployeeManagement
     {
-        // Static list of dummy data
-        private static List<Employee> _employees = new List<Employee>
+        #region Private Field
+        //  list of dummy data
+        private List<Employee> _employees = new List<Employee>
             {
                 new Employee { Id = 1, Name = "Jeet" },
                 new Employee { Id = 2, Name = "Meet" }
             };
+        #endregion
 
+        #region Public Methods
         /// <summary>
         /// Retrieves all employees.
         /// </summary>
@@ -33,6 +36,7 @@ namespace Dependency_Injection.BL
         public Employee GetEmployeeById(int id)
         {
             return _employees.FirstOrDefault(e => e.Id == id);
-        }
+        } 
+        #endregion
     }
 }

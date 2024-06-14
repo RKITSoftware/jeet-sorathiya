@@ -1,12 +1,11 @@
-﻿using Dependency_Injection.Models;
-
-namespace Dependency_Injection.Interface
+﻿namespace Dependency_Injection.Interface
 {
     /// <summary>
     /// Interface for managing tasks.
     /// </summary>
     public interface ITaskManagement
     {
+        #region Public Methods
         /// <summary>
         /// Retrieves all tasks.
         /// </summary>
@@ -19,5 +18,6 @@ namespace Dependency_Injection.Interface
         /// <param name="id">The ID of the task to retrieve.</param>
         /// <returns>The task with the specified ID</returns>
         Models.Task GetTaskById(int id);
+        #endregion
     }
 }

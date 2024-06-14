@@ -8,11 +8,13 @@ namespace Dependency_Injection.BL
     /// </summary>
     public class TaskAssignment : ITaskAssignment
     {
+        #region Private Field
         private readonly ITaskManagement _taskManagement;
-        public readonly IEmployeeManagement _employeeManagement;
+        private readonly IEmployeeManagement _employeeManagement;
+        private List<Assignment> _assignments = new List<Assignment>();
+        #endregion
 
-        private static List<Assignment> _assignments = new List<Assignment>();
-
+        #region Constructor
         /// <summary>
         /// Initializes a new instance of the <see cref="TaskAssignment"/> class.
         /// </summary>
@@ -22,9 +24,11 @@ namespace Dependency_Injection.BL
         {
             _taskManagement = taskManagement;
             _employeeManagement = employeeManagement;
-                    
-        }
 
+        }
+        #endregion
+
+        #region Public Methods
         /// <summary>
         /// Assigns a task to an employee.
         /// </summary>
@@ -51,11 +55,11 @@ namespace Dependency_Injection.BL
 
             else
             {
-               // create and add the assignment
+                // create and add the assignment
                 var assignment = new Assignment { TaskId = taskId, EmployeeId = employeeId };
                 _assignments.Add(assignment);
             }
-           
+
         }
 
         /// <summary>
@@ -66,6 +70,7 @@ namespace Dependency_Injection.BL
         public IEnumerable<Assignment> GetAssignmentsForTask(int taskId)
         {
             return _assignments.Where(a => a.TaskId == taskId);
-        }
+        } 
+        #endregion
     }
 }

@@ -7,6 +7,7 @@ namespace Dependency_Injection.Interface
     /// </summary>
     public interface ITaskAssignment
     {
+        #region Public Methods
         /// <summary>
         /// Retrieves all assignments for a task.
         /// </summary>
@@ -19,6 +20,7 @@ namespace Dependency_Injection.Interface
         /// </summary>
         /// <param name="taskId">The ID of the task to assign.</param>
         /// <param name="employeeId">The ID of the employee to assign the task to.</param>
-        void AssignTaskToEmployee(int taskId, int employeeId);
+        void AssignTaskToEmployee(int taskId, int employeeId); 
+        #endregion
     }
 }

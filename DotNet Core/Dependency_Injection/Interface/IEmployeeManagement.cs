@@ -7,6 +7,7 @@ namespace Dependency_Injection.Interface
     /// </summary>
     public interface IEmployeeManagement
     {
+        #region Public Methods
         /// <summary>
         /// Retrieves all employees.
         /// </summary>
@@ -18,6 +19,7 @@ namespace Dependency_Injection.Interface
         /// </summary>
         /// <param name="id">The ID of the employee to retrieve.</param>
         /// <returns>The employee with the specified ID.</returns>
-        Employee GetEmployeeById(int id);
+        Employee GetEmployeeById(int id); 
+        #endregion
     }
 }
