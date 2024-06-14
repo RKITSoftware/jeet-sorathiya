@@ -9,6 +9,7 @@ namespace Advance_C__FinalDemo.Controllers
     [RoutePrefix("Api/Admin")]
     public class CLAdminController : ApiController
     {
+        #region Public Methods
         /// <summary>
         /// Initiates the backup process for data.
         /// </summary>
@@ -33,6 +34,7 @@ namespace Advance_C__FinalDemo.Controllers
                 // Return HTTP 500 Internal Server Error for backup failure
                 return InternalServerError();
             }
-        }
+        } 
+        #endregion
     }
 }

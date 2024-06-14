@@ -9,17 +9,19 @@ namespace Advance_C__FinalDemo.BL.Interface
     /// <typeparam name="T">The type of data to handle.</typeparam>
     public interface IDataHandlerService<T> where T : class
     {
+        #region Public Properties
         /// <summary>
         /// Gets or sets the type of opration (Edit, Add).
         /// </summary>
-        EnmType Type { get; set; }
+        EnmType Type { get; set; } 
+        #endregion
 
+        #region Public Methods
         /// <summary>
         /// Performs pre-save operations on the data object before saving.
         /// </summary>
         /// <param name="objDto">The data object to be saved.</param>
-        /// <param name="id">The Id (optional)</param>
-        void PreSave(T objDto, int id = 0);
+        void PreSave(T objDto);
 
         /// <summary>
         /// Validates the data before saving.
@@ -31,6 +33,7 @@ namespace Advance_C__FinalDemo.BL.Interface
         /// Saves the data.
         /// </summary>
         /// <returns>A response indicating the result of the save operation.</returns>
-        Response Save();
+        Response Save(); 
+        #endregion
     }
 }

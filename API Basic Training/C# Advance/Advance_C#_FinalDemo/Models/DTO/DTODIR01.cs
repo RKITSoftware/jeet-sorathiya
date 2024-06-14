@@ -12,6 +12,7 @@ namespace Advance_C__FinalDemo.Models.DTO
         /// Gets or sets the ID the director
         /// </summary>
         [JsonProperty("R01101")]
+        [Required(ErrorMessage = "Id is required.")]
         public int R01F01 { get; set; }
 
         /// <summary>

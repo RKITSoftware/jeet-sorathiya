@@ -15,6 +15,7 @@ namespace Advance_C__FinalDemo.BL
     [LoggingExceptionFilter]
     public class BLData
     {
+        #region Public Methods
         /// <summary>
         /// Creates a backup of category, director, and movie data to an Excel file.
         /// </summary>
@@ -35,25 +36,25 @@ namespace Advance_C__FinalDemo.BL
                 using (ExcelPackage package = new ExcelPackage())
                 {
                     // Write Category Data into Excel
-                    ExcelWorksheet categorySheet = package.Workbook.Worksheets.Add("Category");                   
-                    BLCategory objOfBLCategory = new BLCategory();
+                    ExcelWorksheet categorySheet = package.Workbook.Worksheets.Add("Category");
+                    BLCAT01 objOfBLCategory = new BLCAT01();
                     DataTable categoryData = objOfBLCategory.GetAll().Data;
                     categorySheet.Cells.LoadFromDataTable(categoryData, true);
 
                     // Write Director Data into Excel
                     ExcelWorksheet directorSheet = package.Workbook.Worksheets.Add("Director");
-                    BLDirector objOfBLDirector = new BLDirector();
+                    BLDIR01 objOfBLDirector = new BLDIR01();
                     DataTable directorData = objOfBLDirector.GetAll().Data;
                     directorSheet.Cells.LoadFromDataTable(directorData, true);
 
                     // Write Movie Data into Excel
                     ExcelWorksheet movieSheet = package.Workbook.Worksheets.Add("Movie");
-                    BLMovies objOfBLMovies = new BLMovies();
+                    BLMOV01 objOfBLMovies = new BLMOV01();
                     List<MOV01> movieData = objOfBLMovies.GetData();
                     movieSheet.Cells.LoadFromCollection(movieData, true);
 
                     // Save Excel File with PasswordProtection
-                    package.SaveAs(new FileInfo(pathOfBackup),"Jeet");                 
+                    package.SaveAs(new FileInfo(pathOfBackup), "Jeet");
                 }
                 return true;
             }
@@ -63,6 +64,7 @@ namespace Advance_C__FinalDemo.BL
                 throw new Exception(ex.Message);
             }
 
-        }
+        } 
+        #endregion
     }
 }

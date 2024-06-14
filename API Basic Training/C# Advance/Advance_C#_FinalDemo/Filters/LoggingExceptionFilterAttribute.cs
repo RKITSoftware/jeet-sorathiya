@@ -14,6 +14,7 @@ namespace Advance_C__FinalDemo.BL
     {
         // Ensure thread-safe logging using a lock object
         private static readonly object LockObject = new object();
+        #region Public Methods
 
         /// <summary>
         /// Handles exceptions and logs details to a file.
@@ -35,7 +36,9 @@ namespace Advance_C__FinalDemo.BL
             };
 
         }
+        #endregion
 
+        #region Private Methods
         /// <summary>
         /// Logs exception details to a file.
         /// </summary>
@@ -70,6 +73,7 @@ namespace Advance_C__FinalDemo.BL
                 }
             }
 
-        }
+        } 
+        #endregion
     }
 }

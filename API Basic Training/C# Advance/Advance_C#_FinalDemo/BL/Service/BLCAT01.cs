@@ -11,28 +11,44 @@ using System.Web;
 namespace Advance_C__FinalDemo.BL
 {
     /// <summary>
-    /// Business logic class for managing CRUD operations on the CAT01 table
+    /// Business logic class for handling CAT01 data operations.
     /// </summary>
-    public class BLCategory : IDataHandlerService<DTOCAT01>
+    public class BLCAT01 : IDataHandlerService<DTOCAT01>
     {
+        #region Private Fields
         private string _connectionString;
-        private DBCategoryContext _dbCategoryContext;
+        private DBCAT01Context _dbCategoryContext;
         private Response _objResponse;
         private CAT01 _objCAT01;
         private int _id;
+        #endregion
 
-        public EnmType Type { get; set; }
-
+        #region Public Properties
         /// <summary>
-        /// Initializes a new instance of the BLCategory class.
+        /// Gets or sets the type of operation (Add/Edit).
         /// </summary>
-        public BLCategory()
+        public EnmType Type { get; set; }
+        #endregion
+
+        #region Constructor
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BLCAT01"/> class.
+        /// </summary>
+        public BLCAT01()
         {
-            _dbCategoryContext = new DBCategoryContext();
+            _dbCategoryContext = new DBCAT01Context();
             _objResponse = new Response();
             _objCAT01 = new CAT01();
             _connectionString = HttpContext.Current.Application["ConnectionString"] as string;
-        }
+        } 
+        #endregion
+
+        #region Public Methods
+
+        /// <summary>
+        /// Retrieves all categories.
+        /// </summary>
+        /// <returns>A response object containing all categories.</returns>
         public Response GetAll()
         {
             DataTable allCategories = _dbCategoryContext.GetAllCategories();
@@ -45,16 +61,31 @@ namespace Advance_C__FinalDemo.BL
             return _objResponse;
         }
 
+        /// <summary>
+        /// Adds a new category.
+        /// </summary>
+        /// <param name="objofCategory">The category object to add.</param>
+        /// <returns>A response object indicating the result of the add operation.</returns>
         public Response Add(CAT01 objofCategory)
         {
             return _dbCategoryContext.AddCategory(objofCategory);
         }
 
-        public Response Update(int id, CAT01 objofCategory)
+        /// <summary>
+        /// Updates an existing category.
+        /// </summary>
+        /// <param name="objofCategory">The category object to update.</param>
+        /// <returns>A response object indicating the result of the update operation.</returns>
+        public Response Update(CAT01 objofCategory)
         {
-            return _dbCategoryContext.UpdateCategory(id, objofCategory);
+            return _dbCategoryContext.UpdateCategory(objofCategory);
         }
 
+        /// <summary>
+        /// Deletes a category by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the category to delete.</param>
+        /// <returns>A response object indicating the result of the delete operation.</returns>
         public Response Delete(int id)
         {
             if (_dbCategoryContext.DeleteCategory(id))
@@ -70,31 +101,23 @@ namespace Advance_C__FinalDemo.BL
         }
 
         /// <summary>
-        /// Prepares the object for saving
+        /// Prepares the category object for saving by converting the DTO object.
         /// </summary>
-        /// <param name="id">The ID of the object, if available.</param>
-        /// <param name="objDto">The DTOCAT01 object </param>
-        public void PreSave(DTOCAT01 objDto, int id = 0)
+        /// <param name="objDto">The DTO object to convert.</param>
+        public void PreSave(DTOCAT01 objDto)
         {
             _objCAT01 = objDto.Convert<CAT01>();
-            if (Type == EnmType.E)
-            {
-                if (id > 0)
-                {
-                    _id = id;
-                }
-            }
         }
 
         /// <summary>
-        /// Validates the object before saving
+        /// Validates the category object.
         /// </summary>
-        /// <returns>A Response object indicating any validation errors.</returns>
+        /// <returns>A response object indicating the result of the validation.</returns>
         public Response Validation()
         {
             if (Type == EnmType.E)
             {
-                if (!(_id > 0))
+                if (!(_objCAT01.T01F01 > 0))
                 {
                     _objResponse.IsError = true;
                     _objResponse.Message = "Enter Correct Id";
@@ -104,9 +127,9 @@ namespace Advance_C__FinalDemo.BL
         }
 
         /// <summary>
-        /// Saves the object based on the type
+        /// Saves the category object based on the operation type.
         /// </summary>
-        /// <returns>A Response object indicating the outcome of the save operation.</returns>
+        /// <returns>A response object indicating the result of the save operation.</returns>
         public Response Save()
         {
             if (Type == EnmType.A)
@@ -115,11 +138,12 @@ namespace Advance_C__FinalDemo.BL
             }
             if (Type == EnmType.E)
             {
-                return Update(_id, _objCAT01);
+                return Update(_objCAT01);
             }
             _objResponse.IsError = true;
             _objResponse.Message = "Internal Error";
             return _objResponse;
-        }
+        } 
+        #endregion
     }
 }

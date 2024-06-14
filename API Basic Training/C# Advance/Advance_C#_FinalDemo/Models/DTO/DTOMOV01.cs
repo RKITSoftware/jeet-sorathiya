@@ -13,6 +13,7 @@ namespace Advance_C__FinalDemo.Models.DTO
         /// Gets or sets the ID of the movie
         /// </summary>
         [JsonProperty("V01101")]
+        [Required(ErrorMessage = "Id is required.")] //id??
         public int V01F01 { get; set; }
 
         /// <summary>

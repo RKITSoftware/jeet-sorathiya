@@ -12,6 +12,7 @@ namespace Advance_C__FinalDemo.Models.DTO
         /// Gets or sets the ID for the category
         /// </summary>
         [JsonProperty("T01101")]
+        [Required(ErrorMessage = "Id is required.")]
         public int T01F01 { get; set; }
 
         /// <summary>
