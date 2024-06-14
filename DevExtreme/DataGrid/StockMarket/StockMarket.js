@@ -1,4 +1,7 @@
-﻿$(() => {
+﻿window.jsPDF = window.jspdf.jsPDF;
+
+$(() => {
+    let exportToPdf = false;
     const url = 'http://localhost:57766'; 
     const stockStore = new DevExpress.data.CustomStore({
         key: 'Id',
@@ -148,6 +151,18 @@
         filterRow: {
             visible: true
         },
+        filterPanel: { visible: true },
+        filterSyncEnabled: true,
+        filterBuilderPopup: {
+            position: {
+                of: window, at: 'top', my: 'top', offset: { y: 10 },
+            },
+        },
+        stateStoring: {
+            enabled: true,
+            storageKey: "StockMarketGUI",
+            type: "localStorage",
+        },
         searchPanel: {
             visible: true,
             highlightCaseSensitive: true
@@ -168,20 +183,21 @@
             //else {
             //    collapseButtonInstance.option("visible", false)
             //}
-            let x = e.component;
-            const columns = x.getVisibleColumns();
-            console.log("columns", columns)
-            //const groupedColumns = columns.filter(column => column.groupIndex !== undefined || column.groupIndex >= 0);
-            const groupedColumns = columns.filter(column => column.groupIndex !== undefined);
-            console.log("groupedColumns",groupedColumns)
-            if (groupedColumns.length > 0) {
-                console.log("Grouped Columns:");
-                groupedColumns.forEach(column => {
-                    console.log(`Column: ${column.dataField}, Group Index: ${column.groupIndex}`);
-                });
-            } else {
-                console.log("No columns are currently grouped.");
-            }
+            ///////////
+            //let x = e.component;
+            //const columns = x.getVisibleColumns();
+            //console.log("columns", columns)
+            ////const groupedColumns = columns.filter(column => column.groupIndex !== undefined || column.groupIndex >= 0);
+            //const groupedColumns = columns.filter(column => column.groupIndex !== undefined);
+            //console.log("groupedColumns",groupedColumns)
+            //if (groupedColumns.length > 0) {
+            //    console.log("Grouped Columns:");
+            //    groupedColumns.forEach(column => {
+            //        console.log(`Column: ${column.dataField}, Group Index: ${column.groupIndex}`);
+            //    });
+            //} else {
+            //    console.log("No columns are currently grouped.");
+            //}
         },
         sorting: {
             mode: 'multiple'
@@ -404,3 +420,34 @@
         }
     }).dxDataGrid('instance');
 });
+
+function exportExcel(e) {
+    var workbook = new ExcelJS.Workbook();
+    var worksheet = workbook.addWorksheet('Main sheet');
+    DevExpress.excelExporter.exportDataGrid({
+        worksheet: worksheet,
+        component: e.component,
+        topLeftCell: { row: 1, column: 1 },
+        customizeCell: function (options) {
+            var excelCell = options;
+            excelCell.font = { name: 'Arial', size: 12 };
+            excelCell.alignment = { horizontal: 'left' };
+        }
+    }).then(function () {
+        workbook.xlsx.writeBuffer().then(function (buffer) {
+            saveAs(new Blob([buffer], { type: 'application/octet-stream' }), 'DataGrid.xlsx');
+        });
+    });
+}
+
+function exportPdf(e) {
+    const doc = new jsPDF();
+
+    DevExpress.pdfExporter.exportDataGrid({
+        jsPDFDocument: doc,
+        component: e.component,
+        indent: 5,
+    }).then(() => {
+        doc.save('Companies.pdf');
+    });
+}
