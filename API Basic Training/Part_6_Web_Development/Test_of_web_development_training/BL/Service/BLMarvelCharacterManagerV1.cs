@@ -162,7 +162,7 @@ namespace Test_of_web_development_training.BL
                     MarvelCharacterV1 targetCharacter = _marvelCharacterList.FirstOrDefault(chr => chr.CharacterId == _characterId);
                     if (targetCharacter != null)
                     {
-                        objResponse.Data = targetCharacter;
+                        objResponse.Data = targetCharacter; //??
                     }
                     else
                     {
