@@ -8,6 +8,7 @@ namespace CPContestRegistration.Filters
     /// </summary>
     public class ValidateModelFilter : IAsyncActionFilter
     {
+        #region Public Methods
         /// <summary>
         /// Called asynchronously before the action method is invoked to validate the model state.
         /// </summary>
@@ -22,6 +23,7 @@ namespace CPContestRegistration.Filters
                 return;
             }
             await next();
-        }
+        } 
+        #endregion
     }
 }

@@ -8,8 +8,11 @@ namespace CPContestRegistration.BL.Service
     /// </summary>
     public class LoggerService : ILoggerService
     {
+        #region Private Fields
         private readonly Logger _logger;
+        #endregion
 
+        #region Constructor
         /// <summary>
         /// Constructor for LoggerService
         /// </summary>
@@ -17,7 +20,9 @@ namespace CPContestRegistration.BL.Service
         {
             _logger = LogManager.GetCurrentClassLogger();
         }
+        #endregion
 
+        #region Public Methods
         /// <summary>
         /// Logs an error message
         /// </summary>
@@ -34,6 +39,7 @@ namespace CPContestRegistration.BL.Service
         public void ErrorLog(Exception exception)
         {
             _logger.Error(exception);
-        }
+        } 
+        #endregion
     }
 }

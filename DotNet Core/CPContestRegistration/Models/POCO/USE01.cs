@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CPContestRegistration.Models
+namespace CPContestRegistration.Models.POCO
 {
     /// <summary>
     /// Represents a user 
@@ -10,25 +10,21 @@ namespace CPContestRegistration.Models
         /// <summary>
         /// Gets or sets the ID of the user.
         /// </summary>
-        [Required]
         public int E01F01 { get; set; }
 
         /// <summary>
         /// Gets or sets the username of the user.
         /// </summary>
-        [Required]
         public string E01F02 { get; set; }
 
         /// <summary>
         /// Gets or sets the email address of the user.
         /// </summary>
-        [Required]
         public string E01F03 { get; set; }
 
         /// <summary>
         /// Gets or sets the password of the user.
         /// </summary>
-        [Required]
         public string E01F04 { get; set; }
     }
 }

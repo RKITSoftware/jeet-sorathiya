@@ -9,8 +9,11 @@ namespace CPContestRegistration.Filters
     /// </summary>
     public class HandleExceptionFilter : IExceptionFilter
     {
+        #region Private Field
         private readonly ILoggerService _loggerService;
+        #endregion
 
+        #region Constructor
         /// <summary>
         /// Initializes a new instance of the HandleExceptionFilter class.
         /// </summary>
@@ -19,6 +22,9 @@ namespace CPContestRegistration.Filters
         {
             _loggerService = loggerService;
         }
+        #endregion
+
+        #region Public Methods
         /// <summary>
         /// Called when an exception occurs.
         /// </summary>
@@ -32,6 +38,7 @@ namespace CPContestRegistration.Filters
             {
                 StatusCode = StatusCodes.Status500InternalServerError
             };
-        }
+        } 
+        #endregion
     }
 }

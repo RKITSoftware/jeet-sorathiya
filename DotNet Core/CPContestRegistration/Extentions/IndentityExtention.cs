@@ -7,6 +7,7 @@ namespace CPContestRegistration.Extentions
     /// </summary>
     public static class IndentityExtention
     {
+        #region Public Methods
         /// <summary>
         /// Gets the role claim value from the ClaimsPrincipal.
         /// </summary>
@@ -21,6 +22,7 @@ namespace CPContestRegistration.Extentions
         /// <param name="claimsPrincipal">The ClaimsPrincipal instance.</param>
         /// <returns>The user ID claim value.</returns>
         public static int GetId(this ClaimsPrincipal claimsPrincipal) =>
-            Convert.ToInt32(claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value);
+            Convert.ToInt32(claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value); 
+        #endregion
     }
 }

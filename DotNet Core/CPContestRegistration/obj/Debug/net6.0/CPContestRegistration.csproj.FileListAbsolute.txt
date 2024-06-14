@@ -67,3 +67,7 @@ F:\Jeet - 369\Training\jeet-sorathiya\DotNet Core\CPContestRegistration\bin\Debu
 F:\Jeet - 369\Training\jeet-sorathiya\DotNet Core\CPContestRegistration\bin\Debug\net6.0\nlog.config
 F:\Jeet - 369\Training\jeet-sorathiya\DotNet Core\CPContestRegistration\bin\Debug\net6.0\NLog.dll
 F:\Jeet - 369\Training\jeet-sorathiya\DotNet Core\CPContestRegistration\bin\Debug\net6.0\NLog.Extensions.Logging.dll
+F:\Jeet - 369\Training\jeet-sorathiya\DotNet Core\CPContestRegistration\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+F:\Jeet - 369\Training\jeet-sorathiya\DotNet Core\CPContestRegistration\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+F:\Jeet - 369\Training\jeet-sorathiya\DotNet Core\CPContestRegistration\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+F:\Jeet - 369\Training\jeet-sorathiya\DotNet Core\CPContestRegistration\bin\Debug\net6.0\Swashbuckle.AspNetCore.Newtonsoft.dll

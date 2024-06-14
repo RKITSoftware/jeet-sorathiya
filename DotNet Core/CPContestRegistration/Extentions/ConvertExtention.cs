@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System.Data;
+﻿using System.Reflection;
 
 namespace CPContestRegistration.Extentions
 {
@@ -8,15 +7,35 @@ namespace CPContestRegistration.Extentions
     /// </summary>
     public static class ConvertExtention
     {
+        #region Public Methods
         /// <summary>
-        /// Converts a DataTable to JSON string.
+        /// Converts the DTO model to POCO Model.
         /// </summary>
-        /// <param name="dataTable">The DataTable to convert.</param>
-        /// <returns>A JSON representation of the DataTable.</returns>
-        public static string ToJson(this DataTable dataTable)
+        /// <typeparam name="POCO">POCO model.</typeparam>
+        /// <param name="dto">DTO model reference</param>
+        /// <returns>Poco model.</returns>
+        public static POCO Convert<POCO>(this object dto)
         {
-            // Convert DataTable to JSON
-            return JsonConvert.SerializeObject(dataTable, Formatting.Indented);
-        }
+            Type? pocoType = typeof(POCO) ?? throw new Exception();
+            POCO? pocoInstance = (POCO)Activator.CreateInstance(type: pocoType);
+
+            // Get properties
+            PropertyInfo[] dtoProperties = dto.GetType().GetProperties();
+            PropertyInfo[] pocoProperties = pocoType.GetProperties();
+
+            foreach (PropertyInfo dtoProperty in dtoProperties)
+            {
+                PropertyInfo? pocoProperty = Array.Find(array: pocoProperties, p => p.Name == dtoProperty.Name);
+
+                if (pocoProperty != null && dtoProperty.PropertyType == pocoProperty.PropertyType)
+                {
+                    object? value = dtoProperty.GetValue(dto);
+                    pocoProperty.SetValue(pocoInstance, value);
+                }
+            }
+
+            return pocoInstance != null ? pocoInstance : throw new Exception();
+        } 
+        #endregion
     }
 }

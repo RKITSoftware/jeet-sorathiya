@@ -4,6 +4,7 @@ using CPContestRegistration.CustomMiddleware;
 using CPContestRegistration.Filters;
 using Microsoft.OpenApi.Models;
 using NLog;
+using Newtonsoft;
 /// <summary>
 /// Class responsible for configuring the application during startup.
 /// </summary>
@@ -38,7 +39,10 @@ public class Startup
         {
            // configure.Filters.Add<ValidateModelFilter>();
             configure.Filters.Add<HandleExceptionFilter>();
-        });
+        }).AddNewtonsoftJson();
+
+        services.AddSwaggerGenNewtonsoftSupport();
+
         services.AddEndpointsApiExplorer();
         // Swagger Service
         services.AddSwaggerGen(c =>
@@ -72,9 +76,9 @@ public class Startup
         });
 
         services.AddTransient<IDatabaseService, DatabaseService>();
-        services.AddTransient<IContestManagement, ContestManagement>();
-        services.AddTransient<IParticipateManagement, ParticipateManagement>();
-        services.AddTransient<IUserManagement, UserManagement>();
+        services.AddTransient<ICON01, BLCON01>();
+        services.AddTransient<IPAR01, BLPAR01>();
+        services.AddTransient<IUSE01, BLUSE01>();
         services.AddHttpContextAccessor();
         services.AddScoped<RequestAuthorizationMiddleware>();
         services.AddSingleton<ILoggerService, LoggerService>();

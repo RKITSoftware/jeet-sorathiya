@@ -5,6 +5,7 @@
     /// </summary>
     public interface ILoggerService
     {
+        #region Public Methods
         /// <summary>
         /// Logs an error message
         /// </summary>
@@ -15,6 +16,7 @@
         /// Logs information about an exception
         /// </summary>
         /// <param name="exception">The exception to log</param>
-        void ErrorLog(Exception exception);
+        void ErrorLog(Exception exception); 
+        #endregion
     }
 }

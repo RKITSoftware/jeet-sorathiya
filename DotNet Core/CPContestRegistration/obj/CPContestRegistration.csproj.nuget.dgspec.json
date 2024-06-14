@@ -40,6 +40,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[6.0.28, )"
+            },
             "MySql.Data": {
               "target": "Package",
               "version": "[8.3.0, )"
@@ -65,6 +69,10 @@
               "version": "[8.2.2, )"
             },
             "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            },
+            "Swashbuckle.AspNetCore.Newtonsoft": {
               "target": "Package",
               "version": "[6.2.3, )"
             }

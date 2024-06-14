@@ -1,5 +1,5 @@
 ﻿using CPContestRegistration.BL.Interface;
-using CPContestRegistration.Models;
+using CPContestRegistration.Models.POCO;
 using Microsoft.AspNetCore.Authorization;
 using System.Data;
 using System.Net;
@@ -13,17 +13,22 @@ namespace CPContestRegistration.CustomMiddleware
     /// </summary>
     public class RequestAuthorizationMiddleware : IMiddleware
     {
-        private readonly IUserManagement _userManagement;
+        #region Private Fields
+        private readonly IUSE01 _userManagement;
+        #endregion
 
+        #region Constructor
         /// <summary>
         /// Constructor for RequestAuthorizationMiddleware.
         /// </summary>
         /// <param name="userManagement">User management service instance.</param>
-        public RequestAuthorizationMiddleware(IUserManagement userManagement)
+        public RequestAuthorizationMiddleware(IUSE01 userManagement)
         {
             _userManagement = userManagement;
         }
+        #endregion
 
+        #region Public Methods
         /// <summary>
         /// Invokes the middleware asynchronously.
         /// </summary>
@@ -57,25 +62,25 @@ namespace CPContestRegistration.CustomMiddleware
             string password = userNamePass[1];
 
             // Retrieves users from database
-            DataTable Users = _userManagement.SelectAll(true);
+            List<USE01> Users = _userManagement.SelectAll(true).Data;
             bool IsAuthenticate = false;
             bool IsAdmin = false;
             USE01 user = new USE01();
 
-            foreach (DataRow row in Users.Rows)
+            foreach (USE01 data in Users)
             {
-                if (row["E01F02"].ToString() == userName && row["E01F04"].ToString() == password)
+                if (data.E01F02 == userName && data.E01F04 == password)
                 {
                     IsAuthenticate = true;
-                    user.E01F01 = (int)row["E01F01"];
-                    user.E01F02 = row["E01F02"].ToString();
-                    user.E01F03 = row["E01F03"].ToString();
+                    user.E01F01 = data.E01F01;
+                    user.E01F02 = data.E01F02;
+                    user.E01F03 = data.E01F03;
                     // Checks if the user is an admin based on email 
                     if (user.E01F03.Contains("@rkit.com"))
                     {
                         IsAdmin = true;
                     }
-                    user.E01F04 = row["E01F01"].ToString();
+                    user.E01F04 = data.E01F04;
                     break;
                 }
             }
@@ -96,6 +101,7 @@ namespace CPContestRegistration.CustomMiddleware
 
             await next(context);
 
-        }
+        } 
+        #endregion
     }
 }

@@ -1,6 +1,7 @@
 ﻿using CPContestRegistration.BL.Interface;
-using CPContestRegistration.Extentions;
+using CPContestRegistration.Filters;
 using CPContestRegistration.Models;
+using CPContestRegistration.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CPContestRegistration.Controllers
@@ -10,36 +11,42 @@ namespace CPContestRegistration.Controllers
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    public class ParticipateController : ControllerBase
+    public class CLPAR01 : ControllerBase
     {
-        private readonly IParticipateManagement _participateManagement;
+        #region Private Fields
+        private readonly IPAR01 _participateManagement;
+        private Response _objResponse;
+        #endregion
 
+        #region Constructor
         /// <summary>
         /// Constructor for ParticipateController.
         /// </summary>
         /// <param name="participateManagement">Participation management service instance.</param>
-        public ParticipateController(IParticipateManagement participateManagement)
+        public CLPAR01(IPAR01 participateManagement)
         {
             _participateManagement = participateManagement;
+            _objResponse = new Response();
         }
+        #endregion
 
+        #region Public Methods
         /// <summary>
         /// Adds a new participation 
         /// </summary>
         /// <param name="objPAR01">The participation to add.</param>
         /// <returns>An ActionResult representing the operation result.</returns>
         [HttpPost("AddParticipate")]
-        public ActionResult AddParticipate(PAR01 objPAR01)
+        public IActionResult AddParticipate(DTOPAR01 objPAR01)
         {
-            if (objPAR01 != null)
+            _participateManagement.Operation = EnmOperation.A;
+            _participateManagement.PreSave(objPAR01);
+            _objResponse = _participateManagement.Validation();
+            if (!_objResponse.IsError)
             {
-                if (_participateManagement.Add(objPAR01))
-                {
-                    return Ok($"{objPAR01.R01F02} is Added");
-                }
-                return StatusCode(StatusCodes.Status500InternalServerError);
+                _objResponse = _participateManagement.Save();
             }
-            return BadRequest();
+            return Ok(_objResponse);
         }
 
         /// <summary>
@@ -48,17 +55,16 @@ namespace CPContestRegistration.Controllers
         /// <param name="objPAR01">The participation  to update.</param>
         /// <returns>An ActionResult representing the operation result.</returns>
         [HttpPut("UpdateParticipate")]
-        public ActionResult UpdateParticipate(PAR01 objPAR01)
+        public IActionResult UpdateParticipate(DTOPAR01 objPAR01)
         {
-            if (objPAR01 != null)
+            _participateManagement.Operation = EnmOperation.E;
+            _participateManagement.PreSave(objPAR01);
+            _objResponse = _participateManagement.Validation();
+            if (!_objResponse.IsError)
             {
-                if (_participateManagement.Update(objPAR01))
-                {
-                    return Ok($"{objPAR01.R01F02} is Updated");
-                }
-                return StatusCode(StatusCodes.Status500InternalServerError);
+                _objResponse = _participateManagement.Save();
             }
-            return BadRequest();
+            return Ok(_objResponse);
         }
 
         /// <summary>
@@ -67,18 +73,9 @@ namespace CPContestRegistration.Controllers
         /// <param name="id">The ID of the participation to delete.</param>
         /// <returns>An ActionResult representing the operation result.</returns>
         [HttpDelete("DeleteParticipate/{id}")]
-        public ActionResult DeleteParticipate(int id)
+        public IActionResult DeleteParticipate(int id)
         {
-            if (id > 0)
-            {
-                if (_participateManagement.Delete(id))
-                {
-                    return Ok();
-                }
-                return StatusCode(StatusCodes.Status500InternalServerError);
-            }
-            return BadRequest();
-
+            return Ok(_participateManagement.Delete(id));
         }
 
         /// <summary>
@@ -86,9 +83,10 @@ namespace CPContestRegistration.Controllers
         /// </summary>
         /// <returns>An ActionResult containing the participation</returns>
         [HttpGet("Participate")]
-        public ActionResult Participate()
+        [MyAuthorize(Roles = "Admin")]
+        public IActionResult Participate()
         {
-            return Ok(_participateManagement.SelectAll().ToJson());
+            return Ok(_participateManagement.SelectAll());
         }
 
         /// <summary>
@@ -97,13 +95,10 @@ namespace CPContestRegistration.Controllers
         /// <param name="id">The ID of the participation to retrieve.</param>
         /// <returns>An ActionResult containing the participation</returns>
         [HttpGet("Participate/{id}")]
-        public ActionResult ParticipatebyID(int id)
+        public IActionResult ParticipatebyID(int id)
         {
-            if (id > 0)
-            {
-                return Ok(_participateManagement.SelectPk(id));
-            }
-            return BadRequest();
+            return Ok(_participateManagement.SelectPk(id));
         }
+        #endregion
     }
 }

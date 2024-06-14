@@ -1,6 +1,7 @@
 ﻿using CPContestRegistration.BL.Interface;
-using CPContestRegistration.Extentions;
+using CPContestRegistration.Filters;
 using CPContestRegistration.Models;
+using CPContestRegistration.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CPContestRegistration.Controllers
@@ -11,36 +12,43 @@ namespace CPContestRegistration.Controllers
     [Route("api/[controller]")]
     [ApiController]
 
-    public class UserController : ControllerBase
+    public class CLUSE01 : ControllerBase
     {
-        private readonly IUserManagement _userManagement;
+        #region Private Fields
+        private readonly IUSE01 _userManagement;
+        private Response _objResponse;
+        #endregion
 
+        #region Constructor
         /// <summary>
         /// Constructor for UserController.
         /// </summary>
         /// <param name="userManagement">User management service instance.</param>
-        public UserController(IUserManagement userManagement)
+        public CLUSE01(IUSE01 userManagement)
         {
             _userManagement = userManagement;
+            _objResponse = new Response();
         }
+        #endregion
 
+        #region Public Methods
         /// <summary>
         /// Adds a new user.
         /// </summary>
         /// <param name="objUSE01">The user to add.</param>
         /// <returns>An ActionResult indicating the result of the operation.</returns>
         [HttpPost("AddUser")]
-        public ActionResult AddUser(USE01 objUSE01)
+        [MyAuthorize(Roles = "Admin")]
+        public IActionResult AddUser(DTOUSE01 objUSE01)
         {
-            if (objUSE01 != null)
+            _userManagement.Operation = EnmOperation.A;
+            _userManagement.PreSave(objUSE01);
+            _objResponse = _userManagement.Validation();
+            if (!_objResponse.IsError)
             {
-                if (_userManagement.Add(objUSE01))
-                {
-                    return Ok($"{objUSE01.E01F02} is Added");
-                }
-                return StatusCode(StatusCodes.Status500InternalServerError);
+                _objResponse = _userManagement.Save();
             }
-            return BadRequest();
+            return Ok(_objResponse);
         }
 
         /// <summary>
@@ -49,17 +57,17 @@ namespace CPContestRegistration.Controllers
         /// <param name="objUSE01">The user to update.</param>
         /// <returns>An ActionResult indicating the result of the operation.</returns>
         [HttpPut("UpdateUser")]
-        public ActionResult UpdateUser(USE01 objUSE01)
+        [MyAuthorize(Roles = "Admin")]
+        public IActionResult UpdateUser(DTOUSE01 objUSE01)
         {
-            if (objUSE01 != null)
+            _userManagement.Operation = EnmOperation.E;
+            _userManagement.PreSave(objUSE01);
+            _objResponse = _userManagement.Validation();
+            if (!_objResponse.IsError)
             {
-                if (_userManagement.Update(objUSE01))
-                {
-                    return Ok($"{objUSE01.E01F02} is Updated");
-                }
-                return StatusCode(StatusCodes.Status500InternalServerError);
+                _objResponse = _userManagement.Save();
             }
-            return BadRequest();
+            return Ok(_objResponse);
         }
 
         /// <summary>
@@ -70,15 +78,7 @@ namespace CPContestRegistration.Controllers
         [HttpDelete("DeleteUser/{id}")]
         public ActionResult DeleteUser(int id)
         {
-            if (id > 0)
-            {
-                if (_userManagement.Delete(id))
-                {
-                    return Ok();
-                }
-                return StatusCode(StatusCodes.Status500InternalServerError);
-            }
-            return BadRequest();
+            return Ok(_userManagement.Delete(id));
         }
 
         /// <summary>
@@ -86,9 +86,10 @@ namespace CPContestRegistration.Controllers
         /// </summary>
         /// <returns>An ActionResult containing the list of users.</returns>
         [HttpGet("Users")]
+        [MyAuthorize(Roles = "Admin")]
         public ActionResult Users()
         {
-            return Ok(_userManagement.SelectAll().ToJson());
+            return Ok(_userManagement.SelectAll());
         }
 
         /// <summary>
@@ -99,11 +100,8 @@ namespace CPContestRegistration.Controllers
         [HttpGet("Users/{id}")]
         public ActionResult UserByID(int id)
         {
-            if (id > 0)
-            {
-                return Ok(_userManagement.SelectPk(id));
-            }
-            return BadRequest();
+            return Ok(_userManagement.SelectPk(id));
         }
+        #endregion
     }
 }
