@@ -2,7 +2,7 @@
 
 namespace Debugging
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -10,7 +10,11 @@ namespace Debugging
 
             int finalValue = value1 + value2;
 
-            for(int i = 0; i < finalValue; i++)
+#if DEBUG
+            Console.WriteLine($"Final value: {finalValue}");
+#endif
+
+            for (int i = 0; i < finalValue; i++)
             {
                 Console.WriteLine(i);
             }
