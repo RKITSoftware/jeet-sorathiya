@@ -28,7 +28,7 @@ namespace ClassDemo
         /// <summary>
         /// Static method representing C# training.
         /// </summary>
-        public static void Cb()
+        public static void Cs()
         {
             Console.WriteLine("C# Training Start");
         }
@@ -99,7 +99,7 @@ namespace ClassDemo
             objofGUI.HTML();
             GUI.JS();
 
-            API.Cb();
+            API.Cs();
             Console.WriteLine(API.Id);
 
         }
