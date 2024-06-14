@@ -10,8 +10,12 @@ namespace Logging.Controllers
     [ApiController]
     public class EmployeeController : ControllerBase
     {
-        private static NLog.Logger _logger = NLog.LogManager.GetCurrentClassLogger();
+        #region Private Fields
+       // private static NLog.Logger _logger = NLog.LogManager.GetCurrentClassLogger();
+        private static NLog.Logger _logger = NLog.LogManager.GetLogger("loger1");
+        #endregion
 
+        #region Public Methods
         /// <summary>
         /// Registers a new employee
         /// </summary>
@@ -38,6 +42,7 @@ namespace Logging.Controllers
                 _logger.Error(ex, $"Error registering user {employee.Username}");
                 return StatusCode(500, "An error occurred while registering the user.");
             }
-        }
+        } 
+        #endregion
     }
 }
