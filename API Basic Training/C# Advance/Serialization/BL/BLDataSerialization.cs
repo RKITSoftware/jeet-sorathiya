@@ -8,13 +8,13 @@ namespace Serialization.BL
     /// <summary>
     /// Provides methods for data serialization and deserialization.
     /// </summary>
-    public static class DataSerialization
+    public class BLDataSerialization
     {
         /// <summary>
         /// Serializes an Employee object to JSON format.
         /// </summary>
         /// <returns>JSON representation of the Employee object.</returns>
-        public static string JsonSerialization()
+        public  string JsonSerialization()
         {
             Employee objofEmployee = new Employee { EmployeeID = 1, EmployeeName = "Jeet", EmployeeRole = "Team-Lead", IsActive = true };
 
@@ -29,7 +29,7 @@ namespace Serialization.BL
         /// </summary>
         /// <param name="json">JSON string to be deserialized.</param>
         /// <returns>Deserialized Employee object.</returns>
-        public static Employee JsonDeserialization(string json)
+        public  Employee JsonDeserialization(string json)
         {
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             Employee objofEmployee = serializer.Deserialize<Employee>(json);
@@ -41,10 +41,9 @@ namespace Serialization.BL
         /// </summary>
         /// <param name="xml">XElement to be serialized.</param>
         /// <returns>XElement.</returns>
-        public static string XmlSerialization(XElement xml)
+        public  string XmlSerialization(XElement xml)
         {
-
-            return JsonConvert.SerializeXNode(xml);
+          return JsonConvert.SerializeXNode(xml);
         }
 
         /// <summary>
@@ -52,7 +51,7 @@ namespace Serialization.BL
         /// </summary>
         /// <param name="xml">XML string </param>
         /// <returns>Deserialized XElement</returns>
-        public static XElement XmlDeserialization(string xml)
+        public  XElement XmlDeserialization(string xml)
         {
             return JsonConvert.DeserializeXNode($"{{\"Root\":{xml}}}").Root;
         }

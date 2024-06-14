@@ -10,6 +10,11 @@ namespace Serialization.Controllers
     [RoutePrefix("api/Employee")]
     public class CLEmployeeController : ApiController
     {
+        private BLDataSerialization _objBLDataSerialization;
+        public CLEmployeeController()
+        {
+            _objBLDataSerialization = new BLDataSerialization();
+        }
         /// <summary>
         /// Gets the JSON serialization of an Employee object.
         /// </summary>
@@ -18,7 +23,7 @@ namespace Serialization.Controllers
         [Route("JsonSerialization")]
         public IHttpActionResult JsonSerialization()
         {
-            return Ok(DataSerialization.JsonSerialization());
+            return Ok(_objBLDataSerialization.JsonSerialization());
         }
 
         /// <summary>
@@ -30,7 +35,7 @@ namespace Serialization.Controllers
         [Route("JsonDeserialization")]
         public IHttpActionResult JsonDeserialization([FromBody] string json)
         {
-            return Ok(DataSerialization.JsonDeserialization(json));
+            return Ok(_objBLDataSerialization.JsonDeserialization(json));
         }
 
         /// <summary>
@@ -42,7 +47,7 @@ namespace Serialization.Controllers
         [Route("XmlSerialization")]
         public IHttpActionResult XmlSerialization([FromBody] XElement xml)
         {
-            return Ok(DataSerialization.XmlSerialization(xml));
+            return Ok(_objBLDataSerialization.XmlSerialization(xml));
         }
 
         /// <summary>
@@ -54,7 +59,7 @@ namespace Serialization.Controllers
         [Route("XmlDeserialization")]
         public IHttpActionResult XmlDeserialization([FromBody] string xml)
         {
-            return Ok(DataSerialization.XmlDeserialization(xml));
+            return Ok(_objBLDataSerialization.XmlDeserialization(xml));
         }
     }
 }
