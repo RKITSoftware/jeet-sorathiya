@@ -39,7 +39,7 @@ namespace DemoProject
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddEndpointsApiExplorer();
+            services.AddEndpointsApiExplorer(); //???
             services.AddSwaggerGen();
         }
 
