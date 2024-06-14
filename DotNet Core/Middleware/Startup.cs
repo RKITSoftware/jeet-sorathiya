@@ -1,4 +1,6 @@
-﻿using Middleware.CustomMiddleware;
+﻿using Microsoft.AspNetCore.Mvc;
+using Middleware.CustomMiddleware;
+using System.Reflection.Metadata;
 /// <summary>
 /// Class responsible for configuring the application during startup.
 /// </summary>
@@ -28,6 +30,7 @@ public class Startup
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
         services.AddSingleton<CustomMiddleware>(); // add customMiddleware
+        ScanForCustomAttributes(services);
     }
 
     /// <summary>
@@ -65,8 +68,26 @@ public class Startup
         // StaticFile Middleware
         app.UseStaticFiles();
 
+
         // End the request pipeline
         app.Run();
 
+    }
+
+    private void ScanForCustomAttributes(IServiceCollection services)
+    {
+        var controllers = typeof(Startup).Assembly.GetTypes()
+            .Where(type => typeof(ControllerBase).IsAssignableFrom(type));
+
+        foreach (var controller in controllers)
+        {
+            var customAttributes = controller.GetCustomAttributes(typeof(CustomAttribute), true);
+
+            foreach (CustomAttribute attribute in customAttributes)
+            {              
+                Console.WriteLine($"Controller: {controller}, Attribute: {attribute}");
+               
+            }
+        }
     }
 }
