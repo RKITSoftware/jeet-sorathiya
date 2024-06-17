@@ -1,4 +1,5 @@
 ﻿using Filters.Filter;
+using Microsoft.Extensions.Caching.Memory;
 /// <summary>
 /// Class responsible for configuring the application during startup.
 /// </summary>
@@ -27,6 +28,12 @@ public class Startup
         services.AddControllers();
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
+        services.AddMemoryCache();
+        services.AddSingleton<ResourceCatchFilter>(sp =>
+        {
+            var cache = sp.GetRequiredService<IMemoryCache>();
+            return new ResourceCatchFilter(cache);
+        });
     }
 
     /// <summary>

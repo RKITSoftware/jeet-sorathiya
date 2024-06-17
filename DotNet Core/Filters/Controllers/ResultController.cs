@@ -7,7 +7,7 @@ namespace Filters.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [HandleExceptionFilter]
-    [CustomResultFilter]
+   // [CustomResultFilter]
     [ActionInfoFilter]
     /// <summary>
     /// Controller for managing results.
@@ -27,6 +27,8 @@ namespace Filters.Controllers
         /// <returns>List of results.</returns>
         [ApiKeyAuthorizationFilter("jeet")]
         [HttpGet("GetAllResults")]
+        [TypeFilter(typeof(ResourceCatchFilter))]
+
         public ActionResult Get()
         {
             return Ok(results);
