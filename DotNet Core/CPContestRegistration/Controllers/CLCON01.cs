@@ -100,6 +100,7 @@ namespace CPContestRegistration.Controllers
         /// </summary>
         /// <param name="id">The id of the contest </param>
         /// <returns>An ActionResult containing a response with the contest entry specified by the id.</returns>
+        [HttpGet("ContestByID/{id}")]
         [AllowAnonymous]
         public ActionResult ContestByID(int id)
         {

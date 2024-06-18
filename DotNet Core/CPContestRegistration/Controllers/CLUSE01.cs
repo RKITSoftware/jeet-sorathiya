@@ -102,6 +102,12 @@ namespace CPContestRegistration.Controllers
         {
             return Ok(_userManagement.SelectPk(id));
         }
+
+        [HttpGet("Error")]
+        public ActionResult Error()
+        {
+            throw new Exception();
+        }
         #endregion
     }
 }

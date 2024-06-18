@@ -94,6 +94,7 @@ namespace CPContestRegistration.CustomMiddleware
             // Creates claims for the authenticated user
             var identity = context.User.Identity as ClaimsIdentity;
             identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.E01F01.ToString()));
+            identity.AddClaim(new Claim(ClaimTypes.Name, userName));
             identity.AddClaim(new Claim(ClaimTypes.Role, IsAdmin ? ("Admin") : ("User")));
 
             // Adds the claims identity to the request context user
