@@ -73,7 +73,6 @@
         valueExpr: "_id",
         dataSource: makeAsyncDataSource('Data.json'),
         contentTemplate: (e) => {
-            selectionMode: 'multiple'
             const $list = $("<div>").dxList({
                 dataSource: e.component.getDataSource(),
                 itemTemplate: function (item) {
