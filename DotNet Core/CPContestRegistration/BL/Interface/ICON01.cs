@@ -20,7 +20,7 @@ namespace CPContestRegistration.BL.Interface
         /// Retrieves all contest entries.
         /// </summary>
         /// <returns>A response containing a list of all contest.</returns>
-        Response SelectAll();
+        Response SelectAll(); ///get data
 
         /// <summary>
         /// Retrieves a contest entry by id.

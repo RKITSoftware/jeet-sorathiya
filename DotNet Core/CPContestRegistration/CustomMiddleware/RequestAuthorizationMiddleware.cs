@@ -52,7 +52,7 @@ namespace CPContestRegistration.CustomMiddleware
                 context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                 return;
             }
-
+            ///?? string..., bool...
             // Extracts and decodes username and password from Authorization header
             string header = context.Request.Headers["Authorization"].ToString();
             string credential = header.Substring(6);

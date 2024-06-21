@@ -183,7 +183,7 @@ namespace CPContestRegistration.BL.Service
         {
             if (Operation == EnmOperation.A)
             {
-                _objPAR01.R01F04 = DateTime.Now;
+                _objPAR01.R01F04 = DateTime.Now; //??
                 using (var db = _connectionFactory.OpenDbConnection())
                 {
                     db.Insert(_objPAR01);

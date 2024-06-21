@@ -23,7 +23,7 @@ namespace CPContestRegistration.BL.Interface
         /// Retrieves all participation records.
         /// </summary>
         /// <returns>A response containing a list of all participation records.</returns>
-        Response SelectAll();
+        Response SelectAll(); ///??
 
         /// <summary>
         /// Retrieves a participation record by its id
